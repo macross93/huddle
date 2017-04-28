@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import dj_database_url
+import os.path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(__file__)
 
 
 # Quick-start development settings - unsuitable for production
@@ -58,7 +60,8 @@ ROOT_URLCONF = 'djangohuddle.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["/templates"],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+	os.path.join(PROJECT_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
