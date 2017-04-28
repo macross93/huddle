@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Events</h2>
+    <ul>
+        {% for event in object_list %}
+            <li>{{ event.name }}: {{ event.details }}. This event is at {{ event.address }}, {{ event.postcode }}. It starts at {{ event.start }} and ends at {{ event.end }}. </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
