@@ -31,7 +31,7 @@ def webhook(request):
 def makeWebhookResult(req):
 
     # Checks for greeting action
-    if req.get("result").get("action") == "volunteer.new":
+    if data.get("result").get("action") == "volunteer.new":
         result = req.get("result")
         originalRequest = req.get("originalRequest")
         data = originalRequest.get("data")
