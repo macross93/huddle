@@ -5,8 +5,8 @@ from django.db import models
 class Charity(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField(max_length=400)
-    website = models.URLField()
-    email = models.EmailField()
+    website = models.URLField(blank=True)
+    email = models.EmailField(blank=True)
 
     def __str__(self):
         return self.name
@@ -15,8 +15,8 @@ class Charity(models.Model):
         ordering = ['name']
 
 class User(models.Model):
-    first_name = models.CharField(max_length=25)
-    last_name = models.CharField(max_length=25)
+    first_name = models.CharField(blank=True, max_length=25)
+    last_name = models.CharField(blank=True, max_length=25)
     facebook_id = models.CharField(max_length=20)
 
     def __str__(self):
@@ -24,8 +24,8 @@ class User(models.Model):
 
 
 class CharityContact(models.Model):
-    first_name = models.CharField(max_length=25)
-    last_name = models.CharField(max_length=25)
+    first_name = models.CharField(blank=True, max_length=25)
+    last_name = models.CharField(blank=True, max_length=25)
     facebook_id = models.CharField(max_length=20)
 
     def __str__(self):
@@ -39,7 +39,7 @@ class Event(models.Model):
     postcode = models.CharField(max_length=10)
     start = models.DateTimeField()
     end = models.DateTimeField()
-    duration = models.DurationField()
+    duration = models.DurationField(blank=True)
     charity = models.ForeignKey(Charity)
     volunteer = models.ForeignKey(User)
 
