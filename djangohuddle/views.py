@@ -8,7 +8,7 @@ def hello(request):
     return HttpResponse("Hello world")
 
 @csrf_exempt
-def webhook():
+def webhook(request):
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
