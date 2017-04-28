@@ -15,6 +15,8 @@ def webhook(request):
     if request.method == "POST":
         req = request.body
         print ('Raw Data: "%s"' % req)
+        data = json.loads(req)
+        print(data)
 
         # req = HttpRequest.get_json(silent=True, force=True)
         # print("Request:")
