@@ -2,6 +2,8 @@ from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from events.models import user, charity, charitycontact, event
+from django.template.loader import get_template
+from django.template import Context
 
 import json
 import urllib
@@ -9,7 +11,9 @@ import os
 
 
 def hello(request):
-    return HttpResponse("Hello world")
+    hello = "Hello World!"
+    return render(request, 'hello.html' {'hello':hello})
+
 
 @csrf_exempt
 def webhook(request):
