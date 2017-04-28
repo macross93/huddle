@@ -13,7 +13,7 @@ import os
 
 
 def hello(request):
-    hello = "Hello World!"
+    hello = "Welcome to Huddle! \n Login or Sign Up"
     return render(request, 'hello.html', {'hello':hello})
 
 @csrf_exempt
