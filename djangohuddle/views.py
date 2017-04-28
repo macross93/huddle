@@ -1,26 +1,32 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
+
 import json
 import urllib
 import os
+
 
 def hello(request):
     return HttpResponse("Hello world")
 
 @csrf_exempt
 def webhook(request):
-    req = request.get_json(silent=True, force=True)
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
+    if request.method == "POST":
+        req = HttpRequest.get_json(silent=True, force=True)
+        print("Request:")
+        print(json.dumps(req, indent=4))
 
-    res = makeWebhookResult(req)
+        res = makeWebhookResult(req)
 
-    res = json.dumps(res, indent=4)
-    print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    return r
+        res = json.dumps(res, indent=4)
+        print(res)
+        r = make_response(res)
+        r.headers['Content-Type'] = 'application/json'
+        return r
+
+    else:
+        print('Hello')
 
 @csrf_exempt
 def makeWebhookResult(req):
