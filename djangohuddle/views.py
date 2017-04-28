@@ -16,7 +16,7 @@ def webhook(request):
         req = request.body
         data = json.loads(req)
         print(data)
-
+        data = data.decode('utf-8')
         print("Request:")
         print(json.dumps(req, indent=4))
 
