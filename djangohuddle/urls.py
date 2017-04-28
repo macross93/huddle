@@ -20,5 +20,5 @@ from djangohuddle.views import hello, webhook
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', hello),
-    url(r'^webhook/', webhook)
+    url(r'^webhook/$', webhook)
 ]
