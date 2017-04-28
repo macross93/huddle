@@ -13,8 +13,12 @@ import os
 
 
 def hello(request):
-    hello = "Welcome to Huddle! \n Login or Sign Up"
+    hello = "Welcome to Huddle!"
     return render(request, 'hello.html', {'hello':hello})
+
+def hello(request):
+    hello = "Welcome to Huddle!"
+    return render(request, 'home.html', {'home':hello})
 
 @csrf_exempt
 def signup(request):
@@ -26,7 +30,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('/')
+            return redirect('/home')
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})

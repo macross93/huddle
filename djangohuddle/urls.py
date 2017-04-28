@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from djangohuddle.views import hello, webhook, signup
+from djangohuddle.views import hello, webhook, signup, home
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^$', hello),
     url(r'^webhook/$', webhook),
     url(r'^signup/$', signup, name='signup'),
+    url(r'^home/$', home),
 ]
