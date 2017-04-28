@@ -49,7 +49,7 @@ def makeWebhookResult(req):
         }
 
 
-    if req.get("result").get("action") = "shipping.cost":
+    if req.get("result").get("action") == "shipping.cost":
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("shipping-zone")
