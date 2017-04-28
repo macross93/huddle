@@ -28,12 +28,12 @@ def webhook(request):
         print('Hello')
 
 @csrf_exempt
-def makeWebhookResult(req):
+def makeWebhookResult(request):
 
     # Checks for greeting action
-    if data.get("result").get("action") == "volunteer.new":
-        result = req.get("result")
-        originalRequest = req.get("originalRequest")
+    if request.get("result").get("action") == "volunteer.new":
+        result = request.get("result")
+        originalRequest = request.get("originalRequest")
         data = originalRequest.get("data")
         sender = data.get("sender")
         fb_id = sender.get("id")
@@ -49,8 +49,8 @@ def makeWebhookResult(req):
         }
 
 
-    if req.get("result").get("action") == "shipping.cost":
-        result = req.get("result")
+    if request.get("result").get("action") == "shipping.cost":
+        result = request.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("shipping-zone")
 
