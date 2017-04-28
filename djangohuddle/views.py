@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
 import urllib
 import os
@@ -6,6 +7,7 @@ import os
 def hello(request):
     return HttpResponse("Hello world")
 
+@csrf_exempt
 def webhook():
     req = request.get_json(silent=True, force=True)
 
@@ -20,6 +22,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+@csrf_exempt
 def makeWebhookResult(req):
     if req.get("result").get("action") != "shipping.cost":
         return {}
