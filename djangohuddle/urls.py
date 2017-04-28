@@ -19,5 +19,5 @@ from djangohuddle.views import hello
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-        r'^$', hello),
+    url(r'^$', hello),
 ]
