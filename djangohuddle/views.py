@@ -6,6 +6,7 @@ from django.template.loader import get_template
 from django.template import Context
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import ListView
 
 import json
 import urllib
@@ -19,6 +20,19 @@ def hello(request):
 def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
+
+class eventList(ListView):
+    model = event
+
+class userList(ListView):
+    model = user
+
+class charityList(ListView):
+    model = charity
+
+class charitycontactList(ListView):
+    model = charitycontact
+
 
 @csrf_exempt
 def signup(request):
