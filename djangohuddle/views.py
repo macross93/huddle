@@ -39,14 +39,12 @@ def makeWebhookResult(request):
         sender = data.get("sender")
         fb_id = sender.get("id")
 
-        speech = "Your fb_id is " + fb_id
-
-        # try:
-        #     u = User.objects.get(facebook_id=fb_id)
-        # except User.DoesNotExist:
-        #     speech = "You dont yet exist in my database"
-        # else:
-        #     speech = "Youre in my database"
+        try:
+            u = User.objects.get(facebook_id=9)
+        except User.DoesNotExist:
+            speech = "You dont yet exist in my database"
+        else:
+            speech = "Youre in my database"
 
         return {
             "speech": speech,
