@@ -34,9 +34,9 @@ def makeWebhookResult(request):
     if request.get("result").get("action") == "volunteer.new":
         result = request.get("result")
 #        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
+#        data = originalRequest.get("data")
+#        sender = data.get("sender")
+#        fb_id = sender.get("id")
 
         speech = "It's a shock we made it this far"
 
