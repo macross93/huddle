@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
+from djangohuddle.events.models import User, Charity, CharityContact, Event
 
 import json
 import urllib
@@ -38,7 +39,12 @@ def makeWebhookResult(request):
         sender = data.get("sender")
         fb_id = sender.get("id")
 
-        speech = "It's a shock we made it this far"
+        try:
+            u = User.objects.get(facebook_id=fb_id)
+        except User.DoesNotExist:
+            speech = "You dont yet exist in my database"
+        else:
+            speech = "Youre in my database"
 
         return {
             "speech": speech,
