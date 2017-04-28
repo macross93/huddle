@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-class Charity(models.Model):
+class charity(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField(max_length=400)
     website = models.URLField(blank=True)
@@ -14,7 +14,7 @@ class Charity(models.Model):
     class Meta:
         ordering = ['name']
 
-class User(models.Model):
+class user(models.Model):
     first_name = models.CharField(blank=True, max_length=25)
     last_name = models.CharField(blank=True, max_length=25)
     facebook_id = models.CharField(max_length=20)
@@ -23,7 +23,7 @@ class User(models.Model):
         return u'%s %s' % (self.first_name, self.last_name)
 
 
-class CharityContact(models.Model):
+class charitycontact(models.Model):
     first_name = models.CharField(blank=True, max_length=25)
     last_name = models.CharField(blank=True, max_length=25)
     facebook_id = models.CharField(max_length=20)
@@ -31,7 +31,7 @@ class CharityContact(models.Model):
     def __str__(self):
         return u'%s %s' % (self.first_name, self.last_name)
 
-class Event(models.Model):
+class event(models.Model):
     name = models.CharField(max_length=50)
     details = models.TextField(max_length=400)
     address = models.CharField(max_length=50)
@@ -40,8 +40,8 @@ class Event(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
     duration = models.DurationField(blank=True)
-    charity = models.ForeignKey(Charity)
-    volunteer = models.ForeignKey(User)
+    charity = models.ForeignKey(charity)
+    volunteer = models.ForeignKey(user)
 
     def __str__(self):
         return self.name

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Charity, User, CharityContact, Event
+from .models import charity, user, charitycontact, event
 
 # Register your models here.
-admin.site.register(Charity)
-admin.site.register(User)
-admin.site.register(CharityContact)
-admin.site.register(Event)
+admin.site.register(charity)
+admin.site.register(user)
+admin.site.register(charitycontact)
+admin.site.register(event)

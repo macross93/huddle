@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
-from events.models import User, Charity, CharityContact, Event
+from events.models import user, charity, charitycontact, event
 
 import json
 import urllib
