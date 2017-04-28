@@ -13,17 +13,20 @@ def hello(request):
 def webhook(request):
 
     if request.method == "POST":
-        req = HttpRequest.get_json(silent=True, force=True)
-        print("Request:")
-        print(json.dumps(req, indent=4))
 
-        res = makeWebhookResult(req)
+        print 'Raw Data: "%s"' % request.body
 
-        res = json.dumps(res, indent=4)
-        print(res)
-        r = make_response(res)
-        r.headers['Content-Type'] = 'application/json'
-        return r
+        # req = HttpRequest.get_json(silent=True, force=True)
+        # print("Request:")
+        # print(json.dumps(req, indent=4))
+        #
+        # res = makeWebhookResult(req)
+        #
+        # res = json.dumps(res, indent=4)
+        # print(res)
+        # r = make_response(res)
+        # r.headers['Content-Type'] = 'application/json'
+        # return r
 
     else:
         print('Hello')
