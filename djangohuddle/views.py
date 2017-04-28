@@ -16,7 +16,7 @@ def hello(request):
     hello = "Welcome to Huddle!"
     return render(request, 'hello.html', {'hello':hello})
 
-def hello(request):
+def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
 
