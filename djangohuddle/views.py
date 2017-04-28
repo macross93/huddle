@@ -12,7 +12,7 @@ import os
 
 def hello(request):
     hello = "Hello World!"
-    return render(request, 'hello.html' {'hello':hello})
+    return render(request, 'hello.html', {'hello':hello})
 
 
 @csrf_exempt
