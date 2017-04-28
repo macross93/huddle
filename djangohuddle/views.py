@@ -40,7 +40,7 @@ def makeWebhookResult(request):
         fb_id = sender.get("id")
 
         try:
-            u = user.objects.get(facebook_id=4)
+            u = user.objects.get(facebook_id=fb_id)
             speech = u
         except user.DoesNotExist:
             speech = "You dont yet exist in my database"
