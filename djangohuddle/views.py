@@ -33,7 +33,7 @@ def makeWebhookResult(request):
     # Checks for greeting action
     if request.get("result").get("action") == "volunteer.new":
         result = request.get("result")
-        originalRequest = request.get("originalRequest")
+#        originalRequest = request.get("originalRequest")
         data = originalRequest.get("data")
         sender = data.get("sender")
         fb_id = sender.get("id")
