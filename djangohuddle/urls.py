@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from djangohuddle.views import hello
+from djangohuddle.views import hello, webhook
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', hello),
+    url(r'^webhook/', webhook)
 ]
