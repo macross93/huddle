@@ -1,9 +1,11 @@
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from events.models import user, charity, charitycontact, event
 from django.template.loader import get_template
 from django.template import Context
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 import json
 import urllib
@@ -13,6 +15,21 @@ import os
 def hello(request):
     hello = "Hello World!"
     return render(request, 'hello.html', {'hello':hello})
+
+@csrf_exempt
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
 
 
 @csrf_exempt
