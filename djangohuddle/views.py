@@ -7,7 +7,7 @@ from django.template import Context
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
-from datetime import datetime
+from datetime import timedelta
 
 import json
 import urllib
@@ -117,12 +117,13 @@ def makeWebhookResult(request):
         data = originalRequest.get("data")
         sender = data.get("sender")
         fb_id = sender.get("id")
-
+        start_date = day
+        end_date = start_date + timedelta( days = 1 )
 #
         # Go and check for an event based on user input
         try:
 #            e = event.objects.filter(start=day).order_by("name").values_list('name')
-            e = event.objects.get()
+            e = event.objects.filter(start=(start_date, end_date))
 
         #There is an error in this except. I think DoesNotExist only works for users??
         except event.DoesNotExist:
