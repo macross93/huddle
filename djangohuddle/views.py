@@ -119,7 +119,7 @@ def makeWebhookResult(request):
 
         # Go and check for an event based on user input
         try:
-            event = event.objects.filter(start=day):
+            event = event.objects.filter(start=day)
 
         except event.DoesNotExist:
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
