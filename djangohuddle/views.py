@@ -85,17 +85,68 @@ def makeWebhookResult(request):
             speech = "You dont yet exist in my database"
             u1 = user(facebook_id=fb_id)
             u1.save()
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                # "contextOut": [],
+                "source": "apiai-onlinestore-shipping"
+            }
 
         else:
-            speech = "Youre in my database " + str(fb_id)
+            speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
 
-        return {
-            "speech": speech,
-            "displayText": speech,
-            #"data": {},
-            # "contextOut": [],
-            "source": "apiai-onlinestore-shipping"
-        }
+    if request.get("result").get("action") == "volunteer.assign":
+
+        # Get a bunch of information from the JSON
+        result = request.get("result")
+        parameters = result.get("parameters")
+        day = parameters.get("date")
+        when = parameters.get("time")
+        dur = parameters.get("duration")
+        location = parameters.get("location")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+
+        # Go and check for an event based on user input
+        try event_name = event.objects.filter(start=day):
+
+        except event.DoesNotExist:
+            speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+        else:
+
+            speech = "Great! We have an opportunity on " + day + " called " + event_name + '. I can give you any details you want (charity, location, time, date, opportunity etc), just ask!'
+
+            print("Response:")
+            print(speech)
+
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+
+
 
 
     if request.get("result").get("action") == "shipping.cost":
