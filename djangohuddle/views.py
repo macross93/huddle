@@ -124,7 +124,7 @@ def makeWebhookResult(request):
 
         #There is an error in this except. I think DoesNotExist only works for users??
         except event.DoesNotExist:
-            print(e)
+            
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
             return {
                 "speech": speech,
