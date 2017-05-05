@@ -83,6 +83,9 @@ def makeWebhookResult(request):
 
         except user.DoesNotExist:
             speech = "You dont yet exist in my database"
+            u1 = user(facebook_id=fb_id)
+            u1.save
+
         else:
             speech = "Youre in my database " + u
 
