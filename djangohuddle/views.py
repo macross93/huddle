@@ -119,7 +119,7 @@ def makeWebhookResult(request):
 #
         # Go and check for an event based on user input
         try:
-            e = event.objects.filter(start=day).order_by("name")[0].values_list('name')
+            e = event.objects.filter(start=day).order_by("name").values_list('name')
 
         #There is an error in this except. I think DoesNotExist only works for users??
         except event.DoesNotExist:
