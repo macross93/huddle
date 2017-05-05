@@ -37,7 +37,6 @@ class event(models.Model):
     address = models.CharField(max_length=50)
     city = models.CharField(max_length=60)
     postcode = models.CharField(max_length=10)
-    date = models.DateField()
     start = models.DateTimeField()
     end = models.DateTimeField()
     duration = models.DurationField(blank=True)
