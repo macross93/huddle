@@ -118,7 +118,8 @@ def makeWebhookResult(request):
         fb_id = sender.get("id")
 
         # Go and check for an event based on user input
-        try event_name = event.objects.filter(start=day):
+        try:
+            event = event.objects.filter(start=day):
 
         except event.DoesNotExist:
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
