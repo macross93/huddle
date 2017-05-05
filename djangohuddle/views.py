@@ -7,7 +7,7 @@ from django.template import Context
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import json
 import urllib
