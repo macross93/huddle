@@ -130,10 +130,20 @@ def makeWebhookResult(request):
         # Go and check for an event based on user input
         try:
 #            e = event.objects.filter(start=day).order_by("name").values_list('name')
-            e = event.objects.exclude(start__lte=early_start)
+            e = event.objects.exclude(start__lte=early_start, start__gte=late_start)[0]
 
         except event.DoesNotExist:
             print(e)
+            speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+        except IndexError:
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
             return {
                 "speech": speech,
