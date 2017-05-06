@@ -154,7 +154,7 @@ def makeWebhookResult(request):
 
         else:
             print(e)
-            speech = "Great! We have an opportunity on " + day + " called " + e + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
+            speech = "Great! We have an opportunity on " + day + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
 
             print("Response:")
             print(speech)
