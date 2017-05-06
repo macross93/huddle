@@ -118,7 +118,7 @@ def makeWebhookResult(request):
         sender = data.get("sender")
         fb_id = sender.get("id")
 #        date = datetime.strptime()
-        datetime = (str(day) + " " str(when)).datetime
+        datetime = (str(day) + " " + str(when)).datetime
         print (datetime)
 
 
