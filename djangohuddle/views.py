@@ -159,6 +159,10 @@ def makeWebhookResult(request):
             print("Response:")
             print(speech)
 
+            userevent=event.objects.get(start__gte=early_start, start__lte=late_start)[0]
+            userevent.volunteer = fb_id
+            userevent.save()            
+
             return {
                 "speech": speech,
                 "displayText": speech,
@@ -167,9 +171,39 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
+    if request.get("result").get("action") == "opportunity.details":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        speech = "Im still working on this bit..."
+        try:
+            eventdate = parameters.get("event-date")
+        try:
+            eventstarttime = parameters.get("event-start-time")
+        try:
+            eventendtime = parameters.get("event-end-time")
+        try:
+            eventduration = parameters.get("location")
+        try:
+            eventlocation = parameters.get("event-location")
+        try:
+            eventdescription = parameters.get("event-description")
+        try:
+            eventcharityname = parameters.get("event-charity-name")
+        try:
+            eventcharitydetails = parameters.get("event-charity-details")
 
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
 
-
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+            "source": "apiai-onlinestore-shipping"
+        }
 
     if request.get("result").get("action") == "shipping.cost":
         result = request.get("result")
