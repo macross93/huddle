@@ -117,9 +117,11 @@ def makeWebhookResult(request):
         data = originalRequest.get("data")
         sender = data.get("sender")
         fb_id = sender.get("id")
-        start_date = timezone.now().date()
-        end_date = start_date + timedelta( days = 1 )
-#
+        date = datetime.strptime()
+        datetime = str(day) + str(when)
+        print datetime
+
+
         # Go and check for an event based on user input
         try:
 #            e = event.objects.filter(start=day).order_by("name").values_list('name')
