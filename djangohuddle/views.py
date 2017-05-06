@@ -161,7 +161,7 @@ def makeWebhookResult(request):
 
             userevent=event.objects.get(start__gte=early_start, start__lte=late_start)[0]
             userevent.volunteer = fb_id
-            userevent.save()            
+            userevent.save()
 
             return {
                 "speech": speech,
@@ -175,22 +175,22 @@ def makeWebhookResult(request):
         result = request.get("result")
         parameters = result.get("parameters")
         speech = "Im still working on this bit..."
-        try:
-            eventdate = parameters.get("event-date")
-        try:
-            eventstarttime = parameters.get("event-start-time")
-        try:
-            eventendtime = parameters.get("event-end-time")
-        try:
-            eventduration = parameters.get("location")
-        try:
-            eventlocation = parameters.get("event-location")
-        try:
-            eventdescription = parameters.get("event-description")
-        try:
-            eventcharityname = parameters.get("event-charity-name")
-        try:
-            eventcharitydetails = parameters.get("event-charity-details")
+        # try:
+        #     eventdate = parameters.get("event-date")
+        # try:
+        #     eventstarttime = parameters.get("event-start-time")
+        # try:
+        #     eventendtime = parameters.get("event-end-time")
+        # try:
+        #     eventduration = parameters.get("location")
+        # try:
+        #     eventlocation = parameters.get("event-location")
+        # try:
+        #     eventdescription = parameters.get("event-description")
+        # try:
+        #     eventcharityname = parameters.get("event-charity-name")
+        # try:
+        #     eventcharitydetails = parameters.get("event-charity-details")
 
         originalRequest = request.get("originalRequest")
         data = originalRequest.get("data")
