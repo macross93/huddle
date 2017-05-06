@@ -120,8 +120,8 @@ def makeWebhookResult(request):
 #        date = datetime.strptime()
         available_time = str(day) + " " + str(when)
         datetime_object = datetime.strptime(available_time, '%Y-%m-%d %H:%M:%S')
-        early_start = datetime_object + datetime.timedelta(hours=-2)
-        late_start = datetime_object + datetime.timedelta(hours=2)
+        early_start = datetime_object + timedelta(hours=-2)
+        late_start = datetime_object + timedelta(hours=2)
         print (datetime_object)
 
 
