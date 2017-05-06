@@ -128,9 +128,8 @@ def makeWebhookResult(request):
         # Go and check for an event based on user input
         try:
 #            e = event.objects.filter(start=day).order_by("name").values_list('name')
-            e = event.objects.filter(start__gte=early_start)
+            e = event.objects.exclude(start__lte=early_start)
 
-        #There is an error in this except. I think DoesNotExist only works for users??
         except event.DoesNotExist:
             print(e)
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
