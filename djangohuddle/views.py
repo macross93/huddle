@@ -130,8 +130,7 @@ def makeWebhookResult(request):
         # Go and check for an event based on user input
         try:
 #            e = event.objects.filter(start=day).order_by("name").values_list('name')
-            e = event.objects.exclude(start__lte=early_start, start__gte=late_start)[0]
-            print(e)
+            e = event.objects.filter(start__gte=early_start, start__lte=late_start)[0]
 
         except event.DoesNotExist:
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
@@ -155,7 +154,7 @@ def makeWebhookResult(request):
 
         else:
             print(e)
-            speech = "Great! We have an opportunity on " + day + " called XX. I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
+            speech = "Great! We have an opportunity on " + day + " called " + e + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
 
             print("Response:")
             print(speech)
