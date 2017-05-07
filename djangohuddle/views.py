@@ -188,7 +188,7 @@ def makeWebhookResult(request):
 
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('start')
-            speech = str(e.strftime('%A %d %B'))
+            speech = e
             return {
                 "speech": speech,
                 "displayText": speech,
