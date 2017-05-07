@@ -189,7 +189,7 @@ def makeWebhookResult(request):
 
         else:
             e = event.objects.filter(volunteer=fb_id)
-            print e
+            print (e)
         #    speech = str(date_event)
 
         # try:
