@@ -183,13 +183,12 @@ def makeWebhookResult(request):
         try:
             eventdate = parameters.get("event-date")
 
-
         except:
             pass
 
         else:
-            e = event.objects.filter(volunteer=fb_id)
-            print (e)
+            e = event.objects.filter(volunteer=fb_id).values_list('start')
+            print(e)
         #    speech = str(date_event)
 
         # try:
