@@ -200,10 +200,6 @@ def makeWebhookResult(request):
         # try:
         #     eventcharitydetails = parameters.get("event-charity-details")
 
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
 
         return {
             "speech": speech,
