@@ -161,6 +161,7 @@ def makeWebhookResult(request):
 
             userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
             userevent.volunteer = fb_id
+            userevent.save()
 
             return {
                 "speech": speech,
