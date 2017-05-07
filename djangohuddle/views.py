@@ -201,13 +201,13 @@ def makeWebhookResult(request):
         #     eventcharitydetails = parameters.get("event-charity-details")
 
 
-        return {
-            "speech": speech,
-            "displayText": speech,
-            #"data": {},
-            "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-            "source": "apiai-onlinestore-shipping"
-        }
+        # return {
+        #     "speech": speech,
+        #     "displayText": speech,
+        #     #"data": {},
+        #     "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+        #     "source": "apiai-onlinestore-shipping"
+        # }
 
     if request.get("result").get("action") == "shipping.cost":
         result = request.get("result")
