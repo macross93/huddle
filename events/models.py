@@ -41,7 +41,7 @@ class event(models.Model):
     end = models.DateTimeField()
     duration = models.DurationField(blank=True)
     charity = models.ForeignKey(charity)
-    volunteer = models.CharField(max_length=10, blank=True, null=True)
+    volunteer = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
         return self.name
