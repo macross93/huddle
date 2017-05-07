@@ -174,9 +174,17 @@ def makeWebhookResult(request):
     if request.get("result").get("action") == "opportunity.details":
         result = request.get("result")
         parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
         speech = "Im still working on this bit..."
-        # try:
-        #     eventdate = parameters.get("event-date")
+
+        try:
+            eventdate = parameters.get("event-date")
+            e = event.objects.filter(volunteer=fb_id)
+            date_event = e.start
+            speech = str(date_event)
         # try:
         #     eventstarttime = parameters.get("event-start-time")
         # try:
