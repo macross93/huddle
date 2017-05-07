@@ -197,23 +197,128 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
+        try:
+            eventstarttime = parameters.get("event-start-time")
 
-        #    speech = str(date_event)
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+            speech = str(e.strftime('%I.%M %p'))
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+
+        try:
+            eventendtime = parameters.get("event-end-time")
+
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
+            speech = str(e.strftime('%I.%M %p'))
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+
+        try:
+            eventduration = parameters.get("event-duration")
+
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('duration', flat=True)[0]
+            speech = str(e) + "hours"
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+        try:
+            eventduration = parameters.get("event-location")
+
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('address', flat=True)[0]
+            f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
+            speech = str(e) + str(f)
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+        try:
+            eventduration = parameters.get("event-description")
+
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('details', flat=True)[0]
+            speech = str(e)
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
+
+        try:
+            eventduration = parameters.get("event-charity-name")
+
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
+            speech = str(e)
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
 
         # try:
-        #     eventstarttime = parameters.get("event-start-time")
-        # try:
-        #     eventendtime = parameters.get("event-end-time")
-        # try:
-        #     eventduration = parameters.get("location")
-        # try:
-        #     eventlocation = parameters.get("event-location")
-        # try:
-        #     eventdescription = parameters.get("event-description")
-        # try:
-        #     eventcharityname = parameters.get("event-charity-name")
-        # try:
-        #     eventcharitydetails = parameters.get("event-charity-details")
+        #     eventduration = parameters.get("event-duration")
+        #
+        # except:
+        #     pass
+        #
+        # else:
+        #     e = event.objects.filter(volunteer=fb_id).values_list('event-charity-details', flat=True)[0]
+        #     speech = str(e) + "hours"
+        #     return {
+        #         "speech": speech,
+        #         "displayText": speech,
+        #         #"data": {},
+        #         "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+        #         "source": "apiai-onlinestore-shipping"
+        #     }
+
 
 
 
