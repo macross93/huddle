@@ -171,7 +171,7 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
-    if request.get("result").get("action") == "opportunity.details":
+    if request.get("result").get("action") == "details_date":
         result = request.get("result")
         parameters = result.get("parameters")
         originalRequest = request.get("originalRequest")
@@ -197,6 +197,15 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
+    if request.get("result").get("action") == "details_starttime":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+        speech = "Im still working on this bit..."
+
         try:
             eventstarttime = parameters.get("event-start-time")
 
@@ -214,6 +223,14 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
+    if request.get("result").get("action") == "details_endtime":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+        speech = "Im still working on this bit..."
 
         try:
             eventendtime = parameters.get("event-end-time")
@@ -232,6 +249,14 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
+    if request.get("result").get("action") == "details_duration":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+        speech = "Im still working on this bit..."
 
         try:
             eventduration = parameters.get("event-duration")
@@ -249,6 +274,15 @@ def makeWebhookResult(request):
                 "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
                 "source": "apiai-onlinestore-shipping"
             }
+
+    if request.get("result").get("action") == "details_location":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+        speech = "Im still working on this bit..."
 
         try:
             eventduration = parameters.get("event-location")
@@ -268,6 +302,15 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
+    if request.get("result").get("action") == "details_description":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+        speech = "Im still working on this bit..."
+
         try:
             eventduration = parameters.get("event-description")
 
@@ -284,6 +327,15 @@ def makeWebhookResult(request):
                 "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
                 "source": "apiai-onlinestore-shipping"
             }
+
+    if request.get("result").get("action") == "details_charityname":
+        result = request.get("result")
+        parameters = result.get("parameters")
+        originalRequest = request.get("originalRequest")
+        data = originalRequest.get("data")
+        sender = data.get("sender")
+        fb_id = sender.get("id")
+        speech = "Im still working on this bit..."
 
         try:
             eventduration = parameters.get("event-charity-name")
