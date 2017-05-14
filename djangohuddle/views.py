@@ -206,9 +206,9 @@ def makeWebhookResult(request):
         fb_id = sender.get("id")
         speech = "Im still working on this bit..."
 
-        eventstarttime = parameters.get("event-start-time")
-        e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-        speech = str(e.strftime('%I.%M %p'))
+        # eventstarttime = parameters.get("event-start-time")
+        # e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+        # speech = str(e.strftime('%I.%M %p'))
         return {
             "speech": speech,
             "displayText": speech,
