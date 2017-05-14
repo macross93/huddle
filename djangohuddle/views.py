@@ -206,16 +206,22 @@ def makeWebhookResult(request):
         fb_id = sender.get("id")
         speech = "Im still working on this bit..."
 
-        # eventstarttime = parameters.get("event-start-time")
-        # e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-        # speech = str(e.strftime('%I.%M %p'))
-        return {
-            "speech": speech,
-            "displayText": speech,
-            #"data": {},
-            "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-            "source": "apiai-onlinestore-shipping"
-        }
+        try:
+            eventstarttime = parameters.get("event-start-time")
+
+        except:
+            pass
+
+        else:
+            e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+            speech = str(e.strftime('%I.%M %p'))
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
 
     if request.get("result").get("action") == "details_endtime":
         result = request.get("result")
