@@ -188,7 +188,7 @@ def makeWebhookResult(request):
 
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-            speech = str(e.strftime('%A %d %B'))
+            speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B'))
             return {
                 "speech": speech,
                 "displayText": speech,
@@ -214,7 +214,7 @@ def makeWebhookResult(request):
 
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-            speech = str(e.strftime('%I.%M %p'))
+            speech = "It starts at " + str(e.strftime('%I.%M %p'))
             return {
                 "speech": speech,
                 "displayText": speech,
@@ -240,7 +240,7 @@ def makeWebhookResult(request):
 
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
-            speech = str(e.strftime('%I.%M %p'))
+            speech = "It ends at " + str(e.strftime('%I.%M %p'))
             return {
                 "speech": speech,
                 "displayText": speech,
@@ -266,7 +266,7 @@ def makeWebhookResult(request):
 
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('duration', flat=True)[0]
-            speech = str(e) + "hours"
+            speech = str(e) + " hours"
             return {
                 "speech": speech,
                 "displayText": speech,
@@ -293,7 +293,7 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('address', flat=True)[0]
             f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
-            speech = str(e) + str(f)
+            speech = str(e) + ', ' + str(f)
             print (speech)
             return {
                 "speech": speech,
