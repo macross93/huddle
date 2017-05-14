@@ -294,6 +294,7 @@ def makeWebhookResult(request):
             e = event.objects.filter(volunteer=fb_id).values_list('address', flat=True)[0]
             f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
             speech = str(e) + str(f)
+            print (speech)
             return {
                 "speech": speech,
                 "displayText": speech,
