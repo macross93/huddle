@@ -70,7 +70,7 @@ def makeWebhookResult(request):
 
     # Checks for greeting action
     if request.get("result").get("action") == "volunteer.new":
-        get_message_details(request)
+        details = get_message_details(request)
 
         try:
             u = user.objects.get(facebook_id=fb_id)
@@ -219,6 +219,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_duration":
+
         get_message_details(request)
 
         try:
