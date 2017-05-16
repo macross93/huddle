@@ -34,7 +34,6 @@ class charityList(ListView):
 class charitycontactList(ListView):
     model = charitycontact
 
-
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
@@ -58,9 +57,7 @@ def webhook(request):
         req = request.body
         data = json.loads(req)
         print(data)
-
         res = makeWebhookResult(data)
-
         res = json.dumps(res, indent=4)
         print(res)
         return HttpResponse(res)
@@ -73,11 +70,7 @@ def makeWebhookResult(request):
 
     # Checks for greeting action
     if request.get("result").get("action") == "volunteer.new":
-        result = request.get("result")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
+        get_message_details(request)
 
         try:
             u = user.objects.get(facebook_id=fb_id)
@@ -96,13 +89,7 @@ def makeWebhookResult(request):
 
         else:
             speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            return_message(speech)
 
     if request.get("result").get("action") == "volunteer.assign":
 
@@ -172,13 +159,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_date":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventdate = parameters.get("event-date")
@@ -198,13 +179,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_starttime":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventstarttime = parameters.get("event-start-time")
@@ -224,13 +199,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_endtime":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventendtime = parameters.get("event-end-time")
@@ -250,13 +219,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_duration":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventduration = parameters.get("event-duration")
@@ -276,13 +239,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_location":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventlocation = parameters.get("event-location")
@@ -304,13 +261,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_description":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventduration = parameters.get("event-description")
@@ -330,13 +281,7 @@ def makeWebhookResult(request):
             }
 
     if request.get("result").get("action") == "details_charityname":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
-        speech = "Im still working on this bit..."
+        get_message_details(request)
 
         try:
             eventduration = parameters.get("event-charity-name")
@@ -355,46 +300,19 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
-        # try:
-        #     eventduration = parameters.get("event-duration")
-        #
-        # except:
-        #     pass
-        #
-        # else:
-        #     e = event.objects.filter(volunteer=fb_id).values_list('event-charity-details', flat=True)[0]
-        #     speech = str(e) + "hours"
-        #     return {
-        #         "speech": speech,
-        #         "displayText": speech,
-        #         #"data": {},
-        #         "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-        #         "source": "apiai-onlinestore-shipping"
-        #     }
+def get_message_details(request):
+    result = request.get("result")
+    parameters = result.get("parameters")
+    originalRequest = request.get("originalRequest")
+    data = originalRequest.get("data")
+    sender = data.get("sender")
+    fb_id = sender.get("id")
 
-
-
-
-
-    if request.get("result").get("action") == "shipping.cost":
-        result = request.get("result")
-        parameters = result.get("parameters")
-        zone = parameters.get("shipping-zone")
-
-        cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
-
-        speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-
-        print("Response:")
-        print(speech)
-
-        return {
-            "speech": speech,
-            "displayText": speech,
-            #"data": {},
-            # "contextOut": [],
-            "source": "apiai-onlinestore-shipping"
-        }
-
-    else:
-        return{}
+def return_message(speech):
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+        "source": "apiai-onlinestore-shipping"
+    }
