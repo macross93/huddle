@@ -68,9 +68,15 @@ def webhook(request):
 @csrf_exempt
 def makeWebhookResult(request):
 
+    result = request.get("result")
+    parameters = result.get("parameters")
+    originalRequest = request.get("originalRequest")
+    data = originalRequest.get("data")
+    sender = data.get("sender")
+    fb_id = sender.get("id")
+
     # Checks for greeting action
     if request.get("result").get("action") == "volunteer.new":
-        details = get_message_details(request)
 
         try:
             u = user.objects.get(facebook_id=fb_id)
@@ -94,16 +100,11 @@ def makeWebhookResult(request):
     if request.get("result").get("action") == "volunteer.assign":
 
         # Get a bunch of information from the JSON
-        result = request.get("result")
-        parameters = result.get("parameters")
         day = parameters.get("date")
         when = parameters.get("time")
         dur = parameters.get("duration")
         location = parameters.get("location")
-        originalRequest = request.get("originalRequest")
-        data = originalRequest.get("data")
-        sender = data.get("sender")
-        fb_id = sender.get("id")
+        
 #        date = datetime.strptime()
         available_time = str(day) + " " + str(when)
         datetime_object = datetime.strptime(available_time, '%Y-%m-%d %H:%M:%S')
@@ -300,14 +301,6 @@ def makeWebhookResult(request):
                 "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
                 "source": "apiai-onlinestore-shipping"
             }
-
-def get_message_details(request):
-    result = request.get("result")
-    parameters = result.get("parameters")
-    originalRequest = request.get("originalRequest")
-    data = originalRequest.get("data")
-    sender = data.get("sender")
-    fb_id = sender.get("id")
 
 def return_message(speech):
     return {
