@@ -85,26 +85,15 @@ def makeWebhookResult(request):
             speech = "You dont yet exist in my database"
             u1 = user(facebook_id=fb_id)
             u1.save()
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                # "contextOut": [],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = ""
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
         else:
             speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
             contextOut = "volunteer_timedate"
             sending_message = return_message(speech, contextOut)
             return sending_message
-            # return {
-            #     "speech": speech,
-            #     "displayText": speech,
-            #     #"data": {},
-            #     "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
-            #     "source": "apiai-onlinestore-shipping"
-            # }
 
     if request.get("result").get("action") == "volunteer.assign":
 
@@ -131,23 +120,15 @@ def makeWebhookResult(request):
 
         except event.DoesNotExist:
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "volunteer_timedate"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
         except IndexError:
             speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "volunteer_timedate"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
         else:
             print(e)
@@ -159,14 +140,10 @@ def makeWebhookResult(request):
             userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
             userevent.volunteer = fb_id
             userevent.save()
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
 
     if request.get("result").get("action") == "details_date":
         get_message_details(request)
@@ -180,13 +157,9 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
             speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B'))
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
     if request.get("result").get("action") == "details_starttime":
         get_message_details(request)
@@ -200,13 +173,9 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
             speech = "It starts at " + str(e.strftime('%I.%M %p'))
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
     if request.get("result").get("action") == "details_endtime":
         get_message_details(request)
@@ -220,13 +189,9 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
             speech = "It ends at " + str(e.strftime('%I.%M %p'))
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
     if request.get("result").get("action") == "details_duration":
 
@@ -241,13 +206,9 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('duration', flat=True)[0]
             speech = str(e) + " hours"
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
     if request.get("result").get("action") == "details_location":
         get_message_details(request)
@@ -262,14 +223,9 @@ def makeWebhookResult(request):
             e = event.objects.filter(volunteer=fb_id).values_list('address', flat=True)[0]
             f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
             speech = str(e) + ', ' + str(f)
-            print (speech)
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
     if request.get("result").get("action") == "details_description":
         get_message_details(request)
@@ -283,13 +239,9 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('details', flat=True)[0]
             speech = str(e)
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
     if request.get("result").get("action") == "details_charityname":
         get_message_details(request)
@@ -303,13 +255,9 @@ def makeWebhookResult(request):
         else:
             e = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
             speech = str(e)
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":"confirm_event", "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            contextOut = "confirm_event"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
 
 def return_message(speech, contextOut):
     return {
