@@ -95,7 +95,13 @@ def makeWebhookResult(request):
 
         else:
             speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
-            return_message(speech)
+            return {
+                "speech": speech,
+                "displayText": speech,
+                #"data": {},
+                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+                "source": "apiai-onlinestore-shipping"
+            }
 
     if request.get("result").get("action") == "volunteer.assign":
 
@@ -104,7 +110,7 @@ def makeWebhookResult(request):
         when = parameters.get("time")
         dur = parameters.get("duration")
         location = parameters.get("location")
-        
+
 #        date = datetime.strptime()
         available_time = str(day) + " " + str(when)
         datetime_object = datetime.strptime(available_time, '%Y-%m-%d %H:%M:%S')
@@ -302,11 +308,11 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
-def return_message(speech):
-    return {
-        "speech": speech,
-        "displayText": speech,
-        #"data": {},
-        "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
-        "source": "apiai-onlinestore-shipping"
-    }
+# def return_message(speech):
+#     return {
+#         "speech": speech,
+#         "displayText": speech,
+#         #"data": {},
+#         "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+#         "source": "apiai-onlinestore-shipping"
+#     }
