@@ -95,11 +95,12 @@ def makeWebhookResult(request):
 
         else:
             speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
+            contextOut = "volunteer_timedate"
             return {
                 "speech": speech,
                 "displayText": speech,
                 #"data": {},
-                "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
+                "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
                 "source": "apiai-onlinestore-shipping"
             }
 
