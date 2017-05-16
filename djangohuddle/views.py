@@ -96,13 +96,15 @@ def makeWebhookResult(request):
         else:
             speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
             contextOut = "volunteer_timedate"
-            return {
-                "speech": speech,
-                "displayText": speech,
-                #"data": {},
-                "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
-                "source": "apiai-onlinestore-shipping"
-            }
+            return_message(speech, contextOut)
+
+            # return {
+            #     "speech": speech,
+            #     "displayText": speech,
+            #     #"data": {},
+            #     "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
+            #     "source": "apiai-onlinestore-shipping"
+            # }
 
     if request.get("result").get("action") == "volunteer.assign":
 
@@ -309,11 +311,11 @@ def makeWebhookResult(request):
                 "source": "apiai-onlinestore-shipping"
             }
 
-# def return_message(speech):
-#     return {
-#         "speech": speech,
-#         "displayText": speech,
-#         #"data": {},
-#         "contextOut": [{"name":"volunteer_timedate", "lifespan":5, "parameters":{}}],
-#         "source": "apiai-onlinestore-shipping"
-#     }
+def return_message(speech, contextOut):
+    return {
+        "speech": speech,
+        "displayText": speech,
+        #"data": {},
+        "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
+        "source": "apiai-onlinestore-shipping"
+    }
