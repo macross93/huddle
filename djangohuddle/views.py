@@ -238,6 +238,20 @@ def makeWebhookResult(request):
             sending_message = return_message(speech, contextOut)
             return sending_message
 
+    if request.get("result").get("action") == "event_confirmation":
+        try:
+            confirmation = parameters.get("confirmation")
+        except:
+            pass
+        else:
+            c1 = event(confirmed="y")
+            c1.save()
+            speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to knwo more."
+            contextOut = "locked_in"
+            sending_message = return_message(speech, contextOut)
+            return sending_message
+
+
 # This creates the json for the webhook callback
 def return_message(speech, contextOut):
     return {
