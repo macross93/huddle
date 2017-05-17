@@ -146,9 +146,8 @@ def makeWebhookResult(request):
             sending_message = return_message(speech, contextOut)
             return sending_message
 
-    # Have they asked for the date of the event
+    # Have they asked for the date of the event?
     if request.get("result").get("action") == "details_date":
-        get_message_details(request)
         try:
             eventdate = parameters.get("event-date")
         except:
@@ -162,7 +161,6 @@ def makeWebhookResult(request):
 
     # Have they asked for the start time of the event?
     if request.get("result").get("action") == "details_starttime":
-        get_message_details(request)
         try:
             eventstarttime = parameters.get("event-start-time")
         except:
@@ -176,7 +174,6 @@ def makeWebhookResult(request):
 
     # Have they asked for the end time of the event?
     if request.get("result").get("action") == "details_endtime":
-        get_message_details(request)
         try:
             eventendtime = parameters.get("event-end-time")
         except:
@@ -190,7 +187,6 @@ def makeWebhookResult(request):
 
     # Have they asked for the duration of the event?
     if request.get("result").get("action") == "details_duration":
-        get_message_details(request)
         try:
             eventduration = parameters.get("event-duration")
         except:
@@ -204,7 +200,6 @@ def makeWebhookResult(request):
 
     # Have they asked for the location of the event?
     if request.get("result").get("action") == "details_location":
-        get_message_details(request)
         try:
             eventlocation = parameters.get("event-location")
         except:
@@ -219,7 +214,6 @@ def makeWebhookResult(request):
 
     # Have they asked for a description of the event?
     if request.get("result").get("action") == "details_description":
-        get_message_details(request)
         try:
             eventduration = parameters.get("event-description")
         except:
@@ -233,7 +227,6 @@ def makeWebhookResult(request):
 
     # Have they asked for the name of the charity running the event?
     if request.get("result").get("action") == "details_charityname":
-        get_message_details(request)
         try:
             eventduration = parameters.get("event-charity-name")
         except:
