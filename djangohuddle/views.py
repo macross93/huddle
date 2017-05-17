@@ -244,8 +244,8 @@ def makeWebhookResult(request):
         except:
             pass
         else:
-            e1 = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
-            e1.name = 'Ross Test'
+            e1 = event.objects.filter(volunteer=fb_id)[0]
+            e1.confirmed = 'y'
             e1.save()
             speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to knwo more."
             contextOut = "locked_in"
