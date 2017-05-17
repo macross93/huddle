@@ -42,6 +42,7 @@ class event(models.Model):
     duration = models.DurationField(blank=True)
     charity = models.ForeignKey(charity)
     volunteer = models.CharField(max_length=30, blank=True, null=True)
+    confirmed = models.CharField(max_length=1, default="n")
 
     def __str__(self):
         return self.name
