@@ -202,10 +202,10 @@ def makeWebhookResult(request):
                 u = user.objects.get(facebook_id=fb_id)
             # If they're not, then lets add them! And tell them they're a newbie
             except user.DoesNotExist:
-                speech = "You dont yet exist in my database"
+                speech = "Why hello there " + first_name + "! This is the first time we've spoken, an absolute pleasure. I'm here to help you find volunteering opportunities, when can you volunteer?"
                 u1 = user(facebook_id=fb_id)
                 u1.save()
-                contextOut = ""
+                contextOut = "volunteer_timedate"
 
             # If they are, let's welcome them warmly and ask them when they can volunteer
             else:
