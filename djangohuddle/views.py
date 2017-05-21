@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from datetime import datetime, timedelta
+from fbmq import Page
 
 import json
 import urllib
@@ -80,6 +81,13 @@ def makeWebhookResult(request):
     data = originalRequest.get("data")
     sender = data.get("sender")
     fb_id = sender.get("id")
+    page = fbmq.Page(PAGE_ACCESS_TOKEN)
+    user_profile = page.get_user_profile(event.sender_id) # return dict
+    print(user_profile)
+
+#    userinfo = request.get
+
+#    https://graph.facebook.com/v2.6/<USER_ID>?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=<PAGE_ACCESS_TOKEN>
 
     # Are they already confirmed on an event?
     try:
