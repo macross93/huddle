@@ -241,14 +241,14 @@ def makeWebhookResult(request):
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
             else:
                 print(e)
+                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
+                userevent.volunteer = fb_id
+                userevent.save()
                 f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
                 dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
                 speech = "Great! We have an opportunity on " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
                 print("Response:")
                 print(speech)
-                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
-                userevent.volunteer = fb_id
-                userevent.save()
                 contextOut = "confirm_event"
                 sending_message = return_message(speech, contextOut)
                 return sending_message
