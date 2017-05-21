@@ -29,8 +29,8 @@ def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'add_event.html', {'home':hello})
 
-def form(request):
-    return render(request, 'form.html')
+# def form(request):
+#     return render(request, 'form.html')
 
 def add_event(request):
     form = eventForm()
