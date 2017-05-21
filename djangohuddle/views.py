@@ -185,7 +185,7 @@ def makeWebhookResult(request):
 
 
     # If they're not already confirmed on an event
-    except event.DoesNotExist:
+except IndexError:
     # Checks for greeting action
         if request.get("result").get("action") == "volunteer.new":
             # Test to see if someone is in our database
