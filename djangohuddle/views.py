@@ -87,8 +87,13 @@ def makeWebhookResult(request):
     fb_id = sender.get("id")
     user_profile = urllib.request.urlopen("https://graph.facebook.com/v2.6/" + fb_id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + FB_PAGE_ACCESS_TOKEN).read().decode()
     user_profile = ast.literal_eval(user_profile)
-    print (user_profile['first_name'][0])
-#    print(first_name)
+    first_name = user_profile['first_name']
+    last_name = user_profile['last_name']
+    profile_pic = user_profile['profile_pic']
+    locale = user_profile['locale']
+    timezone = user_profile['timezone']
+    gender = user_profile['gender']
+    print (first name + " " + last_name + " " + profile_pic + " " + locale + " " + timezone + " " + gender)
 
     # Are they already confirmed on an event?
     try:
