@@ -97,8 +97,6 @@ def makeWebhookResult(request):
             e1.save()
             speech = "Not a problem :) Thanks for letting me know! I've taken you off the event"
             contextOut = ""
-            sending_message = return_message(speech, contextOut)
-            return sending_message
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
@@ -177,8 +175,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         sending_message = return_message(speech, contextOut)
         return sending_message
@@ -197,14 +193,11 @@ def makeWebhookResult(request):
                 u1 = user(facebook_id=fb_id)
                 u1.save()
                 contextOut = ""
-                sending_message = return_message(speech, contextOut)
-                return sending_message
+
             # If they are, let's welcome them warmly and ask them when they can volunteer
             else:
                 speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
                 contextOut = "volunteer_timedate"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Checks for the 'volunteer.assign' action - which will come with four parameters, the date, time, location and duration
         if request.get("result").get("action") == "volunteer.assign":
@@ -229,14 +222,10 @@ def makeWebhookResult(request):
             except event.DoesNotExist:
                 speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
                 contextOut = "volunteer_timedate"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
             except IndexError:
                 speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
                 contextOut = "volunteer_timedate"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
             else:
@@ -246,12 +235,10 @@ def makeWebhookResult(request):
                 userevent.save()
                 f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
                 dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
-                speech = "Great! We have an opportunity on " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
+                speech = "Great! We have an opportunity at " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
                 print("Response:")
                 print(speech)
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
@@ -263,8 +250,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
                 speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B')) + ". Let me know when you're able to confirm :)"
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for the start time of the event?
         if request.get("result").get("action") == "details_starttime":
@@ -276,8 +261,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
                 speech = "It starts at " + str(e.strftime('%I:%M %p'))
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for the end time of the event?
         if request.get("result").get("action") == "details_endtime":
@@ -289,8 +272,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
                 speech = "It ends at " + str(e.strftime('%I.%M %p'))
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for the duration of the event?
         if request.get("result").get("action") == "details_duration":
@@ -302,8 +283,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('duration', flat=True)[0]
                 speech = str(e) + " hours"
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for the location of the event?
         if request.get("result").get("action") == "details_location":
@@ -316,8 +295,6 @@ def makeWebhookResult(request):
                 f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
                 speech = str(e) + ', ' + str(f) + "... let me know if you can definitely make it :)"
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for a description of the event?
         if request.get("result").get("action") == "details_description":
@@ -329,8 +306,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('details', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         # Have they asked for the name of the charity running the event?
         if request.get("result").get("action") == "details_charityname":
@@ -342,8 +317,6 @@ def makeWebhookResult(request):
                 e = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
         if request.get("result").get("action") == "event_confirmation":
             try:
@@ -356,10 +329,9 @@ def makeWebhookResult(request):
                 e1.save()
                 speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
                 contextOut = "locked_in"
-                sending_message = return_message(speech, contextOut)
-                return sending_message
 
-
+        sending_message = return_message(speech, contextOut)
+        return sending_message
 
 # This creates the json for the webhook callback
 def return_message(speech, contextOut):
