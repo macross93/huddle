@@ -82,7 +82,7 @@ def makeWebhookResult(request):
     data = originalRequest.get("data")
     sender = data.get("sender")
     fb_id = sender.get("id")
-    page = Page(PAGE_ACCESS_TOKEN)
+    page = Page("EAAElJTd6foABAPkRNGlNHy6mxt277aJN8Yy4scRl4ViKYetPmlyZCPdbD3ZCcPt0uoANv61pZCeDDbdp20X7ukn8jZA6tX655ZBUAHDuMEg6luyGpXU3VcFaxK5ZC3DDCjhRptTZCDIIlqtW9ZBUE5WMPdPZBmvwirZCsPR1vvWoQgZAQZDZD")
     user_profile = page.get_user_profile(event.sender_id) # return dict
     print(user_profile)
 
