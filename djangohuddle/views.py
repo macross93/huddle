@@ -35,7 +35,7 @@ def home(request):
 
 def add_event(request):
     form = eventForm()
-    return render(request, 'blog/base.html', {'form': form})
+    return render(request, 'base.html', {'form': form})
 
 # Create the form class.
 # class eventForm(ModelForm):
