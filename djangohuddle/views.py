@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from datetime import datetime, timedelta
 from django.forms import ModelForm
+from .forms import eventForm
 
 import json
 import urllib
