@@ -243,7 +243,7 @@ def makeWebhookResult(request):
             else:
                 print(e)
                 f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-                dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(e.strftime('%A %d %B')
+                dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(e.strftime('%A %d %B'))
                 speech = "Great! We have an opportunity on " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
                 print("Response:")
                 print(speech)
