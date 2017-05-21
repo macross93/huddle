@@ -83,7 +83,7 @@ def makeWebhookResult(request):
 
     # Are they already confirmed on an event?
     try:
-        events.objects.filter(volunteer=fb_id, confirmed="y")[0]
+        event.objects.filter(volunteer=fb_id, confirmed="y")[0]
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
