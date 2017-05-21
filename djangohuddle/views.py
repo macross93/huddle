@@ -93,7 +93,6 @@ def makeWebhookResult(request):
     locale = user_profile['locale']
     timezone = user_profile['timezone']
     gender = user_profile['gender']
-    print (first_name + " " + last_name + " " + profile_pic + " " + locale + " " + str(timezone) + " " + gender)
 
     # Are they already confirmed on an event?
     try:
@@ -210,7 +209,7 @@ def makeWebhookResult(request):
 
             # If they are, let's welcome them warmly and ask them when they can volunteer
             else:
-                speech = "Welcome back " + str(fb_id) + "! When can you volunteer?"
+                speech = "Welcome back " + first_name + "! When can you volunteer?"
                 contextOut = "volunteer_timedate"
 
         # Checks for the 'volunteer.assign' action - which will come with four parameters, the date, time, location and duration
