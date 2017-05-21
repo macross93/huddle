@@ -30,4 +30,5 @@ urlpatterns = [
     url(r'^users/$', userList.as_view()),
     url(r'^charity/$', charityList.as_view()),
     url(r'^charitycontact/$', charitycontactList.as_view()),
+    url(r'^form/$', form),
 ]

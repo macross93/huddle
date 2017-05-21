@@ -27,6 +27,9 @@ def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
 
+def form(request):
+    return render(request, 'form.html')
+
 # The list of events from the database
 class eventList(ListView):
     model = event
