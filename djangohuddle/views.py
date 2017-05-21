@@ -89,6 +89,17 @@ def makeWebhookResult(request):
         speech = "Hi there again! You have a volunteering opportunity at " + dateandtime + " called " + str(e) + ". Want any more details?"
         contextOut = "confirm_event"
 
+        # Have they asked to cancel the event?
+        if request.get("result").get("action") == "event_cancel":
+            e1 = event.objects.filter(volunteer=fb_id)[0]
+            e1.confirmed = 'n'
+            e1.volunteer = ''
+            e1.save()
+            speech = "Not a problem :) Thanks for letting me know! I've taken you off the event"
+            contextOut = ""
+            sending_message = return_message(speech, contextOut)
+            return sending_message
+
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
             try:
@@ -119,7 +130,7 @@ def makeWebhookResult(request):
                 pass
             else:
                 e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
-                speech = "It ends at " + str(e.strftime('%I.%M %p'))
+                speech = "It ends at " + str(e.strftime('%I:%M %p'))
                 contextOut = "confirm_event"
 
         # Have they asked for the duration of the event?
