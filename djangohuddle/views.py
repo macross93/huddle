@@ -13,6 +13,7 @@ import json
 import urllib
 import urllib.request
 import os
+import ast
 
 
 FB_PAGE_ACCESS_TOKEN = "EAAElJTd6foABAPkRNGlNHy6mxt277aJN8Yy4scRl4ViKYetPmlyZCPdbD3ZCcPt0uoANv61pZCeDDbdp20X7ukn8jZA6tX655ZBUAHDuMEg6luyGpXU3VcFaxK5ZC3DDCjhRptTZCDIIlqtW9ZBUE5WMPdPZBmvwirZCsPR1vvWoQgZAQZDZD"
@@ -87,6 +88,8 @@ def makeWebhookResult(request):
     user_profile = urllib.request.urlopen("https://graph.facebook.com/v2.6/" + fb_id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + FB_PAGE_ACCESS_TOKEN).read().decode()
     print(user_profile)
     print (type(user_profile))
+    user_profile = ast.literal_eval(user_profile)
+    print (type(user_profile)) 
 #    print(first_name)
 
     # Are they already confirmed on an event?
