@@ -93,7 +93,7 @@ def makeWebhookResult(request):
     locale = user_profile['locale']
     timezone = user_profile['timezone']
     gender = user_profile['gender']
-    print (first name + " " + last_name + " " + profile_pic + " " + locale + " " + timezone + " " + gender)
+    print (first_name + " " + last_name + " " + profile_pic + " " + locale + " " + timezone + " " + gender)
 
     # Are they already confirmed on an event?
     try:
