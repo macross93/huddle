@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from datetime import datetime, timedelta
+from flask import Flask, request
 from fbmq import Page
 
 import json
