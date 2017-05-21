@@ -1,6 +1,8 @@
 dj-database-url==0.4.1
 Django==1.10.4
+fbmq==2.0.2
+Flask==0.11.1
 gunicorn==19.6.0
 psycopg2==2.6.2
 whitenoise==3.2
-fbmq==2.0.2
+
