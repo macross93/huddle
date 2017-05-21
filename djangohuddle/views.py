@@ -83,10 +83,10 @@ def makeWebhookResult(request):
 
     # Are they already confirmed on an event?
     try:
-        event.objects.filter(volunteer=fb_id, confirmed="y")[0]
+        e = event.objects.filter(volunteer=fb_id, confirmed="y")[0]
         f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
-        dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(f.strftime('%A %d %B'))
-        speech = "Hi there again! You have a volunteering opportunity at " + dateandtime + " called " + str(f) + ". Want any more details?"
+        dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
+        speech = "Hi there again! You have a volunteering opportunity at " + dateandtime + " called " + str(e) + ". Want any more details?"
         contextOut = ""
 
         # Have they asked for the date of the event?
@@ -243,7 +243,7 @@ def makeWebhookResult(request):
             else:
                 print(e)
                 f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-                dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(f.strftime('%A %d %B'))
+                dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
                 speech = "Great! We have an opportunity on " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
                 print("Response:")
                 print(speech)
