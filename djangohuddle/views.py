@@ -86,8 +86,8 @@ def makeWebhookResult(request):
         event.objects.filter(volunteer=fb_id, confirmed="y")[0]
         f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
         dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(e.strftime('%A %d %B'))
-        speech = "Hi there again! You've got a volunteering opportunity at " + dateandtime + " called " + str(f) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
-
+        speech = "Hi there again! You have a volunteering opportunity at " + dateandtime + " called " + str(f) + ". Want any more details?"
+        contextOut = ""
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
@@ -181,6 +181,8 @@ def makeWebhookResult(request):
                 sending_message = return_message(speech, contextOut)
                 return sending_message
 
+        sending_message = return_message(speech, contextOut)
+        return sending_message
 
 
     # If they're not already confirmed on an event
