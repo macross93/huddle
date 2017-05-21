@@ -27,18 +27,22 @@ def hello(request):
 # A little homepage that gives a list of things to view, either events, users, charities, or charity contacts
 def home(request):
     hello = "Welcome to Huddle!"
-    return render(request, 'home.html', {'home':hello})
+    return render(request, 'add_event.html', {'home':hello})
 
 def form(request):
     return render(request, 'form.html')
 
+def add_event(request):
+    form = eventForm()
+    return render(request, 'blog/base.html', {'form': form})
+
 # Create the form class.
-class eventForm(ModelForm):
-    class Meta:
-        model = event
-        fields = ['name', 'details', 'address', 'city', 'postcode', 'start', 'end', 'duration', 'charity']
-        form = eventForm()
-        form.save()
+# class eventForm(ModelForm):
+#     class Meta:
+#         model = event
+#         fields = ['name', 'details', 'address', 'city', 'postcode', 'start', 'end', 'duration', 'charity']
+#         form = eventForm()
+#         form.save()
 
 # The list of events from the database
 class eventList(ListView):

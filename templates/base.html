@@ -5,8 +5,12 @@
 
 <head>
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 <body>
+    <a href="{% url 'add_event' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     <h1>Huddle</h1>
     {% block content %}{% endblock %}
 
