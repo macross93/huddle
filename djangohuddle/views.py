@@ -87,7 +87,7 @@ def makeWebhookResult(request):
         f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
         dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
         speech = "Hi there again! You have a volunteering opportunity at " + dateandtime + " called " + str(e) + ". Want any more details?"
-        contextOut = ""
+        contextOut = "locked_in"
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
