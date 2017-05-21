@@ -82,7 +82,7 @@ def makeWebhookResult(request):
     data = originalRequest.get("data")
     sender = data.get("sender")
     fb_id = sender.get("id")
-    page = fbmq.Page(PAGE_ACCESS_TOKEN)
+    page = Page(PAGE_ACCESS_TOKEN)
     user_profile = page.get_user_profile(event.sender_id) # return dict
     print(user_profile)
 
