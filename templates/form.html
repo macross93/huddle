@@ -4,9 +4,35 @@
 
 {% block content %}
 
-  <form action="/your-name/" method="post">
-    <label for="your_name">Your name: </label>
-    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
-    <input type="submit" value="OK">
+  <form action="/home/" method="post">
+    <label for="event_name">Event name: </label>
+    <input id="event_name" type="text" name="your_name" value="{{ event_name }}">
+
+    <label for="event_details">Event details: </label>
+    <input id="event_details" type="text" name="event_details" value="{{ event_details }}">
+
+    <label for="event_address">Address: </label>
+    <input id="event_address" type="text" name="event_address" value="{{ event_address }}">
+
+    <label for="city">City: </label>
+    <input id="city" type="text" name="city" value="{{ city }}">
+
+    <label for="postcode">Postcode: </label>
+    <input id="postcode" type="text" name="postcode" value="{{ postcode }}">
+
+    <label for="event_start">Start Time: </label>
+    <input id="event_start" type="text" name="event_start" value="{{ event_start }}">
+
+    <label for="event_end">End Time: </label>
+    <input id="event_end" type="text" name="event_end" value="{{ event_end }}">
+
+    <label for="event_duration">Duration: </label>
+    <input id="event_duration" type="text" name="event_duration" value="{{ event_duration }}">
+
+    <label for="charity">Charity: </label>
+    <input id="charity" type="text" name="charity" value="{{ charity }}">
+
+    <input type="submit" value="Submit">
   </form>
+
 {% endblock %}

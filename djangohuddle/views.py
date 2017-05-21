@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from datetime import datetime, timedelta
+from django.forms import ModelForm
 
 import json
 import urllib
@@ -30,6 +31,14 @@ def home(request):
 
 def form(request):
     return render(request, 'form.html')
+
+# Create the form class.
+class eventForm(ModelForm):
+    class Meta:
+        model = event
+        fields = ['name', 'details', 'address', 'city', 'postcode', 'start', 'end', 'duration', 'charity']
+        form = eventForm()
+        form.save()
 
 # The list of events from the database
 class eventList(ListView):
