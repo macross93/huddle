@@ -84,6 +84,10 @@ def makeWebhookResult(request):
     # Are they already confirmed on an event?
     try:
         event.objects.filter(volunteer=fb_id, confirmed="y")[0]
+        f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
+        dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(e.strftime('%A %d %B')
+        speech = "Hi there again! You've got a volunteering opportunity at " + dateandtime + " called " + str(f) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
+
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
@@ -236,7 +240,9 @@ def makeWebhookResult(request):
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
             else:
                 print(e)
-                speech = "Great! We have an opportunity on " + day + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
+                f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+                dateandtime = str(f.strftime('%I:%M %p')) + " at " + str(e.strftime('%A %d %B')
+                speech = "Great! We have an opportunity on " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
                 print("Response:")
                 print(speech)
                 userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
@@ -267,7 +273,7 @@ def makeWebhookResult(request):
                 pass
             else:
                 e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-                speech = "It starts at " + str(e.strftime('%I.%M %p'))
+                speech = "It starts at " + str(e.strftime('%I:%M %p'))
                 contextOut = "confirm_event"
                 sending_message = return_message(speech, contextOut)
                 return sending_message
