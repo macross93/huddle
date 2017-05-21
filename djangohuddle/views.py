@@ -85,7 +85,8 @@ def makeWebhookResult(request):
     sender = data.get("sender")
     fb_id = sender.get("id")
     user_profile = urllib.request.urlopen("https://graph.facebook.com/v2.6/" + fb_id + "?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=" + FB_PAGE_ACCESS_TOKEN).read()
-    print(user_profile[3:])
+    first_name = user_profile['first_name']
+    print(first_name)
 
 #    userinfo = request.get
 
