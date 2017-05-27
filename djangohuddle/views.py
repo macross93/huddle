@@ -37,6 +37,16 @@ def add_event(request):
     form = eventForm()
     return render(request, 'add_event.html', {'form': form})
 
+    if request.method == "POST":
+        form = eventForm(request.POST)
+        if form.is_valid():
+            event.save()
+            return redirect('events')
+    else:
+        form = eventForm()
+    return render(request, 'add_event.html', {'form': form})
+
+
 # Create the form class.
 # class eventForm(ModelForm):
 #     class Meta:
