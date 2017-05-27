@@ -40,9 +40,9 @@ def add_event(request):
     if request.method == "POST":
         form = eventForm(request.POST)
         if form.is_valid():
-            event = form.save(commit=False)
-            event.volunteer = ''
-            event.confirmed = 'n'
+            event = form.save(commit=True)
+#            event.volunteer = ''
+#            event.confirmed = 'n'
             return redirect('/home')
     else:
         form = eventForm()
@@ -234,6 +234,8 @@ def makeWebhookResult(request):
             except user.DoesNotExist:
                 speech = "Why hello there " + first_name + "! This is the first time we've spoken, an absolute pleasure. I'm here to help you find volunteering opportunities, when can you volunteer?"
                 u1 = user(facebook_id=fb_id)
+                u1.first_name = first_name
+                u1.last_name = last_name
                 u1.save()
                 contextOut = "volunteer_timedate"
 
