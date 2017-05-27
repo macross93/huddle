@@ -43,7 +43,6 @@ def add_event(request):
             event = form.save(commit=False)
             event.volunteer = ''
             event.confirmed = 'n'
-            event.save()
             return redirect('/home')
     else:
         form = eventForm()
