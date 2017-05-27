@@ -28,7 +28,7 @@ def hello(request):
 # A little homepage that gives a list of things to view, either events, users, charities, or charity contacts
 def home(request):
     hello = "Welcome to Huddle!"
-    return render(request, 'add_event.html', {'home':hello})
+    return render(request, 'home.html', {'home':hello})
 
 # def form(request):
 #     return render(request, 'form.html')
