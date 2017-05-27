@@ -40,8 +40,11 @@ def add_event(request):
     if request.method == "POST":
         form = eventForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('/events')
+            event = form.save(commit=False)
+            event.volunteer = ''
+            event.confirmed = 'n'
+            event.save()
+            return redirect('/home')
     else:
         form = eventForm()
     return render(request, 'add_event.html', {'form': form})
