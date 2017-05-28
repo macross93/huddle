@@ -49,7 +49,7 @@ def add_event(request):
 #            event.confirmed = 'n'
             return redirect('/home')
     else:
-        form = eventForm()
+        print ("The form was not valid")
     return render(request, 'add_event.html', {'form': form})
 
 
