@@ -48,8 +48,11 @@ def add_event(request):
 #            event.volunteer = ''
 #            event.confirmed = 'n'
             return redirect('/home')
+
+        else:
+            print ("The form was not valid")
     else:
-        print ("The form was not valid")
+        print ("The request method does not equal POST")
     return render(request, 'add_event.html', {'form': form})
 
 
