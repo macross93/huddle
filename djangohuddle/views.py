@@ -16,6 +16,8 @@ import urllib
 import urllib.request
 import os
 import ast
+import schedule
+import time
 
 
 FB_PAGE_ACCESS_TOKEN = "EAAElJTd6foABAPkRNGlNHy6mxt277aJN8Yy4scRl4ViKYetPmlyZCPdbD3ZCcPt0uoANv61pZCeDDbdp20X7ukn8jZA6tX655ZBUAHDuMEg6luyGpXU3VcFaxK5ZC3DDCjhRptTZCDIIlqtW9ZBUE5WMPdPZBmvwirZCsPR1vvWoQgZAQZDZD"
@@ -384,6 +386,31 @@ def makeWebhookResult(request):
 
         sending_message = return_message(speech, contextOut)
         return sending_message
+
+def volunteer_today():
+
+    current_time = time.strftime("%Y-%m-%d %H:%M:%S")
+    early_start = current_time
+    late_start = datetime_object + timedelta(hours=24)
+    print("late_start = " + str(late_start))
+
+    events_today = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('volunteer',flat=True)
+    if events_today:
+        for volunteer in events_today:
+            speech = "Your event is today! Just thought I'd check in and make sure you were still planning on coming along?"
+            contextOut = ""
+            sending_message = return_message(speech, contextOut)
+            return sending_message
+            res = sending_message
+            res = json.dumps(res, indent=4)
+            print(res)
+            return HttpResponse(res)
+
+schedule.every(10).minutes.do(job)
+
+while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 # This creates the json for the webhook callback
 def return_message(speech, contextOut):
