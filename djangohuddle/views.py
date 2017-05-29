@@ -406,11 +406,11 @@ def volunteer_today():
             print(res)
             return HttpResponse(res)
 
-#schedule.every(10).minutes.do(volunteer_today)
-
-while True:
-        schedule.run_pending()
-        time.sleep(1)
+# #schedule.every(10).minutes.do(volunteer_today)
+#
+# while True:
+#         schedule.run_pending()
+#         time.sleep(1)
 
 # This creates the json for the webhook callback
 def return_message(speech, contextOut):
