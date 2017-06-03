@@ -321,6 +321,8 @@ def makeWebhookResult(request):
                           }
                         ]
                       }
+                }
+            }
 
 
 
@@ -329,7 +331,7 @@ def makeWebhookResult(request):
                     # #"data": {},
                     # "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
                     # "source": "apiai-onlinestore-shipping"
-                
+
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
