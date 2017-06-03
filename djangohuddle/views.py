@@ -295,28 +295,29 @@ def makeWebhookResult(request):
                 print(speech)
                 contextOut = "confirm_event"
                 return {
-                  "facebook": {
-                    "attachment":{
-                      "type":"template",
-                      "payload":{
-                        "template_type":"generic",
-                        "elements":[
-                           {
-                            "title":str(e),
-                            "image_url":"#http://patmorganauthor.com/wp-content/uploads/2014/11/untitled.png",
-                            "subtitle":"Volunteer to help feed the homeless today",
-                            "default_action": {
-                              "type": "web_url",
-                              "url": "https://macdovey.co.uk",
-                              "messenger_extensions": "true",
-                              "webview_height_ratio": "tall",
-                              "fallback_url": "https://macdovey.co.uk"
-                            },
-                            "buttons":[
-                              {
-                                "type":"web_url",
-                                "url":"https://macdovey.co.uk",
-                                "title":"View Website"
+                  "data": {
+                    "facebook": {
+                        "attachment":{
+                          "type":"template",
+                          "payload":{
+                            "template_type":"generic",
+                            "elements":[
+                               {
+                                "title":str(e),
+                                "image_url":"#http://patmorganauthor.com/wp-content/uploads/2014/11/untitled.png",
+                                "subtitle":"Volunteer to help feed the homeless today",
+                                "default_action": {
+                                  "type": "web_url",
+                                  "url": "https://macdovey.co.uk",
+                                  "messenger_extensions": "true",
+                                  "webview_height_ratio": "tall",
+                                  "fallback_url": "https://macdovey.co.uk"
+                                },
+                                "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://macdovey.co.uk",
+                                    "title":"View Website"
                               },
                             ]
                           }
@@ -325,6 +326,7 @@ def makeWebhookResult(request):
                     }
                 }
             }
+        }
 
 
 
