@@ -35,6 +35,7 @@ def home(request):
 # def form(request):
 #     return render(request, 'form.html')
 
+@csrf_exempt
 def add_event(request):
     form = eventForm()
     return render(request, 'add_event.html', {'form': form})
@@ -42,11 +43,11 @@ def add_event(request):
     if request.method == "POST":
         form = eventForm(request.POST)
         if form.is_valid():
-            u1 = user(facebook_id="123456789")
-            u1.first_name = "Test"
-            u1.last_name = "Mackie"
-            u1.save()
-#            event = form.save(commit=True)
+            # u1 = user(facebook_id="123456789")
+            # u1.first_name = "Test"
+            # u1.last_name = "Mackie"
+            # u1.save()
+            event = form.save(commit=True)
 #            event.volunteer = ''
 #            event.confirmed = 'n'
             return redirect('/home')
@@ -55,7 +56,7 @@ def add_event(request):
             return ("The form was not valid")
     else:
         return ("The request method does not equal POST")
-    return render(request, 'add_event.html', {'form': form})
+        return render(request, 'add_event.html', {'form': form})
 
 
 # Create the form class.
