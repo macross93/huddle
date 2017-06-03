@@ -294,43 +294,37 @@ def makeWebhookResult(request):
                 print("Response:")
                 print(speech)
                 contextOut = "confirm_event"
-                return {
-                    "attachment":{
-                      "type":"template",
-                      "payload":{
-                        "template_type":"generic",
-                        "elements":[
-                           {
-                            "title":str(e),
-                            "image_url":"#http://patmorganauthor.com/wp-content/uploads/2014/11/untitled.png",
-                            "subtitle":"Volunteer to help feed the homeless today",
-                            "default_action": {
-                              "type": "web_url",
-                              "url": "https://macdovey.co.uk",
-#                              "messenger_extensions": true,
-                              "webview_height_ratio": "tall",
-                              "fallback_url": "https://macdovey.co.uk"
-                            },
-                            "buttons":[
-                              {
-                                "type":"web_url",
-                                "url":"https://macdovey.co.uk",
-                                "title":"View Website"
-                              },
-                            ]
-                          }
-                        ]
-                      }
-                }
-            }
+#                 return {
+#                     "attachment":{
+#                       "type":"template",
+#                       "payload":{
+#                         "template_type":"generic",
+#                         "elements":[
+#                            {
+#                             "title":str(e),
+#                             "image_url":"#http://patmorganauthor.com/wp-content/uploads/2014/11/untitled.png",
+#                             "subtitle":"Volunteer to help feed the homeless today",
+#                             "default_action": {
+#                               "type": "web_url",
+#                               "url": "https://macdovey.co.uk",
+# #                              "messenger_extensions": true,
+#                               "webview_height_ratio": "tall",
+#                               "fallback_url": "https://macdovey.co.uk"
+#                             },
+#                             "buttons":[
+#                               {
+#                                 "type":"web_url",
+#                                 "url":"https://macdovey.co.uk",
+#                                 "title":"View Website"
+#                               },
+#                             ]
+#                           }
+#                         ]
+#                       }
+#                 }
+#             }
 
 
-
-                    # "speech": speech,
-                    # "displayText": speech,
-                    # #"data": {},
-                    # "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
-                    # "source": "apiai-onlinestore-shipping"
 
 
         # Have they asked for the date of the event?
