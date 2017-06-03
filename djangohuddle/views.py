@@ -311,7 +311,7 @@ def makeWebhookResult(request):
                                                 "default_action": {
                                                     "type": "web_url",
                                                     "url": "https://macdovey.co.uk",
-                                                    "messenger_extensions": "true",
+                                                    "messenger_extensions": true,
                                                     "webview_height_ratio": "tall",
                                                     "fallback_url": "https://macdovey.co.uk"
                                                     },
@@ -331,7 +331,7 @@ def makeWebhookResult(request):
                     "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
                     "source": "apiai-onlinestore-shipping"
                 }
-                
+
 
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
