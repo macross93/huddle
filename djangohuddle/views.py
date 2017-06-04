@@ -300,7 +300,7 @@ def makeWebhookResult(request):
                     "data": {
                         "facebook": {
                             "attachment":{
-                                  "type": 1,
+                                  "type": "template",
                                   "platform": "facebook",
                                   "title": "Feed the Homeless",
                                   "subtitle": "This is a chance to feed the homeless",
