@@ -306,7 +306,29 @@ def makeWebhookResult(request):
                         {
                           "text": "View Details",
                           "postback": "http://www.google.co.uk"
-                        }
+                        },
+                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": "Feed the Homeless",
+                      "subtitle": "This is a chance to feed the homeless",
+                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "buttons": [
+                        {
+                          "text": "View Details",
+                          "postback": "http://www.google.co.uk"
+                        },
+                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": "Feed the Homeless",
+                      "subtitle": "This is a chance to feed the homeless",
+                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "buttons": [
+                        {
+                          "text": "View Details",
+                          "postback": "http://www.google.co.uk"
+                        }                                            
                       ]
                     }
                   ]
