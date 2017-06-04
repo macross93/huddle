@@ -294,7 +294,7 @@ def makeWebhookResult(request):
                 #     naive = line.replace(tzinfo=None)
                 #     line2 = naive - datetime_object
                 #     print(line2)
-                closest_greater_1 = closest_greater_qs.values_list('start')[0]
+                closest_greater_1 = closest_greater_qs[0]
                 closest_greater_2 = closest_greater_qs[1]
                 closest_greater_3 = closest_greater_qs[2]
                 closest_less_1 = closest_less_qs[0]
@@ -318,8 +318,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": "Feed the Homeless",
-                      "subtitle": "This is a chance to feed the homeless",
+                      "title": closest_less_qs[1],
+                      "subtitle": closest_less_qs.values_list('details')[1],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -331,8 +331,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": "Feed the Homeless",
-                      "subtitle": "This is a chance to feed the homeless",
+                      "title": closest_less_qs[0],
+                      "subtitle": closest_less_qs.values_list('details')[0],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -344,21 +344,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": "Feed the Homeless",
-                      "subtitle": "This is a chance to feed the homeless",
-                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
-                      "buttons": [
-                        {
-                          "text": "View Details",
-                          "postback": "http://www.google.co.uk"
-                        }
-                      ]
-                    },
-                    {
-                      "type": 1,
-                      "platform": "facebook",
-                      "title": "Feed the Homeless",
-                      "subtitle": "This is a chance to feed the homeless",
+                      "title": closest_greater_qs[0],
+                      "subtitle": closest_greater_qs.values_list('details')[0],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -370,8 +357,21 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": "Feed the Homeless",
-                      "subtitle": "This is a chance to feed the homeless",
+                      "title": closest_greater_qs[1],
+                      "subtitle": closest_greater_qs.values_list('details')[1],
+                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "buttons": [
+                        {
+                          "text": "View Details",
+                          "postback": "http://www.google.co.uk"
+                        }
+                        ],
+                    },
+                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": closest_greater_qs[2],
+                      "subtitle": closest_greater_qs.values_list('details')[2],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
