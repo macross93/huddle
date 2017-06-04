@@ -295,27 +295,43 @@ def makeWebhookResult(request):
                 print(speech)
                 contextOut = "confirm_event"
                 return {
-                    "speech": speech,
-                    "displayText": speech,
-                    "data": {
-                        "facebook": {
-                            "attachment":{
-                                  "type": "template",
-                                  "platform": "facebook",
-                                  "title": "Feed the Homeless",
-                                  "subtitle": "This is a chance to feed the homeless",
-                                  "buttons": [
-                                    {
-                                      "text": "View Details",
-                                      "postback": "http://www.google.co.uk"
-                                    }
-                                  ]
-                                }
-
-                            }
+                  "speech": "This song is Clair de Lune",
+                  "messages": [
+                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": "Feed the Homeless",
+                      "subtitle": "This is a chance to feed the homeless",
+                      "buttons": [
+                        {
+                          "text": "View Details",
+                          "postback": "http://www.google.co.uk"
                         }
-#                    "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
-#                    "source": "apiai-onlinestore-shipping"
+                      ]
+                    },
+                    {
+                      "type": 0,
+                      "speech": "This song is Clair de Lune"
+                    },
+                    {
+                      "type": 4,
+                      "payload": {
+                        "facebook": {
+                          "attachment": {
+                            "type": "template",
+                            "payload": {
+                              "template_type": "generic",
+                              "elements": [
+                                {
+                                  "title": "feed the homeless"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
 
 
