@@ -335,7 +335,7 @@ def makeWebhookResult(request):
                           "postback": "http://www.google.co.uk"
                         }
                       ]
-                    }
+                    },
                     {
                       "type": 1,
                       "platform": "facebook",
