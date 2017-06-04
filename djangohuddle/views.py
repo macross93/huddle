@@ -272,7 +272,7 @@ def makeWebhookResult(request):
 
             # Go and check for an event based on user input
             try:
-                closest_greater_qs = event.objects.filter(start__gt=datetime_object).order_by('start')
+                closest_greater_qs = event.objects.filter(start__gte=datetime_object).order_by('start')
                 closest_less_qs = event.objects.filter(start__lt=datetime_object).order_by('-start')
 
                 #e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
