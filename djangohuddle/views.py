@@ -295,7 +295,7 @@ def makeWebhookResult(request):
                 print(speech)
                 contextOut = "confirm_event"
                 return {
-                  "speech": "This song is Clair de Lune",
+#                  "speech": "This song is Clair de Lune",
                   "messages": [
                     {
                       "type": 1,
