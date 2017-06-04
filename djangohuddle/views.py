@@ -288,12 +288,12 @@ def makeWebhookResult(request):
                 userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
                 userevent.volunteer = fb_id
                 userevent.save()
-                f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-                dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
-                speech = "Great! We have an opportunity at " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
-                print("Response:")
-                print(speech)
-                contextOut = "confirm_event"
+#                f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+#                dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
+#                speech = "Great! We have an opportunity at " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
+#                print("Response:")
+#                print(speech)
+#                contextOut = "confirm_event"
                 return {
                   "messages": [
                     {
