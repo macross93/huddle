@@ -297,15 +297,13 @@ def makeWebhookResult(request):
                 closest_less = closest_less_qs[:1]
                 for line in closest_greater:
                     n = 1
-                    line = "opportunity" + str(n)
-                    print (line)
-                    n = n+1
+                    print(line)
+                    n += 1
 
                 for line in closest_less:
                     n = 4
-                    line = "opportunity" + str(n)
                     print(line)
-                    n = n+1
+                    n += 1
 
 
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
