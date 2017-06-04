@@ -285,7 +285,7 @@ def makeWebhookResult(request):
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
             else:
                 for line in e:
-                    print(event)
+                    print(line)
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
 #                userevent.volunteer = fb_id#
 #                userevent.save()
