@@ -300,31 +300,39 @@ def makeWebhookResult(request):
                     "data": {
                         "facebook": {
                             "attachment":{
-                                    "type":"template",
-                                    "payload":{
-                                        "template_type":"generic",
-                                        "elements":[
-                                            {
-                                                "title":str(e),
-                                                "image_url":"#http://patmorganauthor.com/wp-content/uploads/2014/11/untitled.png",
-                                                "subtitle":"Volunteer to help feed the homeless today",
-                                                "default_action": {
-                                                    "type": "web_url",
-                                                    "url": "https://macdovey.co.uk",
-                                                    "messenger_extensions": True,
-                                                    "webview_height_ratio": "tall",
-                                                    "fallback_url": "https://macdovey.co.uk"
-                                                    },
-                                                "buttons":[
-                                                    {
-                                                    "type":"web_url",
-                                                    "url":"https://macdovey.co.uk",
-                                                    "title":"View Website"
-                                                    },
-                                                    ]
-                                            }
-                                        ]
+                                  "type": 1,
+                                  "platform": "facebook",
+                                  "title": "Feed the Homeless",
+                                  "subtitle": "This is a chance to feed the homeless",
+                                  "buttons": [
+                                    {
+                                      "text": "View Details",
+                                      "postback": "http://www.google.co.uk"
                                     }
+                                  ]
+                                },
+                                {
+                                  "type": 0,
+                                  "speech": "This song is Clair de Lune"
+                                },
+                                {
+                                  "type": 4,
+                                  "payload": {
+                                    "facebook": {
+                                      "attachment": {
+                                        "type": "template",
+                                        "payload": {
+                                          "template_type": "generic",
+                                          "elements": [
+                                            {
+                                              "title": "feed the homeless"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                             }
                         }
                     },
