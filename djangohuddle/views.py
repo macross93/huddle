@@ -306,9 +306,9 @@ def makeWebhookResult(request):
                         {
                           "text": "View Details",
                           "postback": "http://www.google.co.uk"
-                        },
+                        }
                       ]
-                    {
+
                       "type": 1,
                       "platform": "facebook",
                       "title": "Feed the Homeless",
@@ -318,9 +318,9 @@ def makeWebhookResult(request):
                         {
                           "text": "View Details",
                           "postback": "http://www.google.co.uk"
-                        },
+                        }
                         ]
-                    {
+
                       "type": 1,
                       "platform": "facebook",
                       "title": "Feed the Homeless",
