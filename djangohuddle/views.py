@@ -318,7 +318,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_less_qs[1].values_list('name'),
+                      "title": closest_less_qs.values_list('name')[1],
                       "subtitle": closest_less_qs.values_list('details')[1],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
