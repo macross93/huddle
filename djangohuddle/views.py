@@ -293,14 +293,17 @@ def makeWebhookResult(request):
                 #     naive = line.replace(tzinfo=None)
                 #     line2 = naive - datetime_object
                 #     print(line2)
-                closest_greater = closest_greater_qs[:2]
-                closest_less = closest_less_qs[:1]
-                for line in closest_greater:
-                    print(str(line))
+                closest_greater_1 = closest_greater_qs[0]
+                closest_greater_2 = closest_greater_qs[1]
+                closest_greater_3 = closest_greater_qs[2]
+                closest_less_1 = closest_less_qs[0]
+                closest_less_2 = closest_less_qs[1]
 
-                for line in closest_less:
-                    print(str(line))
-
+                print (closest_greater_1)
+                print (closest_greater_2)
+                print (closest_greater_3)
+                print (closest_less_1)
+                print (closest_less_2)
 
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
 #                userevent.volunteer = fb_id#
