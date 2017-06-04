@@ -298,19 +298,16 @@ def makeWebhookResult(request):
                 for line in closest_greater:
                     n = 1
                     line = "opportunity" + str(n)
+                    print (line)
                     n = n+1
 
                 for line in closest_less:
                     n = 4
                     line = "opportunity" + str(n)
+                    print(line)
                     n = n+1
 
-                print (opportunity1)
-                print (opportunity2)
-                print (opportunity3)
-                print (opportunity4)
-                print (opportunity5)
-                
+
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
 #                userevent.volunteer = fb_id#
 #                userevent.save()
