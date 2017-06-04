@@ -264,15 +264,15 @@ def makeWebhookResult(request):
             available_time = str(day) + " " + str(when)
             datetime_object = datetime.strptime(available_time, '%Y-%m-%d %H:%M:%S')
             # This is to take their ideal start time and add a couple of hours each side to create a range!
-            early_start = datetime_object + timedelta(hours=-2)
+            early_start = datetime_object + timedelta(hours=-72)
             print("early_start = " + str(early_start))
-            late_start = datetime_object + timedelta(hours=2)
+            late_start = datetime_object + timedelta(hours=72)
             print("late_start = " + str(late_start))
             print (datetime_object)
 
             # Go and check for an event based on user input
             try:
-                e = event.objects.filter(start__gte=early_start, start__lte=late_start)
+                e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
             # There is no event, let's apologise and ask them to start again
             except event.DoesNotExist:
                 speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
@@ -285,7 +285,8 @@ def makeWebhookResult(request):
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
             else:
                 for line in e:
-                    print(line)
+                    line2 = line - datetime_object
+                    print(line2)
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
 #                userevent.volunteer = fb_id#
 #                userevent.save()
