@@ -296,14 +296,10 @@ def makeWebhookResult(request):
                 closest_greater = closest_greater_qs[:2]
                 closest_less = closest_less_qs[:1]
                 for line in closest_greater:
-                    n = 1
-                    print(line)
-                    n += 1
+                    print(str(line))
 
                 for line in closest_less:
-                    n = 4
-                    print(line)
-                    n += 1
+                    print(str(line))
 
 
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
