@@ -272,7 +272,7 @@ def makeWebhookResult(request):
 
             # Go and check for an event based on user input
             try:
-                e = event.objects.filter(start__gte=early_start, start__lte=late_start)[0]
+                e = event.objects.filter(start__gte=early_start, start__lte=late_start)
             # There is no event, let's apologise and ask them to start again
             except event.DoesNotExist:
                 speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
@@ -284,9 +284,10 @@ def makeWebhookResult(request):
 
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
             else:
-                print(e)
+                for event in e:
+                    print(event)
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
-#                userevent.volunteer = fb_id
+#                userevent.volunteer = fb_id#
 #                userevent.save()
 #                f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
 #                dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
@@ -335,6 +336,32 @@ def makeWebhookResult(request):
                         }
                       ]
                     }
+                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": "Feed the Homeless",
+                      "subtitle": "This is a chance to feed the homeless",
+                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "buttons": [
+                        {
+                          "text": "View Details",
+                          "postback": "http://www.google.co.uk"
+                        }
+                        ],
+                    },
+                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": "Feed the Homeless",
+                      "subtitle": "This is a chance to feed the homeless",
+                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "buttons": [
+                        {
+                          "text": "View Details",
+                          "postback": "http://www.google.co.uk"
+                        }
+                        ],
+                    },
                   ]
                 }
 
