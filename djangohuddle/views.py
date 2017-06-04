@@ -314,7 +314,6 @@ def makeWebhookResult(request):
 
                             }
                         }
-                    },
                     "contextOut": [{"name":contextOut, "lifespan":5, "parameters":{}}],
                     "source": "apiai-onlinestore-shipping"
                 }
