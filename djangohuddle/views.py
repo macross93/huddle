@@ -318,7 +318,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_less_qs[1],
+                      "title": closest_less_qs[1].values_list('name'),
                       "subtitle": closest_less_qs.values_list('details')[1],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
@@ -331,7 +331,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_less_qs[0],
+                      "title": 'Feed the Homeless'
                       "subtitle": closest_less_qs.values_list('details')[0],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
@@ -344,7 +344,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_greater_qs[0],
+                      "title": 'Feed the Homeless',
                       "subtitle": closest_greater_qs.values_list('details')[0],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
@@ -357,8 +357,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_greater_qs[1],
-                      "subtitle": closest_greater_qs.values_list('details')[1],
+                      "title": 'Feed the Homeless',
+                      "subtitle": str(closest_greater_qs.values_list('details')[1]),
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -370,7 +370,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_greater_qs[2],
+                      "title": 'Feed the Homeless',
                       "subtitle": closest_greater_qs.values_list('details')[2],
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
