@@ -310,29 +310,8 @@ def makeWebhookResult(request):
                                       "postback": "http://www.google.co.uk"
                                     }
                                   ]
-                                },
-                                {
-                                  "type": 0,
-                                  "speech": "This song is Clair de Lune"
-                                },
-                                {
-                                  "type": 4,
-                                  "payload": {
-                                    "facebook": {
-                                      "attachment": {
-                                        "type": "template",
-                                        "payload": {
-                                          "template_type": "generic",
-                                          "elements": [
-                                            {
-                                              "title": "feed the homeless"
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  }
                                 }
+
                             }
                         }
                     },
