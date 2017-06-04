@@ -272,7 +272,10 @@ def makeWebhookResult(request):
 
             # Go and check for an event based on user input
             try:
-                e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
+                closest_greater_qs = event.objects.filter(start__gt=datetime_object).order_by('start')
+                closest_less_qs = event.objects.filter(start__lt=datetime_object).order_by('-start')
+
+                #e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
             # There is no event, let's apologise and ask them to start again
             except event.DoesNotExist:
                 speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
@@ -282,12 +285,32 @@ def makeWebhookResult(request):
                 speech = "Sorry, there's no event at that day and time :(. Maybe suggest another day?"
                 contextOut = "volunteer_timedate"
 
+
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
+
             else:
-                for line in e:
-                    naive = line.replace(tzinfo=None)
-                    line2 = naive - datetime_object
-                    print(line2)
+                # for line in e:
+                #     naive = line.replace(tzinfo=None)
+                #     line2 = naive - datetime_object
+                #     print(line2)
+                closest_greater = closest_greater_qs[:2]
+                closest_less = closest_less_qs[:1]
+                for line in closest_greater:
+                    n = 1
+                    line = "opportunity" + str(n)
+                    n = n+1
+
+                for line in closest_less:
+                    n = 4
+                    line = "opportunity" + str(n)
+                    n = n+1
+
+                print (opportunity1)
+                print (opportunity2)
+                print (opportunity3)
+                print (opportunity4)
+                print (opportunity5)
+                
 #                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
 #                userevent.volunteer = fb_id#
 #                userevent.save()
