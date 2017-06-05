@@ -300,7 +300,7 @@ def makeWebhookResult(request):
                 closest_less_1 = closest_less_qs[0]
                 closest_less_2 = closest_less_qs[1]
 
-                print (closest_greater_1)
+                print (closest_greater_1[0])
 
 
 
@@ -318,7 +318,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": str(closest_greater_1),
+                      "title": closest_greater_1,
                       "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
