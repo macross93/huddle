@@ -310,7 +310,7 @@ def makeWebhookResult(request):
                 g1_postcode = g1_postcode[0]
 
                 g1_address = closest_greater_qs.values_list('address')[0]
-                g1_address = g1_address[0]               s
+                g1_address = g1_address[0]
 
 
                 g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
