@@ -294,6 +294,57 @@ def makeWebhookResult(request):
                 #     naive = line.replace(tzinfo=None)
                 #     line2 = naive - datetime_object
                 #     print(line2)
+                l2_name = closest_less_qs.values_list('name')[1]
+                l2_name = l2_name[0]
+
+                l2_details = closest_less_qs.values_list('details')[1]
+                l2_details = l2_details[0]
+
+                l2_start = closest_less_qs.values_list('start')[1]
+                l2_start = l2_start[0]
+
+                l2_end = closest_less_qs.values_list('end')[1]
+                l2_end = l2_end[0]
+
+                l2_postcode = closest_less_qs.values_list('postcode')[1]
+                l2_postcode = l2_postcode[0]
+
+                l2_address = closest_less_qs.values_list('address')[1]
+                l2_address = l2_address[0]
+
+                l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+
+
+
+
+
+
+
+                l1_name = closest_less_qs.values_list('name')[0]
+                l1_name = l1_name[0]
+
+                l1_details = closest_less_qs.values_list('details')[0]
+                l1_details = l1_details[0]
+
+                l1_start = closest_less_qs.values_list('start')[0]
+                l1_start = l1_start[0]
+
+                l1_end = closest_less_qs.values_list('end')[0]
+                l1_end = l1_end[0]
+
+                l1_postcode = closest_less_qs.values_list('postcode')[0]
+                l1_postcode = l1_postcode[0]
+
+                l1_address = closest_less_qs.values_list('address')[0]
+                l1_address = l1_address[0]
+
+                l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+
+
+
+
+
+
                 g1_name = closest_greater_qs.values_list('name')[0]
                 g1_name = g1_name[0]
 
@@ -312,14 +363,61 @@ def makeWebhookResult(request):
                 g1_address = closest_greater_qs.values_list('address')[0]
                 g1_address = g1_address[0]
 
-
                 g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
 
-                closest_greater_2 = closest_greater_qs[1]
-                closest_greater_3 = closest_greater_qs[2]
-                closest_less_1 = closest_less_qs[0]
-                closest_less_2 = closest_less_qs[1]
+
+
+
+
+                g2_name = closest_greater_qs.values_list('name')[1]
+                g2_name = g2_name[0]
+
+                g2_details = closest_greater_qs.values_list('details')[1]
+                g2_details = g2_details[0]
+
+                g2_start = closest_greater_qs.values_list('start')[1]
+                g2_start = g2_start[0]
+
+                g2_end = closest_greater_qs.values_list('end')[1]
+                g2_end = g2_end[0]
+
+                g2_postcode = closest_greater_qs.values_list('postcode')[1]
+                g2_postcode = g2_postcode[0]
+
+                g2_address = closest_greater_qs.values_list('address')[1]
+                g2_address = g2_address[0]
+
+                g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+
+
+
+
+
+
+                g3_name = closest_greater_qs.values_list('name')[2]
+                g3_name = g3_name[0]
+
+                g3_details = closest_greater_qs.values_list('details')[2]
+                g3_details = g3_details[0]
+
+                g3_start = closest_greater_qs.values_list('start')[2]
+                g3_start = g3_start[0]
+
+                g3_end = closest_greater_qs.values_list('end')[2]
+                g3_end = g3_end[0]
+
+                g3_postcode = closest_greater_qs.values_list('postcode')[2]
+                g3_postcode = g3_postcode[0]
+
+                g3_address = closest_greater_qs.values_list('address')[2]
+                g3_address = g3_address[0]
+
+                g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+
+
+
+
 
 #                print (closest_greater_1[0])
 
@@ -339,71 +437,81 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": g1_name,
-                      "subtitle": "Start: " + g1_start.strftime('%I:%M %p') + " on " + g1_start.strftime('%A %d %B') + ".\n End: "  + g1_end.strftime('%I:%M %p') + ".\n Postcode: " + g1_address + ", " + g1_postcode,
-                      "imageUrl": g1_image,
+                      "title": l2_name,
+                      "subtitle": "Start: " + l2_start.strftime('%I:%M %p') + " on " + l2_start.strftime('%A %d %B') + ".\n End: "  + l2_end.strftime('%I:%M %p') + ".\n Address: " + l2_address + ", " + l2_postcode,
+                      "imageUrl": l2_image,
                       "buttons": [
-                        {
-                          "text": "Confirm",
-                          "postback": "I'd like to confirm"
-                        },
                         {
                           "text": "Details",
                           "postback": "Could you give me more details?"
+                        },                        {
+                          "text": "Confirm",
+                          "postback": "I'd like to confirm"
                         },
                       ]
                     },
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": 'Feed the Homeless',
-                      "subtitle": 'Feed the Homeless',
-                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "title": l1_name,
+                      "subtitle": "Start: " + l1_start.strftime('%I:%M %p') + " on " + l1_start.strftime('%A %d %B') + ".\n End: "  + l1_end.strftime('%I:%M %p') + ".\n Address: " + l1_address + ", " + l1_postcode,
+                      "imageUrl": l1_image,
                       "buttons": [
                         {
-                          "text": "View Details",
-                          "postback": "http://www.google.co.uk"
-                        }
-                        ],
+                          "text": "Details",
+                          "postback": "Could you give me more details?"
+                        },                        {
+                          "text": "Confirm",
+                          "postback": "I'd like to confirm"
+                        },
+                      ]
+                    },                    {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": g1_name,
+                      "subtitle": "Start: " + g1_start.strftime('%I:%M %p') + " on " + g1_start.strftime('%A %d %B') + ".\n End: "  + g1_end.strftime('%I:%M %p') + ".\n Address: " + g1_address + ", " + g1_postcode,
+                      "imageUrl": g1_image,
+                      "buttons": [
+                        {
+                          "text": "Details",
+                          "postback": "Could you give me more details?"
+                        },                        {
+                          "text": "Confirm",
+                          "postback": "I'd like to confirm"
+                        },
+                      ]
                     },
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": 'Feed the Homeless',
-                      "subtitle": 'Feed the Homeless',
-                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "title": g2_name,
+                      "subtitle": "Start: " + g2_start.strftime('%I:%M %p') + " on " + g2_start.strftime('%A %d %B') + ".\n End: "  + g2_end.strftime('%I:%M %p') + ".\n Address: " + g2_address + ", " + g2_postcode,
+                      "imageUrl": g2_image,
                       "buttons": [
                         {
-                          "text": "View Details",
-                          "postback": "http://www.google.co.uk"
-                        }
-                        ],
+                          "text": "Details",
+                          "postback": "Could you give me more details?"
+                        },                        {
+                          "text": "Confirm",
+                          "postback": "I'd like to confirm"
+                        },
+                      ]
                     },
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": 'Feed the Homeless',
-                      "subtitle": 'Feed the Homeless',
-                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "title": g3_name,
+                      "subtitle": "Start: " + g3_start.strftime('%I:%M %p') + " on " + g3_start.strftime('%A %d %B') + ".\n End: "  + g3_end.strftime('%I:%M %p') + ".\n Address: " + g3_address + ", " + g3_postcode,
+                      "imageUrl": g3_image,
                       "buttons": [
                         {
-                          "text": "View Details",
-                          "postback": "http://www.google.co.uk"
-                        }
-                        ],
-                    },
-                    {
-                      "type": 1,
-                      "platform": "facebook",
-                      "title": 'Feed the Homeless',
-                      "subtitle": 'Feed the Homeless',
-                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
-                      "buttons": [
-                        {
-                          "text": "View Details",
-                          "postback": "http://www.google.co.uk"
-                        }
-                        ],
+                          "text": "Details",
+                          "postback": "Could you give me more details?"
+                        },                        {
+                          "text": "Confirm",
+                          "postback": "I'd like to confirm"
+                        },
+                      ]
                     },
                   ]
                 }
