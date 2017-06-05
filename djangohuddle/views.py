@@ -336,8 +336,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": g1_name,
-                      "subtitle": "Start: ",
-                      #+ str(g1_start.strftime('%I:%M %p') + " on " + str(g1_start.strftime('%A %d %B')) + ". End: "  + str(g1_start.strftime('%I:%M %p') + ". Postcode: " + g1_location,
+                      "subtitle": "Start: " + str(g1_start.strftime('%I:%M %p'), # + " on " + str(g1_start.strftime('%A %d %B')) + ". End: "  + str(g1_start.strftime('%I:%M %p') + ". Postcode: " + g1_location,
                       "imageUrl": g1_image,
                       "buttons": [
                         {
