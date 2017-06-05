@@ -318,7 +318,7 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_greater_1,
+                      "title": str(closest_greater_1),
                       "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
