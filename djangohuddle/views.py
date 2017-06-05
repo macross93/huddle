@@ -294,7 +294,24 @@ def makeWebhookResult(request):
                 #     naive = line.replace(tzinfo=None)
                 #     line2 = naive - datetime_object
                 #     print(line2)
-                closest_greater_1 = closest_greater_qs.values_list('name')[0]
+                g1_name = closest_greater_qs.values_list('name')[0]
+                g1_name = g1_name[0]
+
+                g1_details = closest_greater_qs.values_list('details')[0]
+                g1_details = g1_details[0]
+
+                g1_start = closest_greater_qs.values_list('start')[0]
+                g1_start = g1_start[0]
+
+                g1_end = closest_greater_qs.values_list('end')[0]
+                g1_end = g1_end[0]
+
+                g1_location = closest_greater_qs.values_list('postcode')[0]
+                g1_location = g1_location[0]
+
+                g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+
+
                 closest_greater_2 = closest_greater_qs[1]
                 closest_greater_3 = closest_greater_qs[2]
                 closest_less_1 = closest_less_qs[0]
@@ -318,14 +335,18 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_greater_1[0],
-                      "subtitle": 'Feed the Homeless',
-                      "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
+                      "title": g1_name,
+                      "subtitle": "Start: " + str(g1_start.strftime('%I:%M %p') + " on " + str(g1_start.strftime('%A %d %B')) + ". End: "  + str(g1_start.strftime('%I:%M %p') + ". Postcode: " + g1_location,
+                      "imageUrl": g1_image,
                       "buttons": [
                         {
-                          "text": "View Details",
-                          "postback": "http://www.google.co.uk"
-                        }
+                          "text": "Confirm",
+                          "postback": "I'd like to confirm"
+                        },
+                        {
+                          "text": "Details",
+                          "postback": "Could you give me more details?"
+                        },
                       ]
                     },
                     {
