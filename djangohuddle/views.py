@@ -306,8 +306,12 @@ def makeWebhookResult(request):
                 g1_end = closest_greater_qs.values_list('end')[0]
                 g1_end = g1_end[0]
 
-                g1_location = closest_greater_qs.values_list('postcode')[0]
-                g1_location = g1_location[0]
+                g1_postcode = closest_greater_qs.values_list('postcode')[0]
+                g1_postcode = g1_postcode[0]
+
+                g1_address = closest_greater_qs.values_list('address')[0]
+                g1_address = g1_address[0]               s
+
 
                 g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
@@ -336,7 +340,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": g1_name,
-                      "subtitle": "Start: " + g1_start.strftime('%I:%M %p') + " on " + g1_start.strftime('%A %d %B') + ".\n End: "  + g1_end.strftime('%I:%M %p') + ".\n Postcode: " + g1_location,
+                      "subtitle": "Start: " + g1_start.strftime('%I:%M %p') + " on " + g1_start.strftime('%A %d %B') + ".\n End: "  + g1_end.strftime('%I:%M %p') + ".\n Postcode: " + g1_address + ", " + g1_postcode,
                       "imageUrl": g1_image,
                       "buttons": [
                         {
