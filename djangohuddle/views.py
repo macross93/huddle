@@ -318,8 +318,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": closest_greater_1,
-                      "subtitle": closest_greater_1,
+                      "title": 'Feed the Homeless',
+                      "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -332,7 +332,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": 'Feed the Homeless',
-                      "subtitle": closest_greater_1,
+                      "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -345,7 +345,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": 'Feed the Homeless',
-                      "subtitle": closest_greater_1,
+                      "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -358,7 +358,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": 'Feed the Homeless',
-                      "subtitle": closest_greater_qs.values_list('details')[1],
+                      "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
@@ -371,7 +371,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": 'Feed the Homeless',
-                      "subtitle": closest_greater_qs.values_list('details')[2],
+                      "subtitle": 'Feed the Homeless',
                       "imageUrl": "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg",
                       "buttons": [
                         {
