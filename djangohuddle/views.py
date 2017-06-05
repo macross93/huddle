@@ -317,7 +317,7 @@ def makeWebhookResult(request):
                 closest_less_1 = closest_less_qs[0]
                 closest_less_2 = closest_less_qs[1]
 
-                print (closest_greater_1[0])
+#                print (closest_greater_1[0])
 
 
 
