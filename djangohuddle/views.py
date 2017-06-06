@@ -290,10 +290,7 @@ def makeWebhookResult(request):
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
 
             else:
-                # for line in e:
-                #     naive = line.replace(tzinfo=None)
-                #     line2 = naive - datetime_object
-                #     print(line2)
+                # The details for earliest event of 5
                 l2_name = closest_less_qs.values_list('name')[1]
                 l2_name = l2_name[0]
 
@@ -315,11 +312,7 @@ def makeWebhookResult(request):
                 l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
 
-
-
-
-
-
+                # The details for the 2nd event
                 l1_name = closest_less_qs.values_list('name')[0]
                 l1_name = l1_name[0]
 
@@ -340,11 +333,7 @@ def makeWebhookResult(request):
 
                 l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-
-
-
-
-
+                # The details for the 3rd event
                 g1_name = closest_greater_qs.values_list('name')[0]
                 g1_name = g1_name[0]
 
@@ -365,11 +354,7 @@ def makeWebhookResult(request):
 
                 g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-
-
-
-
-
+                # details for the 4th event
                 g2_name = closest_greater_qs.values_list('name')[1]
                 g2_name = g2_name[0]
 
@@ -390,11 +375,7 @@ def makeWebhookResult(request):
 
                 g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-
-
-
-
-
+                # details for the 5th event
                 g3_name = closest_greater_qs.values_list('name')[2]
                 g3_name = g3_name[0]
 
@@ -415,23 +396,6 @@ def makeWebhookResult(request):
 
                 g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-
-
-
-
-#                print (closest_greater_1[0])
-
-
-
-#                userevent=event.objects.get(start__gte=early_start, start__lte=late_start)
-#                userevent.volunteer = fb_id#
-#                userevent.save()
-#                f = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
-#                dateandtime = str(f.strftime('%I:%M %p')) + " on " + str(f.strftime('%A %d %B'))
-#                speech = "Great! We have an opportunity at " + dateandtime + " called " + str(e) + ". I can give you any details you want (charity, location, time, date, opportunity etc), just ask!"
-#                print("Response:")
-#                print(speech)
-#                contextOut = "confirm_event"
                 return {
                   "messages": [
                     {
@@ -443,10 +407,10 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Could you give me more details?"
+                          "postback": "details_description"
                         },                        {
                           "text": "Confirm",
-                          "postback": "I'd like to confirm"
+                          "postback": "event_confirmation"
                         },
                       ]
                     },
@@ -459,10 +423,10 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Could you give me more details?"
+                          "postback": "details_description"
                         },                        {
                           "text": "Confirm",
-                          "postback": "I'd like to confirm"
+                          "postback": "event_confirmation"
                         },
                       ]
                     },                    {
@@ -474,10 +438,10 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Could you give me more details?"
+                          "postback": "details_description"
                         },                        {
                           "text": "Confirm",
-                          "postback": "I'd like to confirm"
+                          "postback": "event_confirmation"
                         },
                       ]
                     },
@@ -490,10 +454,10 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Could you give me more details?"
+                          "postback": "details_description"
                         },                        {
                           "text": "Confirm",
-                          "postback": "I'd like to confirm"
+                          "postback": "event_confirmation"
                         },
                       ]
                     },
@@ -506,10 +470,10 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Could you give me more details?"
+                          "postback": "details_description"
                         },                        {
                           "text": "Confirm",
-                          "postback": "I'd like to confirm"
+                          "postback": "event_confirmation"
                         },
                       ]
                     },
