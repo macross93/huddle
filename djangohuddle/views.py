@@ -413,7 +413,7 @@ def makeWebhookResult(request):
             postback = originalData.get("postback")
             payload = postback.get("payload")
 
-            print(payload)
+            print(payload[8:])
 
             speech = payload
             contextOut = ""
