@@ -275,8 +275,6 @@ def makeWebhookResult(request):
                 closest_greater_qs = event.objects.filter(start__gte=datetime_object).order_by('start')
                 closest_less_qs = event.objects.filter(start__lt=datetime_object).order_by('-start')
 
-
-
                 #e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
             # There is no event, let's apologise and ask them to start again
             except event.DoesNotExist:
@@ -293,20 +291,10 @@ def makeWebhookResult(request):
             else:
 
                 l2 = closest_less_qs[1]
-                l2.fb_id = fb_id
-                l2.save()
                 l1 = closest_less_qs[0]
-                l1.fb_id = fb_id
-                l1.save()
                 g1 = closest_greater_qs[0]
-                g1.fb_id = fb_id
-                g1.save()
                 g2 = closest_greater_qs[1]
-                g2.fb_id = fb_id
-                g2.save()
                 g3 = closest_greater_qs[2]
-                g3.fb_id = fb_id
-                g3.save()
 
                 l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
@@ -416,9 +404,29 @@ def makeWebhookResult(request):
             primary_key = payload[8:]
 
             e = event.objects.filter(pk=primary_key)
-
-            speech = str(e.details) + " The event is at " str(e.address) + ', ' + str(e.postcode) + "... let me know if you can definitely make it :)"
+            e.fb_id = fb_id
+            e.save()
+            speech = str(e.details) + " The event is at " str(e.address) + ', ' + str(e.postcode) + ". You can ask any details you like just by typing"
             contextOut = "confirm_event"
+
+
+        if request.get("result").get("action") == "confirm_button":
+            originalRequest = request.get("originalRequest")
+            originalData = originalRequest.get("data")
+            postback = originalData.get("postback")
+            payload = postback.get("payload")
+
+            primary_key = payload[8:]
+
+            e = event.objects.filter(pk=primary_key)
+            if e.confirmed != "y":
+                e.confirmed = "y"
+                e.save()
+                speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
+                contextOut = "locked_in"
+            else:
+                speech = "Sorry mate! Someone must have snuck in on that opportunity when you weren't looking! Try another one..."
+                contextOut = "volunteer_timedate"
 
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
