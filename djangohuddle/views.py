@@ -308,6 +308,8 @@ def makeWebhookResult(request):
                 g3.fb_id = fb_id
                 g3.save()
 
+                print (g1.pk)
+
                 l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
                 l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
