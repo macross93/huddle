@@ -311,7 +311,7 @@ def makeWebhookResult(request):
                 print (l2.name)
                 print (l2.details)
                 print (l2.start)
-                
+
                 # The details for earliest event of 5
                 l2_name = closest_less_qs.values_list('name')[1]
                 l2_name = l2_name[0]
@@ -423,8 +423,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": l2_name,
-                      "subtitle": "Start: " + l2_start.strftime('%I:%M %p') + " on " + l2_start.strftime('%A %d %B') + ".\n End: "  + l2_end.strftime('%I:%M %p') + ".\n Address: " + l2_address + ", " + l2_postcode,
+                      "title": l2.name,
+                      "subtitle": "Start: " + l2.start.strftime('%I:%M %p') + " on " + l2.start.strftime('%A %d %B') + ".\n End: "  + l2_end.strftime('%I:%M %p') + ".\n Address: " + l2_address + ", " + l2_postcode,
                       "imageUrl": l2_image,
                       "buttons": [
                         {
