@@ -407,7 +407,13 @@ def makeWebhookResult(request):
                   ]
                 }
 
+        if request.get("result").get("action") == "details_button":
+            originalRequest = request.get("originalRequest")
+            originalData = originalRequest.get("data")
+            postback = originalData.get("postback")
+            payload = postback.get("payload")
 
+            print(payload)
 
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
