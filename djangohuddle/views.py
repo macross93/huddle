@@ -309,6 +309,8 @@ def makeWebhookResult(request):
                 g3.save()
 
                 print (g1.pk)
+                print (g2.pk)
+                print (l2.pk)
 
                 l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
