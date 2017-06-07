@@ -273,8 +273,23 @@ def makeWebhookResult(request):
             # Go and check for an event based on user input
             try:
                 closest_greater_qs = event.objects.filter(start__gte=datetime_object).order_by('start')
-
                 closest_less_qs = event.objects.filter(start__lt=datetime_object).order_by('-start')
+                l2 = closest_less_qs[1]
+                l2.fb_id = fb_id
+                l2.save()
+                l1 = closest_less_qs[0]
+                l1.fb_id = fb_id
+                l1.save()
+                g1 = closest_greater_qs[0]
+                g1.fb_id = fb_id
+                g1.save()
+                g2 = closest_greater_qs[1]
+                g2.fb_id = fb_id
+                g2.save()
+                g3 = closest_greater_qs[2]
+                g3.fb_id = fb_id
+                g3.save()
+
 
                 #e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
             # There is no event, let's apologise and ask them to start again
@@ -396,8 +411,6 @@ def makeWebhookResult(request):
 
                 g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-                print (closest_greater_qs.values_list('pk'))[0]
-
                 return {
                   "messages": [
                     {
@@ -486,6 +499,7 @@ def makeWebhookResult(request):
                     },
                   ]
                 }
+
 
 
         # if request.get("result").get("action") == "details_l2_button":
