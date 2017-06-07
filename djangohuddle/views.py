@@ -308,10 +308,6 @@ def makeWebhookResult(request):
                 g3.fb_id = fb_id
                 g3.save()
 
-                print (g1.pk)
-                print (g2.pk)
-                print (l2.pk)
-
                 l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
                 l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
@@ -333,11 +329,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details_l2"
+                          "postback": "Details " + str(l2.pk)
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm_l2"
+                          "postback": "Confirm " + str(l2.pk)
                         },
                       ]
                     },
@@ -350,11 +346,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details_l1"
+                          "postback": "Details " + str(l1.pk)
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm_l1"
+                          "postback": "Confirm " + str(l1.pk)
                         },
                       ]
                     },                    {
@@ -366,11 +362,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details_g1"
+                          "postback": "Details " + str(g1.pk)
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm_g1"
+                          "postback": "Confirm " + str(g1.pk)
                         },
                       ]
                     },
@@ -383,11 +379,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details_g2"
+                          "postback": "Details " + str(g2.pk)
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm_g2"
+                          "postback": "Confirm " + str(g2.pk)
                         },
                       ]
                     },
@@ -400,11 +396,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details_g3"
+                          "postback": "Details " + str(g3.pk)
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm_g3"
+                          "postback": "Confirm " + str(g3.pk)
                         },
                       ]
                     },
