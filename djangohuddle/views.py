@@ -308,113 +308,13 @@ def makeWebhookResult(request):
                 g3.fb_id = fb_id
                 g3.save()
 
-                print (l2.name)
-                print (l2.details)
-                print (l2.start)
-
-                # The details for earliest event of 5
-                l2_name = closest_less_qs.values_list('name')[1]
-                l2_name = l2_name[0]
-
-                l2_details = closest_less_qs.values_list('details')[1]
-                l2_details = l2_details[0]
-
-                l2_start = closest_less_qs.values_list('start')[1]
-                l2_start = l2_start[0]
-
-                l2_end = closest_less_qs.values_list('end')[1]
-                l2_end = l2_end[0]
-
-                l2_postcode = closest_less_qs.values_list('postcode')[1]
-                l2_postcode = l2_postcode[0]
-
-                l2_address = closest_less_qs.values_list('address')[1]
-                l2_address = l2_address[0]
-
                 l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-
-                # The details for the 2nd event
-                l1_name = closest_less_qs.values_list('name')[0]
-                l1_name = l1_name[0]
-
-                l1_details = closest_less_qs.values_list('details')[0]
-                l1_details = l1_details[0]
-
-                l1_start = closest_less_qs.values_list('start')[0]
-                l1_start = l1_start[0]
-
-                l1_end = closest_less_qs.values_list('end')[0]
-                l1_end = l1_end[0]
-
-                l1_postcode = closest_less_qs.values_list('postcode')[0]
-                l1_postcode = l1_postcode[0]
-
-                l1_address = closest_less_qs.values_list('address')[0]
-                l1_address = l1_address[0]
 
                 l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-                # The details for the 3rd event
-                g1_name = closest_greater_qs.values_list('name')[0]
-                g1_name = g1_name[0]
-
-                g1_details = closest_greater_qs.values_list('details')[0]
-                g1_details = g1_details[0]
-
-                g1_start = closest_greater_qs.values_list('start')[0]
-                g1_start = g1_start[0]
-
-                g1_end = closest_greater_qs.values_list('end')[0]
-                g1_end = g1_end[0]
-
-                g1_postcode = closest_greater_qs.values_list('postcode')[0]
-                g1_postcode = g1_postcode[0]
-
-                g1_address = closest_greater_qs.values_list('address')[0]
-                g1_address = g1_address[0]
-
                 g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
-                # details for the 4th event
-                g2_name = closest_greater_qs.values_list('name')[1]
-                g2_name = g2_name[0]
-
-                g2_details = closest_greater_qs.values_list('details')[1]
-                g2_details = g2_details[0]
-
-                g2_start = closest_greater_qs.values_list('start')[1]
-                g2_start = g2_start[0]
-
-                g2_end = closest_greater_qs.values_list('end')[1]
-                g2_end = g2_end[0]
-
-                g2_postcode = closest_greater_qs.values_list('postcode')[1]
-                g2_postcode = g2_postcode[0]
-
-                g2_address = closest_greater_qs.values_list('address')[1]
-                g2_address = g2_address[0]
-
                 g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-                # details for the 5th event
-                g3_name = closest_greater_qs.values_list('name')[2]
-                g3_name = g3_name[0]
-
-                g3_details = closest_greater_qs.values_list('details')[2]
-                g3_details = g3_details[0]
-
-                g3_start = closest_greater_qs.values_list('start')[2]
-                g3_start = g3_start[0]
-
-                g3_end = closest_greater_qs.values_list('end')[2]
-                g3_end = g3_end[0]
-
-                g3_postcode = closest_greater_qs.values_list('postcode')[2]
-                g3_postcode = g3_postcode[0]
-
-                g3_address = closest_greater_qs.values_list('address')[2]
-                g3_address = g3_address[0]
 
                 g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
@@ -424,7 +324,7 @@ def makeWebhookResult(request):
                       "type": 1,
                       "platform": "facebook",
                       "title": l2.name,
-                      "subtitle": "Start: " + l2.start.strftime('%I:%M %p') + " on " + l2.start.strftime('%A %d %B') + ".\n End: "  + l2_end.strftime('%I:%M %p') + ".\n Address: " + l2_address + ", " + l2_postcode,
+                      "subtitle": "Start: " + l2.start.strftime('%I:%M %p') + " on " + l2.start.strftime('%A %d %B') + ".\n End: "  + l2.end.strftime('%I:%M %p') + ".\n Address: " + l2.address + ", " + l2.postcode,
                       "imageUrl": l2_image,
                       "buttons": [
                         {
@@ -440,8 +340,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": l1_name,
-                      "subtitle": "Start: " + l1_start.strftime('%I:%M %p') + " on " + l1_start.strftime('%A %d %B') + ".\n End: "  + l1_end.strftime('%I:%M %p') + ".\n Address: " + l1_address + ", " + l1_postcode,
+                      "title": l1.name,
+                      "subtitle": "Start: " + l1.start.strftime('%I:%M %p') + " on " + l1.start.strftime('%A %d %B') + ".\n End: "  + l1.end.strftime('%I:%M %p') + ".\n Address: " + l1.address + ", " + l1.postcode,
                       "imageUrl": l1_image,
                       "buttons": [
                         {
@@ -456,8 +356,8 @@ def makeWebhookResult(request):
                     },                    {
                       "type": 1,
                       "platform": "facebook",
-                      "title": g1_name,
-                      "subtitle": "Start: " + g1_start.strftime('%I:%M %p') + " on " + g1_start.strftime('%A %d %B') + ".\n End: "  + g1_end.strftime('%I:%M %p') + ".\n Address: " + g1_address + ", " + g1_postcode,
+                      "title": g1.name,
+                      "subtitle": "Start: " + g1.start.strftime('%I:%M %p') + " on " + g1.start.strftime('%A %d %B') + ".\n End: "  + g1.end.strftime('%I:%M %p') + ".\n Address: " + g1.address + ", " + g1.postcode,
                       "imageUrl": g1_image,
                       "buttons": [
                         {
@@ -473,8 +373,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": g2_name,
-                      "subtitle": "Start: " + g2_start.strftime('%I:%M %p') + " on " + g2_start.strftime('%A %d %B') + ".\n End: "  + g2_end.strftime('%I:%M %p') + ".\n Address: " + g2_address + ", " + g2_postcode,
+                      "title": g2.name,
+                      "subtitle": "Start: " + g2.start.strftime('%I:%M %p') + " on " + g2.start.strftime('%A %d %B') + ".\n End: "  + g2.end.strftime('%I:%M %p') + ".\n Address: " + g2.address + ", " + g2.postcode,
                       "imageUrl": g2_image,
                       "buttons": [
                         {
@@ -490,8 +390,8 @@ def makeWebhookResult(request):
                     {
                       "type": 1,
                       "platform": "facebook",
-                      "title": g3_name,
-                      "subtitle": "Start: " + g3_start.strftime('%I:%M %p') + " on " + g3_start.strftime('%A %d %B') + ".\n End: "  + g3_end.strftime('%I:%M %p') + ".\n Address: " + g3_address + ", " + g3_postcode,
+                      "title": g3.name,
+                      "subtitle": "Start: " + g3.start.strftime('%I:%M %p') + " on " + g3.start.strftime('%A %d %B') + ".\n End: "  + g3.end.strftime('%I:%M %p') + ".\n Address: " + g3.address + ", " + g3.postcode,
                       "imageUrl": g3_image,
                       "buttons": [
                         {
