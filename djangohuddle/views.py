@@ -413,10 +413,12 @@ def makeWebhookResult(request):
             postback = originalData.get("postback")
             payload = postback.get("payload")
 
-            print(payload[8:])
+            primary_key = payload[8:]
 
-            speech = payload
-            contextOut = ""
+            e = event.objects.filter(pk=primary_key)
+
+            speech = str(e.details) + " The event is at " str(e.address) + ', ' + str(e.postcode) + "... let me know if you can definitely make it :)"
+            contextOut = "confirm_event"
 
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
