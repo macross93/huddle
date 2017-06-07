@@ -396,6 +396,8 @@ def makeWebhookResult(request):
 
                 g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
 
+                print (closest_greater_qs.values_list('pk'))[0]
+
                 return {
                   "messages": [
                     {
@@ -486,7 +488,7 @@ def makeWebhookResult(request):
                 }
 
 
-        # if request.get("result").get("action") == "details_button":
+        # if request.get("result").get("action") == "details_l2_button":
         #     try:
         #         eventdate = parameters.get("event-date")
         #     except:
