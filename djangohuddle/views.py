@@ -407,11 +407,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details"
+                          "postback": "Details_l2"
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm"
+                          "postback": "Confirm_l2"
                         },
                       ]
                     },
@@ -424,11 +424,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details"
+                          "postback": "Details_l1"
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm"
+                          "postback": "Confirm_l1"
                         },
                       ]
                     },                    {
@@ -440,11 +440,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details"
+                          "postback": "Details_g1"
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm"
+                          "postback": "Confirm_g1"
                         },
                       ]
                     },
@@ -457,11 +457,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details"
+                          "postback": "Details_g2"
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm"
+                          "postback": "Confirm_g2"
                         },
                       ]
                     },
@@ -474,16 +474,28 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "Details"
+                          "postback": "Details_g3"
                         },
                         {
                           "text": "Confirm",
-                          "postback": "Confirm"
+                          "postback": "Confirm_g3"
                         },
                       ]
                     },
                   ]
                 }
+
+
+        # if request.get("result").get("action") == "details_button":
+        #     try:
+        #         eventdate = parameters.get("event-date")
+        #     except:
+        #         pass
+        #     else:
+        #         e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+        #         speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B')) + ". Let me know when you're able to confirm :)"
+        #         contextOut = "confirm_event"
+
 
 
         # Have they asked for the date of the event?
