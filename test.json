@@ -1,0 +1,64 @@
+{
+  "id": "f419944e-5158-4842-a06f-b3cb71dd336e",
+  "timestamp": "2017-06-04T00:06:45.993Z",
+  "lang": "en",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "What song is this?",
+    "action": "",
+    "actionIncomplete": false,
+    "parameters": {},
+    "contexts": [],
+    "metadata": {
+      "intentId": "ce21eeb0-493b-4d0e-b900-e6b46b8cdb9b",
+      "webhookUsed": "false",
+      "webhookForSlotFillingUsed": "false",
+      "intentName": "what-song"
+    },
+    "fulfillment": {
+      "speech": "This song is Clair de Lune",
+      "messages": [
+        {
+          "type": 1,
+          "platform": "facebook",
+          "title": "Feed the Homeless",
+          "subtitle": "This is a chance to feed the homeless",
+          "buttons": [
+            {
+              "text": "View Details",
+              "postback": "http://www.google.co.uk"
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "speech": "This song is Clair de Lune"
+        },
+        {
+          "type": 4,
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "feed the homeless"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "score": 1
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "97529c7a-1fa4-489c-ba6c-fc4aba706fbd"
+}
