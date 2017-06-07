@@ -274,21 +274,7 @@ def makeWebhookResult(request):
             try:
                 closest_greater_qs = event.objects.filter(start__gte=datetime_object).order_by('start')
                 closest_less_qs = event.objects.filter(start__lt=datetime_object).order_by('-start')
-                l2 = closest_less_qs[1]
-                l2.fb_id = fb_id
-                l2.save()
-                l1 = closest_less_qs[0]
-                l1.fb_id = fb_id
-                l1.save()
-                g1 = closest_greater_qs[0]
-                g1.fb_id = fb_id
-                g1.save()
-                g2 = closest_greater_qs[1]
-                g2.fb_id = fb_id
-                g2.save()
-                g3 = closest_greater_qs[2]
-                g3.fb_id = fb_id
-                g3.save()
+
 
 
                 #e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
@@ -305,6 +291,27 @@ def makeWebhookResult(request):
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
 
             else:
+
+                l2 = closest_less_qs[1]
+                l2.fb_id = fb_id
+                l2.save()
+                l1 = closest_less_qs[0]
+                l1.fb_id = fb_id
+                l1.save()
+                g1 = closest_greater_qs[0]
+                g1.fb_id = fb_id
+                g1.save()
+                g2 = closest_greater_qs[1]
+                g2.fb_id = fb_id
+                g2.save()
+                g3 = closest_greater_qs[2]
+                g3.fb_id = fb_id
+                g3.save()
+
+                print (l2.name)
+                print (l2.details)
+                print (l2.start)
+                
                 # The details for earliest event of 5
                 l2_name = closest_less_qs.values_list('name')[1]
                 l2_name = l2_name[0]
