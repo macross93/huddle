@@ -415,6 +415,9 @@ def makeWebhookResult(request):
 
             print(payload)
 
+            speech = payload
+            contextOut = ""
+
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
         #         eventdate = parameters.get("event-date")
