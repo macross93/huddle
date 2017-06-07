@@ -407,10 +407,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "details_description"
-                        },                        {
+                          "postback": "Details"
+                        },
+                        {
                           "text": "Confirm",
-                          "postback": "event_confirmation"
+                          "postback": "Confirm"
                         },
                       ]
                     },
@@ -423,10 +424,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "details_description"
-                        },                        {
+                          "postback": "Details"
+                        },
+                        {
                           "text": "Confirm",
-                          "postback": "event_confirmation"
+                          "postback": "Confirm"
                         },
                       ]
                     },                    {
@@ -438,10 +440,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "details_description"
-                        },                        {
+                          "postback": "Details"
+                        },
+                        {
                           "text": "Confirm",
-                          "postback": "event_confirmation"
+                          "postback": "Confirm"
                         },
                       ]
                     },
@@ -454,10 +457,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "details_description"
-                        },                        {
+                          "postback": "Details"
+                        },
+                        {
                           "text": "Confirm",
-                          "postback": "event_confirmation"
+                          "postback": "Confirm"
                         },
                       ]
                     },
@@ -470,10 +474,11 @@ def makeWebhookResult(request):
                       "buttons": [
                         {
                           "text": "Details",
-                          "postback": "details_description"
-                        },                        {
+                          "postback": "Details"
+                        },
+                        {
                           "text": "Confirm",
-                          "postback": "event_confirmation"
+                          "postback": "Confirm"
                         },
                       ]
                     },
