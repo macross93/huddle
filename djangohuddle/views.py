@@ -416,7 +416,7 @@ def makeWebhookResult(request):
             postback = originalData.get("postback")
             payload = postback.get("payload")
 
-            primary_key = payload[8]:]
+            primary_key = payload[8:]
 
             e = event.objects.filter(pk=int(primary_key))[0]
             if e.confirmed != "y":
