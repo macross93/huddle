@@ -425,11 +425,14 @@ def makeWebhookResult(request):
                 print ("this was confirmed")
                 speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
                 contextOut = "locked_in"
+                sending_message = return_message(speech, contextOut)
+                return sending_messag
             else:
                 speech = "Sorry mate! Someone must have snuck in on that opportunity when you weren't looking! Try another one..."
                 contextOut = "volunteer_timedate"
                 print ("This was not confirmed")
-
+                sending_message = return_message(speech, contextOut)
+                return sending_messag
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
         #         eventdate = parameters.get("event-date")
