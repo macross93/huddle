@@ -403,7 +403,7 @@ def makeWebhookResult(request):
 
             primary_key = payload[8:]
 
-            e = event.objects.filter(pk=primary_key)
+            e = event.objects.filter(pk=int(primary_key))
             e.volunteer = fb_id
             e.save()
             speech = str(e.details) + " The event is at " + str(e.address) + ', ' + str(e.postcode) + ". You can ask any details you like just by typing"
@@ -418,7 +418,7 @@ def makeWebhookResult(request):
 
             primary_key = payload[8:]
 
-            e = event.objects.filter(pk=primary_key)
+            e = event.objects.filter(pk=str(primary_key))
             if e.confirmed != "y":
                 e.confirmed = "y"
                 e.save()
