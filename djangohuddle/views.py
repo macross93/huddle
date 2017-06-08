@@ -134,6 +134,7 @@ def makeWebhookResult(request):
     timezone = user_profile['timezone']
     gender = user_profile['gender']
 
+
     # Are they already confirmed on an event?
     try:
         e = event.objects.filter(volunteer=fb_id, confirmed="y")[0]
@@ -422,13 +423,11 @@ def makeWebhookResult(request):
             if e.confirmed != "y":
                 e.confirmed = "y"
                 e.save()
-                print ("this was confirmed")
                 speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
                 contextOut = "locked_in"
             else:
                 speech = "Sorry mate! Someone must have snuck in on that opportunity when you weren't looking! Try another one..."
                 contextOut = "volunteer_timedate"
-                print ("This was not confirmed")
 
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
@@ -445,11 +444,14 @@ def makeWebhookResult(request):
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
             try:
+                payload = parameters.get("details-button")
                 eventdate = parameters.get("event-date")
+
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primarky_key).values_list('start', flat=True)[0]
                 speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B')) + ". Let me know when you're able to confirm :)"
                 contextOut = "confirm_event"
 
