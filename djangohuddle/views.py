@@ -497,6 +497,7 @@ def makeWebhookResult(request):
                 contexts = result.get("contexts")
                 parameters_2 = contexts.get("parameters")
                 payload = parameters_2.get("details-button")
+                print(payload)
                 eventlocation = parameters.get("event-location")
             except:
                 pass
