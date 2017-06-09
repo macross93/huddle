@@ -145,6 +145,7 @@ def makeWebhookResult(request):
 
         # Have they asked to cancel the event?
         if request.get("result").get("action") == "event_cancel":
+
             e1 = event.objects.filter(volunteer=fb_id)[0]
             e1.confirmed = 'n'
             e1.volunteer = ''
@@ -401,9 +402,7 @@ def makeWebhookResult(request):
             originalData = originalRequest.get("data")
             postback = originalData.get("postback")
             payload = postback.get("payload")
-
             primary_key = payload[8:]
-
             e = event.objects.filter(pk=int(primary_key))[0]
             e.volunteer = fb_id
             e.save()
@@ -416,9 +415,7 @@ def makeWebhookResult(request):
             originalData = originalRequest.get("data")
             postback = originalData.get("postback")
             payload = postback.get("payload")
-
             primary_key = payload[8:]
-
             e = event.objects.filter(pk=int(primary_key))[0]
             if e.confirmed != "y":
                 e.confirmed = "y"
@@ -451,84 +448,99 @@ def makeWebhookResult(request):
                 pass
             else:
                 primary_key = int(payload[8:])
-                e = event.objects.filter(pk=primarky_key).values_list('start', flat=True)[0]
+                e = event.objects.filter(pk=primary_key).values_list('start', flat=True)[0]
                 speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B')) + ". Let me know when you're able to confirm :)"
                 contextOut = "confirm_event"
 
         # Have they asked for the start time of the event?
         if request.get("result").get("action") == "details_starttime":
             try:
+                payload = parameters.get("details-button")
                 eventstarttime = parameters.get("event-start-time")
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primary_key).values_list('start', flat=True)[0]
                 speech = "It starts at " + str(e.strftime('%I:%M %p'))
                 contextOut = "confirm_event"
 
         # Have they asked for the end time of the event?
         if request.get("result").get("action") == "details_endtime":
             try:
+                payload = parameters.get("details-button")
                 eventendtime = parameters.get("event-end-time")
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primary_key).values_list('end', flat=True)[0]
                 speech = "It ends at " + str(e.strftime('%I.%M %p'))
                 contextOut = "confirm_event"
 
         # Have they asked for the duration of the event?
         if request.get("result").get("action") == "details_duration":
             try:
+                payload = parameters.get("details-button")
                 eventduration = parameters.get("event-duration")
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('duration', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primary_key).values_list('duration', flat=True)[0]
                 speech = str(e) + " hours"
                 contextOut = "confirm_event"
 
         # Have they asked for the location of the event?
         if request.get("result").get("action") == "details_location":
             try:
+                payload = parameters.get("details-button")
                 eventlocation = parameters.get("event-location")
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('address', flat=True)[0]
-                f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primary_key).values_list('address', flat=True)[0]
+                f = event.objects.filter(pk=primary_key).values_list('postcode', flat=True)[0]
                 speech = str(e) + ', ' + str(f) + "... let me know if you can definitely make it :)"
                 contextOut = "confirm_event"
 
         # Have they asked for a description of the event?
         if request.get("result").get("action") == "details_description":
             try:
+                payload = parameters.get("details-button")
                 eventduration = parameters.get("event-description")
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('details', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primary_key).values_list('details', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
 
         # Have they asked for the name of the charity running the event?
         if request.get("result").get("action") == "details_charityname":
             try:
+                payload = parameters.get("details-button")
                 eventduration = parameters.get("event-charity-name")
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
+                primary_key = int(payload[8:])
+                e = event.objects.filter(pk=primary_key).values_list('charity', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
 
         if request.get("result").get("action") == "event_confirmation":
             try:
+                payload = parameters.get("details-button")
                 confirmation = parameters.get("confirmation")
             except:
                 pass
             else:
-                e1 = event.objects.filter(volunteer=fb_id)[0]
+                primary_key = int(payload[8:])
+                e1 = event.objects.filter(pk=primary_key).values_list('end', flat=True)[0]
+                e1.volunteer = fb_id
                 e1.confirmed = 'y'
                 e1.save()
                 speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
