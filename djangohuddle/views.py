@@ -146,7 +146,7 @@ def makeWebhookResult(request):
         # Have they asked to cancel the event?
         if request.get("result").get("action") == "event_cancel":
 
-            e1 = event.objects.filter(volunteer=fb_id)[0]
+            e1 = event.objects.filter(volunteer=fb_id,confirmed="y")[0]
             e1.confirmed = 'n'
             e1.volunteer = ''
             e1.save()
