@@ -494,7 +494,7 @@ def makeWebhookResult(request):
         # Have they asked for the location of the event?
         if request.get("result").get("action") == "details_location":
             try:
-#                contexts = result.get("contexts")
+                contexts = result.get("contexts")
 #                parameters_2 = contexts.get("parameters")
 #                payload = parameters_2.get("details-button")
 
