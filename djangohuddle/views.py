@@ -502,7 +502,6 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                print(payload)
 #                primary_key = int(payload[8:])
                 primary_key = 8
                 e = event.objects.filter(pk=primary_key).values_list('address', flat=True)[0]
