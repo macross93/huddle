@@ -559,12 +559,21 @@ def makeWebhookResult(request):
                 pass
             else:
                 primary_key = int(payload[8:])
-                e1 = event.objects.filter(pk=primary_key)[0]
-                e1.volunteer = fb_id
-                e1.confirmed = 'y'
-                e1.save()
-                speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
-                contextOut = "locked_in"
+
+                try:
+                    e2 = event.objects.filter(volunteer=fb_id,confirmed="y")
+
+                except event.DoesNotExist:
+                    e1 = event.objects.filter(pk=primary_key)[0]
+                    e1.volunteer = fb_id
+                    e1.confirmed = 'y'
+                    e1.save()
+                    speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
+                    contextOut = "locked_in"
+
+                else:
+                    speech = "Sorry, you're already confirmed on one event! We can only confirm people on one event at a time. If you've forgotten about this event, ask me for details!"
+                    contextOut = volunteer_timedate
 
         sending_message = return_message(speech, contextOut)
         return sending_message
