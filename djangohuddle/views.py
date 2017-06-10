@@ -494,15 +494,13 @@ def makeWebhookResult(request):
         # Have they asked for the location of the event?
         if request.get("result").get("action") == "details_location":
             try:
-                print(data['details-button'])
                 eventlocation = parameters.get("event-location")
 
 
             except:
                 pass
             else:
-                print(payload)
-
+                print(data['details-button'])
 #                primary_key = int(payload[8:])
                 primary_key = 8
                 e = event.objects.filter(pk=primary_key).values_list('address', flat=True)[0]
