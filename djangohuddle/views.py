@@ -417,14 +417,25 @@ def makeWebhookResult(request):
             payload = postback.get("payload")
             primary_key = payload[8:]
             e = event.objects.filter(pk=int(primary_key))[0]
-            if e.confirmed != "y":
-                e.confirmed = "y"
-                e.save()
-                speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
-                contextOut = "locked_in"
+
+            try:
+                e2 = event.objects.filter(volunteer=fb_id,confirmed="y")
+
+            except event.DoesNotExist:
+                if e.confirmed != "y":
+                    e.confirmed = "y"
+                    e.save()
+                    speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
+                    contextOut = "locked_in"
+                else:
+                    speech = "Sorry mate! Someone must have snuck in on that opportunity when you weren't looking! Try another one..."
+                    contextOut = "volunteer_timedate"                
+
             else:
-                speech = "Sorry mate! Someone must have snuck in on that opportunity when you weren't looking! Try another one..."
-                contextOut = "volunteer_timedate"
+                speech = "Sorry, you're already confirmed on one event! We can only confirm people on one event at a time. If you've forgotten about this event, ask me for details!"
+                contextOut = volunteer_timedate
+
+
 
         # if request.get("result").get("action") == "details_l2_button":
         #     try:
