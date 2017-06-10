@@ -160,7 +160,7 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
                 speech = "Your volunteering opportunity is on " + str(e.strftime('%A %d %B'))
                 contextOut = "confirm_event"
 
@@ -171,7 +171,7 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('start', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
                 speech = "It starts at " + str(e.strftime('%I.%M %p'))
                 contextOut = "confirm_event"
 
@@ -182,7 +182,7 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('end', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('end', flat=True)[0]
                 speech = "It ends at " + str(e.strftime('%I:%M %p'))
                 contextOut = "confirm_event"
 
@@ -193,7 +193,7 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('duration', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('duration', flat=True)[0]
                 speech = str(e) + " hours"
                 contextOut = "confirm_event"
 
@@ -204,8 +204,8 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('address', flat=True)[0]
-                f = event.objects.filter(volunteer=fb_id).values_list('postcode', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('address', flat=True)[0]
+                f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('postcode', flat=True)[0]
                 speech = str(e) + ', ' + str(f)
                 contextOut = "confirm_event"
 
@@ -216,7 +216,7 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('details', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('details', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
 
@@ -227,7 +227,7 @@ def makeWebhookResult(request):
             except:
                 pass
             else:
-                e = event.objects.filter(volunteer=fb_id).values_list('charity', flat=True)[0]
+                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('charity', flat=True)[0]
                 speech = str(e)
                 contextOut = "confirm_event"
 
