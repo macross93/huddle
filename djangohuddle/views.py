@@ -584,7 +584,7 @@ def makeWebhookResult(request):
 
                 else:
                     speech = "Sorry, you're already confirmed on one event! We can only confirm people on one event at a time. If you've forgotten about this event, ask me for details!"
-                    contextOut = volunteer_timedate
+                    contextOut = "volunteer_timedate"
 
         sending_message = return_message(speech, contextOut)
         return sending_message
