@@ -495,7 +495,7 @@ def makeWebhookResult(request):
         if request.get("result").get("action") == "details_location":
             try:
                 eventlocation = parameters.get("event-location")
-                context = result.get("contexts")
+                context = result.get("contexts")[0]
 
             except:
                 pass
