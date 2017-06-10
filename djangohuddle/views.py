@@ -494,16 +494,12 @@ def makeWebhookResult(request):
         # Have they asked for the location of the event?
         if request.get("result").get("action") == "details_location":
             try:
-
-
                 payload = parameters.get("details-button")
-
                 eventlocation = parameters.get("event-location")
             except:
                 pass
             else:
-#                primary_key = int(payload[8:])
-                primary_key = 8
+                primary_key = int(payload[8:])
                 e = event.objects.filter(pk=primary_key).values_list('address', flat=True)[0]
                 f = event.objects.filter(pk=primary_key).values_list('postcode', flat=True)[0]
                 speech = str(e) + ', ' + str(f) + "... let me know if you can definitely make it :)"
