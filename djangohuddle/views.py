@@ -559,7 +559,7 @@ def makeWebhookResult(request):
                 pass
             else:
                 primary_key = int(payload[8:])
-                e1 = event.objects.filter(pk=primary_key).values_list('end', flat=True)[0]
+                e1 = event.objects.filter(pk=primary_key)[0]
                 e1.volunteer = fb_id
                 e1.confirmed = 'y'
                 e1.save()
