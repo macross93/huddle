@@ -496,10 +496,13 @@ def makeWebhookResult(request):
             try:
                 payload = parameters.get("contexts")
                 eventlocation = parameters.get("event-location")
+                name = payload.get("name")
+
             except:
                 pass
             else:
-
+                print(payload[0])
+                print(name)
 #                primary_key = int(payload[8:])
                 primary_key = 8
                 e = event.objects.filter(pk=primary_key).values_list('address', flat=True)[0]
