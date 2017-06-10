@@ -441,7 +441,9 @@ def makeWebhookResult(request):
         # Have they asked for the date of the event?
         if request.get("result").get("action") == "details_date":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 eventdate = parameters.get("event-date")
 
             except:
@@ -455,7 +457,9 @@ def makeWebhookResult(request):
         # Have they asked for the start time of the event?
         if request.get("result").get("action") == "details_starttime":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 eventstarttime = parameters.get("event-start-time")
             except:
                 pass
@@ -468,7 +472,9 @@ def makeWebhookResult(request):
         # Have they asked for the end time of the event?
         if request.get("result").get("action") == "details_endtime":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 eventendtime = parameters.get("event-end-time")
             except:
                 pass
@@ -481,7 +487,9 @@ def makeWebhookResult(request):
         # Have they asked for the duration of the event?
         if request.get("result").get("action") == "details_duration":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 eventduration = parameters.get("event-duration")
             except:
                 pass
@@ -499,7 +507,6 @@ def makeWebhookResult(request):
                 parameters_2 = context.get("parameters")
                 payload = parameters_2.get("details-button")
 
-
             except:
                 pass
             else:
@@ -515,7 +522,9 @@ def makeWebhookResult(request):
         # Have they asked for a description of the event?
         if request.get("result").get("action") == "details_description":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 eventduration = parameters.get("event-description")
             except:
                 pass
@@ -528,7 +537,9 @@ def makeWebhookResult(request):
         # Have they asked for the name of the charity running the event?
         if request.get("result").get("action") == "details_charityname":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 eventduration = parameters.get("event-charity-name")
             except:
                 pass
@@ -540,7 +551,9 @@ def makeWebhookResult(request):
 
         if request.get("result").get("action") == "event_confirmation":
             try:
-                payload = parameters.get("details-button")
+                context = result.get("contexts")[0]
+                parameters_2 = context.get("parameters")
+                payload = parameters_2.get("details-button")
                 confirmation = parameters.get("confirmation")
             except:
                 pass
