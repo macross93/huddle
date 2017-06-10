@@ -429,11 +429,11 @@ def makeWebhookResult(request):
                     contextOut = "locked_in"
                 else:
                     speech = "Sorry mate! Someone must have snuck in on that opportunity when you weren't looking! Try another one..."
-                    contextOut = "volunteer_timedate"                
+                    contextOut = "volunteer_timedate"
 
             else:
                 speech = "Sorry, you're already confirmed on one event! We can only confirm people on one event at a time. If you've forgotten about this event, ask me for details!"
-                contextOut = volunteer_timedate
+                contextOut = "volunteer_timedate"
 
 
 
