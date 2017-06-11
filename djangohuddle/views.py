@@ -297,6 +297,8 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     l2_card = ""
+                except event.IndexError:
+                    l2_card = ""
 
                 else:
                     l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
@@ -324,6 +326,8 @@ def makeWebhookResult(request):
                     l1 = event.objects.filter(start__lt=datetime_object,confirmed="n").order_by('-start')[0]
 
                 except event.DoesNotExist:
+                    l1_card = ""
+                except event.IndexError:
                     l1_card = ""
 
                 else:
@@ -353,6 +357,8 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     g1_card = ""
+                except event.IndexError:
+                    g1_card = ""
 
                 else:
                     g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
@@ -381,6 +387,9 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     g2_card = ""
+                except event.IndexError:
+                    g2_card = ""
+
 
                 else:
                     g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
@@ -408,6 +417,8 @@ def makeWebhookResult(request):
                     g3 = event.objects.filter(start__gte=datetime_object,confirmed="n").order_by('start')[2]
 
                 except event.DoesNotExist:
+                    g3_card = ""
+                except event.IndexError:
                     g3_card = ""
 
                 else:
