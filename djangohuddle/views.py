@@ -337,7 +337,7 @@ def makeWebhookResult(request):
 
                 return {
                   "messages": [
-                    l2_card +
+#                    l2_card +
                     {
                       "type": 1,
                       "platform": "facebook",
