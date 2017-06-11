@@ -629,7 +629,7 @@ def makeWebhookResult(request):
                 try:
                     e2 = event.objects.filter(volunteer=fb_id,confirmed="y")[0]
 
-                except event.DoesNotExist:
+                except IndexError:
                     e1 = event.objects.filter(pk=primary_key)[0]
                     e1.volunteer = fb_id
                     e1.confirmed = 'y'
