@@ -251,6 +251,16 @@ def makeWebhookResult(request):
             # Get a bunch of information from the JSON
             day = parameters.get("date")
             when = parameters.get("time")
+            if when == "evening":
+                when = "19:00:00"
+            if when == "afternoon":
+                when = "15:00:00"
+            if when == "lunchtime":
+                when = "13:00:00"
+            if when == "midday":
+                when = "12:00:00"
+            if when == "morning":
+                when = "09:00:00"
             dur = parameters.get("duration")
             location = parameters.get("location")
             available_time = str(day) + " " + str(when)
