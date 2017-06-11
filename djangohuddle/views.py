@@ -320,28 +320,17 @@ def makeWebhookResult(request):
                       ]
                     }
 
+                try:
+                    l1 = closest_less_qs[0]
 
+                except event.DoesNotExist:
+                    l1_card = ""
 
-                print(l2_card)
-                l1 = closest_less_qs[0]
-                g1 = closest_greater_qs[0]
-                g2 = closest_greater_qs[1]
-                g3 = closest_greater_qs[2]
+                else:
+                    l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+                    title = l1.name
 
-                l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-                l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-                g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-                g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-                g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
-
-                return {
-                  "messages": [
-                    l2_card,
-                    {
+                    l1_card = {
                       "type": 1,
                       "platform": "facebook",
                       "title": l1.name,
@@ -357,7 +346,19 @@ def makeWebhookResult(request):
                           "postback": "Confirm " + str(l1.pk)
                         },
                       ]
-                    },                    {
+                    }
+
+                try:
+                    g1 = closest_greater_qs[0]
+
+                except event.DoesNotExist:
+                    g1_card = ""
+
+                else:
+                    g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+                    title = g1.name
+
+                    g1_card = {
                       "type": 1,
                       "platform": "facebook",
                       "title": g1.name,
@@ -373,8 +374,19 @@ def makeWebhookResult(request):
                           "postback": "Confirm " + str(g1.pk)
                         },
                       ]
-                    },
-                    {
+                    }
+
+                try:
+                    g2 = closest_less_qs[1]
+
+                except event.DoesNotExist:
+                    g2_card = ""
+
+                else:
+                    g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+                    title = g2.name
+
+                    g2_card = {
                       "type": 1,
                       "platform": "facebook",
                       "title": g2.name,
@@ -390,8 +402,19 @@ def makeWebhookResult(request):
                           "postback": "Confirm " + str(g2.pk)
                         },
                       ]
-                    },
-                    {
+                    }
+
+                try:
+                    g3 = closest_less_qs[2]
+
+                except event.DoesNotExist:
+                    g3_card = ""
+
+                else:
+                    g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+                    title = g3.name
+
+                    g3_card = {
                       "type": 1,
                       "platform": "facebook",
                       "title": g3.name,
@@ -407,8 +430,12 @@ def makeWebhookResult(request):
                           "postback": "Confirm " + str(g3.pk)
                         },
                       ]
-                    },
-                  ]
+                    }
+
+                return {
+                  "messages": [
+                    l2_card, l1_card, g1_card, g2_card, g3_card,
+                    ]
                 }
 
         if request.get("result").get("action") == "details_button":
