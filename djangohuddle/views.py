@@ -173,7 +173,7 @@ def makeWebhookResult(request):
             else:
                 e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
                 f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('end', flat=True)[0]
-                speech = "It starts at " + str(e.strftime('%I.%M %p')) + ", ending at " + str(f.strftime('%I.%M %p')) ", on " + str(e.strftime('%A %d %B'))
+                speech = "It starts at " + str(e.strftime('%I.%M %p')) + ", ending at " + str(f.strftime('%I.%M %p')) + ", on " + str(e.strftime('%A %d %B'))
                 contextOut = "confirm_event"
 
         # Have they asked for the duration of the event?
