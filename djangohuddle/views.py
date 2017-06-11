@@ -297,7 +297,7 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     l2_card = ""
-                except event.IndexError:
+                except IndexError:
                     l2_card = ""
 
                 else:
@@ -327,7 +327,7 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     l1_card = ""
-                except event.IndexError:
+                except IndexError:
                     l1_card = ""
 
                 else:
@@ -357,7 +357,7 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     g1_card = ""
-                except event.IndexError:
+                except IndexError:
                     g1_card = ""
 
                 else:
@@ -387,7 +387,7 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     g2_card = ""
-                except event.IndexError:
+                except IndexError:
                     g2_card = ""
 
 
@@ -418,7 +418,7 @@ def makeWebhookResult(request):
 
                 except event.DoesNotExist:
                     g3_card = ""
-                except event.IndexError:
+                except IndexError:
                     g3_card = ""
 
                 else:
