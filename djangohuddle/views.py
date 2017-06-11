@@ -627,7 +627,7 @@ def makeWebhookResult(request):
                 primary_key = int(payload[8:])
 
                 try:
-                    e2 = event.objects.filter(volunteer=fb_id,confirmed="y")
+                    e2 = event.objects.filter(volunteer=fb_id,confirmed="y")[0]
 
                 except event.DoesNotExist:
                     e1 = event.objects.filter(pk=primary_key)[0]
