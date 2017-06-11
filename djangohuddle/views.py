@@ -251,6 +251,8 @@ def makeWebhookResult(request):
             # Get a bunch of information from the JSON
             day = parameters.get("date")
             when = parameters.get("time")
+            if when == "night":
+                when = "19:00:00"
             if when == "evening":
                 when = "19:00:00"
             if when == "afternoon":
