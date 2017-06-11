@@ -293,7 +293,7 @@ def makeWebhookResult(request):
             else:
 
                 try:
-                    l2 = closest_less_qs[1]
+                    l2 = event.objects.filter(start__lt=datetime_object,confirmed="n").order_by('-start')[1]
 
                 except event.DoesNotExist:
                     l2_card = ""
@@ -321,7 +321,7 @@ def makeWebhookResult(request):
                     }
 
                 try:
-                    l1 = closest_less_qs[0]
+                    l1 = event.objects.filter(start__lt=datetime_object,confirmed="n").order_by('-start')[0]
 
                 except event.DoesNotExist:
                     l1_card = ""
@@ -349,7 +349,7 @@ def makeWebhookResult(request):
                     }
 
                 try:
-                    g1 = closest_greater_qs[0]
+                    g1 = event.objects.filter(start__gte=datetime_object,confirmed="n").order_by('start')[0]
 
                 except event.DoesNotExist:
                     g1_card = ""
@@ -377,7 +377,7 @@ def makeWebhookResult(request):
                     }
 
                 try:
-                    g2 = closest_less_qs[1]
+                    g2 = event.objects.filter(start__gte=datetime_object,confirmed="n").order_by('start')[1]
 
                 except event.DoesNotExist:
                     g2_card = ""
@@ -405,7 +405,7 @@ def makeWebhookResult(request):
                     }
 
                 try:
-                    g3 = closest_less_qs[2]
+                    g3 = event.objects.filter(start__gte=datetime_object,confirmed="n").order_by('start')[2]
 
                 except event.DoesNotExist:
                     g3_card = ""
