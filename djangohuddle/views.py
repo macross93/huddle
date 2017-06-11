@@ -165,25 +165,15 @@ def makeWebhookResult(request):
                 contextOut = "confirm_event"
 
         # Have they asked for the start time of the event?
-        if request.get("result").get("action") == "details_starttime":
+        if request.get("result").get("action") == "details_time":
             try:
                 eventstarttime = parameters.get("event-start-time")
             except:
                 pass
             else:
                 e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('start', flat=True)[0]
-                speech = "It starts at " + str(e.strftime('%I.%M %p'))
-                contextOut = "confirm_event"
-
-        # Have they asked for the end time of the event?
-        if request.get("result").get("action") == "details_endtime":
-            try:
-                eventendtime = parameters.get("event-end-time")
-            except:
-                pass
-            else:
-                e = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('end', flat=True)[0]
-                speech = "It ends at " + str(e.strftime('%I:%M %p'))
+                f = event.objects.filter(volunteer=fb_id, confirmed="y").values_list('end', flat=True)[0]
+                speech = "It starts at " + str(e.strftime('%I.%M %p')) + ", ending at " + str(f.strftime('%I.%M %p')) ", on " + str(e.strftime('%A %d %B'))
                 contextOut = "confirm_event"
 
         # Have they asked for the duration of the event?
