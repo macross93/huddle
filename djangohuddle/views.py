@@ -318,11 +318,11 @@ def makeWebhookResult(request):
                           "postback": "Confirm " + str(l2.pk)
                         },
                       ]
-                    },
+                    }
 
 
 
-                print(l2_card)    
+                print(l2_card)
                 l1 = closest_less_qs[0]
                 g1 = closest_greater_qs[0]
                 g2 = closest_greater_qs[1]
@@ -340,7 +340,7 @@ def makeWebhookResult(request):
 
                 return {
                   "messages": [
-#                    l2_card +
+                    l2_card,
                     {
                       "type": 1,
                       "platform": "facebook",
