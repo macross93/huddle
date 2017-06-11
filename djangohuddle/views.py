@@ -43,11 +43,11 @@ def add_event(request):
     if request.method == "POST":
         form = eventForm(request.POST)
         if form.is_valid():
-            # u1 = user(facebook_id="123456789")
-            # u1.first_name = "Test"
-            # u1.last_name = "Mackie"
-            # u1.save()
-            event = form.save(commit=True)
+            u1 = user(facebook_id="123456789")
+            u1.first_name = "Test"
+            u1.last_name = "Mackie"
+            u1.save()
+#            event = u1.save(commit=True)
 #            event.volunteer = ''
 #            event.confirmed = 'n'
             return redirect('/home')
