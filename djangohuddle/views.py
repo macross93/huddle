@@ -320,6 +320,9 @@ def makeWebhookResult(request):
                       ]
                     },
 
+
+
+                print(l2_card)    
                 l1 = closest_less_qs[0]
                 g1 = closest_greater_qs[0]
                 g2 = closest_greater_qs[1]
