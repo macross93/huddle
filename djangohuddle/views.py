@@ -274,8 +274,8 @@ def makeWebhookResult(request):
 
             # Go and check for an event based on user input
             try:
-                closest_greater_qs = event.objects.filter(start__gte=datetime_object).order_by('start')
-                closest_less_qs = event.objects.filter(start__lt=datetime_object).order_by('-start')
+                closest_greater_qs = event.objects.filter(start__gte=datetime_object,confirmed="n").order_by('start')
+                closest_less_qs = event.objects.filter(start__lt=datetime_object,confirmed="n").order_by('-start')
 
                 #e = event.objects.filter(start__gte=early_start, start__lte=late_start).values_list('start', flat=True)
             # There is no event, let's apologise and ask them to start again
@@ -292,7 +292,34 @@ def makeWebhookResult(request):
 
             else:
 
-                l2 = closest_less_qs[1]
+                try:
+                    l2 = closest_less_qs[1]
+
+                except event.DoesNotExist:
+                    l2_card = ""
+
+                else:
+                    l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
+                    title = l2.name
+
+                    l2_card = {
+                      "type": 1,
+                      "platform": "facebook",
+                      "title": l2.name,
+                      "subtitle": "Start: " + l2.start.strftime('%I:%M %p') + " on " + l2.start.strftime('%A %d %B') + ".\n End: "  + l2.end.strftime('%I:%M %p') + ".\n Address: " + l2.address + ", " + l2.postcode,
+                      "imageUrl": l2_image,
+                      "buttons": [
+                        {
+                          "text": "Details",
+                          "postback": "Details " + str(l2.pk)
+                        },
+                        {
+                          "text": "Confirm",
+                          "postback": "Confirm " + str(l2.pk)
+                        },
+                      ]
+                    },
+
                 l1 = closest_less_qs[0]
                 g1 = closest_greater_qs[0]
                 g2 = closest_greater_qs[1]
@@ -310,23 +337,7 @@ def makeWebhookResult(request):
 
                 return {
                   "messages": [
-                    {
-                      "type": 1,
-                      "platform": "facebook",
-                      "title": l2.name,
-                      "subtitle": "Start: " + l2.start.strftime('%I:%M %p') + " on " + l2.start.strftime('%A %d %B') + ".\n End: "  + l2.end.strftime('%I:%M %p') + ".\n Address: " + l2.address + ", " + l2.postcode,
-                      "imageUrl": l2_image,
-                      "buttons": [
-                        {
-                          "text": "Details",
-                          "postback": "Details " + str(l2.pk)
-                        },
-                        {
-                          "text": "Confirm",
-                          "postback": "Confirm " + str(l2.pk)
-                        },
-                      ]
-                    },
+                    l2_card +
                     {
                       "type": 1,
                       "platform": "facebook",
