@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^webhook/$', webhook),
     url(r'^signup/$', signup, name='signup'),
     url(r'^home/$', home),
-    url(r'^form/$', add_event, name='add_event'),
+    url(r'^add_event/$', add_event, name='add_event'),
     url(r'^events/$', eventList.as_view()),
     url(r'^users/$', userList.as_view()),
     url(r'^charity/$', charityList.as_view()),

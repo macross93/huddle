@@ -37,12 +37,12 @@ def home(request):
 
 @csrf_exempt
 def add_event(request):
-    form = eventForm()
-    return render(request, 'add_event.html', {'form': form})
+    add_event = eventForm()
+    return render(request, 'add_event.html', {'form': add_event})
 
     if request.method == "POST":
         form = eventForm(request.POST)
-        if form.is_valid():
+        if add_event.is_valid():
             u1 = user(facebook_id="123456789")
             u1.first_name = "Test"
             u1.last_name = "Mackie"
