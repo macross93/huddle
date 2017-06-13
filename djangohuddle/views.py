@@ -11,7 +11,6 @@ from datetime import datetime, timedelta
 from django.forms import ModelForm
 from django import forms
 from django.core.exceptions import ValidationError
-from .forms import eventForm, PostForm
 
 import json
 import urllib
@@ -34,12 +33,7 @@ def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
 
-# def form(request):
-#     return render(request, 'form.html')
 
-def post_new(request):
-    form = PostForm
-    return render(request, 'add_event.html', {'form':form})
 
 
 
