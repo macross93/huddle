@@ -1,6 +1,6 @@
 from django import forms
 
-from events.models import event
+from events.models import event, user
 
 class eventForm(forms.ModelForm):
 
