@@ -2,10 +2,10 @@
 
 {% block content %}
     <h1>New Event</h1>
-    <form method="POST" class="event-form">
-        {{ add_event.as_p }}
-	      {{ add_event.errors }}
-	      {{ add_event.non_field_errors }}
+    <form method="POST" class="event-form">{% csrf_token %}
+        {{ form.as_p }}
+	      {{ form.errors }}
+	      {{ form.non_field_errors }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

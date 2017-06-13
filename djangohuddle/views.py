@@ -9,7 +9,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView
 from datetime import datetime, timedelta
 from django.forms import ModelForm
-from .forms import eventForm
+from django import forms
+from django.core.exceptions import ValidationError
+from .forms import eventForm, PostForm
 
 import json
 import urllib
@@ -35,28 +37,10 @@ def home(request):
 # def form(request):
 #     return render(request, 'form.html')
 
-@csrf_exempt
-def add_event(request):
-    add_event = eventForm()
-    return render(request, 'add_event.html', {'form': add_event})
+def post_new(request):
+    form = PostForm
+    return render(request, 'add_event.html', {'form':form})
 
-    if request.method == "POST":
-        form = eventForm(request.POST)
-        if add_event.is_valid():
-            u1 = user(facebook_id="123456789")
-            u1.first_name = "Test"
-            u1.last_name = "Mackie"
-            u1.save()
-#            event = u1.save(commit=True)
-#            event.volunteer = ''
-#            event.confirmed = 'n'
-            return redirect('/home')
-
-        else:
-            return ("The form was not valid")
-    else:
-        return ("The request method does not equal POST")
-        return render(request, 'add_event.html', {'form': form})
 
 
 # Create the form class.
