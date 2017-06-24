@@ -453,7 +453,7 @@ def makeWebhookResult(request):
             try:
                 e2 = event.objects.filter(volunteer=fb_id,confirmed="y")
 
-            except event.DoesNotExist:
+            except IndexError:
                 if e.confirmed != "y":
                     e.confirmed = "y"
                     e.save()
@@ -616,7 +616,7 @@ def makeWebhookResult(request):
                     contextOut = "locked_in"
 
                 else:
-                    speech = "Sorry, you're already confirmed on one event! We can only confirm people on one event at a time. If you've forgotten about this event, ask me for details!"
+                    speech = " already confirmed on one event! We can only confirm people on one event at a time. If you've forgotten about this event, ask me for details!"
                     contextOut = "volunteer_timedate"
 
         sending_message = return_message(speech, contextOut)
