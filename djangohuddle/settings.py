@@ -128,8 +128,8 @@ ALLOWED_HOSTS = ['*']
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'mediafiles')
-STATIC_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'mediafiles')
+MEDIA_URL = '/media/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
