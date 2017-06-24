@@ -289,7 +289,7 @@ def makeWebhookResult(request):
                       "platform": "facebook",
                       "title": l2.name,
                       "subtitle": "Start: " + l2.start.strftime('%I:%M %p') + " on " + l2.start.strftime('%A %d %B') + ".\n End: "  + l2.end.strftime('%I:%M %p') + ".\n Address: " + l2.address + ", " + l2.postcode,
-                      "imageUrl": l2_image,
+                      "imageUrl": l2.image,
                       "buttons": [
                         {
                           "text": "Details",
@@ -319,7 +319,7 @@ def makeWebhookResult(request):
                       "platform": "facebook",
                       "title": l1.name,
                       "subtitle": "Start: " + l1.start.strftime('%I:%M %p') + " on " + l1.start.strftime('%A %d %B') + ".\n End: "  + l1.end.strftime('%I:%M %p') + ".\n Address: " + l1.address + ", " + l1.postcode,
-                      "imageUrl": l1_image,
+                      "imageUrl": l1.image,
                       "buttons": [
                         {
                           "text": "Details",
@@ -349,7 +349,7 @@ def makeWebhookResult(request):
                       "platform": "facebook",
                       "title": g1.name,
                       "subtitle": "Start: " + g1.start.strftime('%I:%M %p') + " on " + g1.start.strftime('%A %d %B') + ".\n End: "  + g1.end.strftime('%I:%M %p') + ".\n Address: " + g1.address + ", " + g1.postcode,
-                      "imageUrl": g1_image,
+                      "imageUrl": g1.image,
                       "buttons": [
                         {
                           "text": "Details",
@@ -380,7 +380,7 @@ def makeWebhookResult(request):
                       "platform": "facebook",
                       "title": g2.name,
                       "subtitle": "Start: " + g2.start.strftime('%I:%M %p') + " on " + g2.start.strftime('%A %d %B') + ".\n End: "  + g2.end.strftime('%I:%M %p') + ".\n Address: " + g2.address + ", " + g2.postcode,
-                      "imageUrl": g2_image,
+                      "imageUrl": g2.image,
                       "buttons": [
                         {
                           "text": "Details",
@@ -410,7 +410,7 @@ def makeWebhookResult(request):
                       "platform": "facebook",
                       "title": g3.name,
                       "subtitle": "Start: " + g3.start.strftime('%I:%M %p') + " on " + g3.start.strftime('%A %d %B') + ".\n End: "  + g3.end.strftime('%I:%M %p') + ".\n Address: " + g3.address + ", " + g3.postcode,
-                      "imageUrl": g3_image,
+                      "imageUrl": g3.image,
                       "buttons": [
                         {
                           "text": "Details",
