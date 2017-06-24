@@ -32,4 +32,4 @@ urlpatterns = [
     url(r'^users/$', userList.as_view()),
     url(r'^charity/$', charityList.as_view()),
     url(r'^charitycontact/$', charitycontactList.as_view()),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
