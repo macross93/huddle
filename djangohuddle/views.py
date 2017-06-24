@@ -451,7 +451,7 @@ def makeWebhookResult(request):
             e = event.objects.filter(pk=int(primary_key))[0]
 
             try:
-                e2 = event.objects.filter(volunteer=fb_id,confirmed="y")
+                e2 = event.objects.filter(volunteer=fb_id,confirmed="y")[0]
 
             except IndexError:
                 if e.confirmed != "y":
