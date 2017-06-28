@@ -13,6 +13,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+import forms
 
 import json
 import urllib
