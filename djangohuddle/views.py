@@ -314,13 +314,6 @@ def makeWebhookResult(request):
 
             else:
 
-                print("https://obscure-meadow-72899.herokuapp.com/media/" +str(l2.image))
-                print("https://obscure-meadow-72899.herokuapp.com/media/" +str(l1.image))
-                print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g1.image))
-                print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g2.image))
-                print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g3.image))
-
-
                 try:
                     l2 = event.objects.filter(start__lt=datetime_object,confirmed="n").order_by('-start')[1]
 
@@ -332,6 +325,7 @@ def makeWebhookResult(request):
                 else:
                     l2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
                     title = l2.name
+                    print("https://obscure-meadow-72899.herokuapp.com/media/" +str(l2.image))
 
                     l2_card = {
                       "type": 1,
@@ -362,6 +356,7 @@ def makeWebhookResult(request):
                 else:
                     l1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
                     title = l1.name
+                    print("https://obscure-meadow-72899.herokuapp.com/media/" +str(l1.image))
 
                     l1_card = {
                       "type": 1,
@@ -392,6 +387,7 @@ def makeWebhookResult(request):
                 else:
                     g1_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
                     title = g1.name
+                    print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g1.image))
 
                     g1_card = {
                       "type": 1,
@@ -423,6 +419,7 @@ def makeWebhookResult(request):
                 else:
                     g2_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
                     title = g2.name
+                    print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g2.image))
 
                     g2_card = {
                       "type": 1,
@@ -453,6 +450,7 @@ def makeWebhookResult(request):
                 else:
                     g3_image = "http://funds.gfmcdn.com/1224153_1477933158.1268.jpg"
                     title = g3.name
+                    print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g3.image))
 
                     g3_card = {
                       "type": 1,
