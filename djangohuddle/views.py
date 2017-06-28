@@ -70,7 +70,7 @@ def event_form_upload(request):
         form = EventForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/home')
+            return redirect('/thanks')
     else:
         form = EventForm()
     return render(request, 'model_form_upload.html', {
