@@ -60,6 +60,19 @@ def model_form_upload(request):
         'form': form
     })
 
+def event_form_upload(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = EventForm()
+    return render(request, 'model_form_upload.html', {
+        'form': form
+    })
+
+
 # Create the form class.
 # class eventForm(ModelForm):
 #     class Meta:

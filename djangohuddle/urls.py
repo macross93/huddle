@@ -33,7 +33,8 @@ urlpatterns = [
     url(r'^charity/$', charityList.as_view()),
     url(r'^charitycontact/$', charitycontactList.as_view()),
     url(r'^simple_upload/$', simple_upload),
-    url(r'^model_form_upload/$', model_form_upload)
+    url(r'^model_form_upload/$', model_form_upload),
+    url(r'^event_form_upload/$', event_form_upload),
 ]
 
 if settings.DEBUG:
