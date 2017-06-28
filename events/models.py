@@ -40,7 +40,7 @@ class event(models.Model):
     end = models.DateTimeField()
     duration = models.DurationField(blank=True)
     charity = models.ForeignKey(charity)
-    image = models.ImageField(upload_to = 'photos/%Y/%m/%d/%s', default = 'pic_folder/None/no-img.jpg', blank=True)
+    image = models.ImageField(upload_to = 'photos/')
     volunteer = models.CharField(max_length=30, blank=True, null=True)
     confirmed = models.CharField(max_length=1, default="n")
 
