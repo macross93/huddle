@@ -1,7 +1,6 @@
 from django import forms
 
-from events.models import event, user
-from models import Document
+from events.models import event, user, Document
 
 
 class DocumentForm(forms.ModelForm):
