@@ -10,5 +10,5 @@ class DocumentForm(forms.ModelForm):
 
 class EventForm(forms.ModelForm):
     class Meta:
-        model = Event
+        model = event
         fields = ('name', 'details', 'address', 'city', 'postcode', 'start', 'end', 'duration', 'charity', 'image', 'volunteer', 'confirmed')

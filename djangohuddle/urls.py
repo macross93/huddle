@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from djangohuddle.views import hello, webhook, signup, simple_upload, model_form_upload, home, eventList, userList, charityList, charitycontactList
+from djangohuddle.views import hello, webhook, signup, simple_upload, event_form_upload, model_form_upload, home, eventList, userList, charityList, charitycontactList
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
