@@ -36,6 +36,11 @@ def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
 
+# when you've added an event
+def thanks(request):
+    hello = "Thank you! Your event has been added to our system!"
+    return render(request, 'home.html', {'home':hello})
+
 
 def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
