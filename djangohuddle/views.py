@@ -11,6 +11,8 @@ from datetime import datetime, timedelta
 from django.forms import ModelForm
 from django import forms
 from django.core.exceptions import ValidationError
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 import json
 import urllib
@@ -34,6 +36,16 @@ def home(request):
     return render(request, 'home.html', {'home':hello})
 
 
+def simple_upload(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'core/simple_upload.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'core/simple_upload.html')
 
 
 
