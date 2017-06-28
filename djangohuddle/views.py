@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
-from events.models import user, charity, charitycontact, event
+from events.models import user, charity, charitycontact, event, Document
 from django.template.loader import get_template
 from django.template import Context
 from django.contrib.auth import login, authenticate
