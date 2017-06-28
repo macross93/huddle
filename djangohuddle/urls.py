@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from djangohuddle.views import hello, webhook, signup, home, eventList, userList, charityList, charitycontactList
+from djangohuddle.views import hello, webhook, signup, simple_upload, home, eventList, userList, charityList, charitycontactList
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^users/$', userList.as_view()),
     url(r'^charity/$', charityList.as_view()),
     url(r'^charitycontact/$', charitycontactList.as_view()),
-    url(r'^simple_upload/$', home),
+    url(r'^simple_upload/$', simple_upload),
 ]
 
 if settings.DEBUG:
