@@ -17,7 +17,7 @@ from djangohuddle.forms import DocumentForm, EventForm
 
 import json
 import urllib
-import urllib.request
+# import urllib.request
 import os
 import ast
 import schedule

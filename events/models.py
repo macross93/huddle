@@ -38,7 +38,7 @@ class event(models.Model):
     postcode = models.CharField(max_length=10)
     start = models.DateTimeField()
     end = models.DateTimeField()
-    duration = models.DurationField(blank=True, null=True)
+#    duration = models.DurationField(blank=True, null=True)
     charity = models.ForeignKey(charity)
     image = models.ImageField(upload_to = 'photos/')
     volunteer = models.CharField(max_length=30, blank=True, null=True)
