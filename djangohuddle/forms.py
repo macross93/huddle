@@ -1,7 +1,7 @@
 from django import forms
 
 from events.models import event, user
-from uploads.core.models import Document
+from models import Document
 
 
 class DocumentForm(forms.ModelForm):
