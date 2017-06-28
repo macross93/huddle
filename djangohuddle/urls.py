@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^users/$', userList.as_view()),
     url(r'^charity/$', charityList.as_view()),
     url(r'^charitycontact/$', charitycontactList.as_view()),
-    url(r'^simple_upload/$', home),
+#    url(r'^simple_upload/$', home),
 ]
 
 if settings.DEBUG:
