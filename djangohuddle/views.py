@@ -309,9 +309,17 @@ def makeWebhookResult(request):
                 contextOut = "volunteer_timedate"
 
 
+
             # There is an event! Let's tell them what the event is and confirm the date. Let's ask them what details they need to confirm
 
             else:
+
+            print("https://obscure-meadow-72899.herokuapp.com/media/" +str(l2.image))
+            print("https://obscure-meadow-72899.herokuapp.com/media/" +str(l1.image))
+            print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g1.image))
+            print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g2.image))
+            print("https://obscure-meadow-72899.herokuapp.com/media/" +str(g3.image))
+
 
                 try:
                     l2 = event.objects.filter(start__lt=datetime_object,confirmed="n").order_by('-start')[1]
