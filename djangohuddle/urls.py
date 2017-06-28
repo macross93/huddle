@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from djangohuddle.views import hello, webhook, signup, simple_upload, home, eventList, userList, charityList, charitycontactList
+from djangohuddle.views import hello, webhook, signup, simple_upload, model_form_upload, home, eventList, userList, charityList, charitycontactList
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^charity/$', charityList.as_view()),
     url(r'^charitycontact/$', charitycontactList.as_view()),
     url(r'^simple_upload/$', simple_upload),
+    url(r'^model_form_upload/$', model_form_upload)
 ]
 
 if settings.DEBUG:
