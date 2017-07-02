@@ -83,22 +83,18 @@ def event_form_upload(request):
     })
 
 # The list of events from the database
-@login_required
 class eventList(ListView):
     model = event
 
 # The list of users from the database
-@login_required
 class userList(ListView):
     model = user
 
 # The list of charities from the database
-@login_required
 class charityList(ListView):
     model = charity
 
 # The list of charity contacts from the database
-@login_required
 class charitycontactList(ListView):
     model = charitycontact
 
