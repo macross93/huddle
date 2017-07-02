@@ -507,6 +507,7 @@ def makeWebhookResult(request):
 
             except IndexError:
                 if e.confirmed != "y":
+                    e.volunteer = fb_id
                     e.confirmed = "y"
                     e.save()
                     e3 = event(name=e.name, details=e.details, address=e.address, city=e.city, postcode=e.postcode, start=e.start, end=e.end, charity=e.charity, image=e.image, volunteer="",confirmed="n")
