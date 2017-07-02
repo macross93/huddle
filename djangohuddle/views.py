@@ -511,7 +511,7 @@ def makeWebhookResult(request):
                     e.save()
                     e3 = event(name=e.name, details=e.details, address=e.address, city=e.city, postcode=e.postcode, start=e.start, end=e.end, charity=e.charity, image=e.image, volunteer="",confirmed="n")
                     e3.save()
-                    e4 = event.objects.filter(name=e1.name, confirmed="n")[0]
+                    e4 = event.objects.filter(name=e.name, confirmed="n")[0]
                     print (e4.details)
                     speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
                     contextOut = "locked_in"
