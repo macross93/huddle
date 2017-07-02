@@ -601,7 +601,7 @@ def makeWebhookResult(request):
                 eventlocation = parameters.get("event-location")
                 context = result.get("contexts")[0]
                 parameters_2 = context.get("parameters")
-                payload = parameters_2.get("details-button")
+                payload = parameters_2.get("details-button,original")
 
             except:
                 pass
@@ -609,6 +609,7 @@ def makeWebhookResult(request):
                 print(eventlocation)
                 print(payload)
                 primary_key = int(payload[8:])
+                print (primary_key)
 
                 e = event.objects.filter(pk=primary_key).values_list('address', flat=True)[0]
                 f = event.objects.filter(pk=primary_key).values_list('postcode', flat=True)[0]
