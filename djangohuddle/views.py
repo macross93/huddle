@@ -35,13 +35,13 @@ def hello(request):
 
 
 # A little homepage that gives a list of things to view, either events, users, charities, or charity contacts
-@login_required
+@login_required(login_url='/login/')
 def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
 
 # when you've added an event
-@login_required
+@login_required(login_url='/login/')
 def thanks(request):
     hello = "Thank you! Your event has been added to our system!"
     return render(request, 'home.html', {'home':hello})
@@ -70,7 +70,7 @@ def model_form_upload(request):
         'form': form
     })
 
-@login_required
+@login_required(login_url='/login/')
 def event_form_upload(request):
     if request.method == 'POST':
         form = EventForm(request.POST, request.FILES)
@@ -104,7 +104,7 @@ class charityList(LoginRequiredMixin, ListView):
 # The list of charity contacts from the database
 class charitycontactList(LoginRequiredMixin, ListView):
     login_url = '/login/'
-    redirect_field_name = 'redirect_to'    
+    redirect_field_name = 'redirect_to'
     model = charitycontact
 
 # This is how a user signs up on the website
