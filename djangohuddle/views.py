@@ -15,6 +15,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from djangohuddle.forms import DocumentForm, EventForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 import json
 import urllib
@@ -83,19 +84,27 @@ def event_form_upload(request):
     })
 
 # The list of events from the database
-class eventList(ListView):
+class eventList(LoginRequiredMixin, ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     model = event
 
 # The list of users from the database
-class userList(ListView):
+class userList(LoginRequiredMixin, ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     model = user
 
 # The list of charities from the database
-class charityList(ListView):
+class charityList(LoginRequiredMixin, ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
     model = charity
 
 # The list of charity contacts from the database
-class charitycontactList(ListView):
+class charitycontactList(LoginRequiredMixin, ListView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'    
     model = charitycontact
 
 # This is how a user signs up on the website
