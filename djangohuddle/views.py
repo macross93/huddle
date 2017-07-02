@@ -666,7 +666,7 @@ def makeWebhookResult(request):
                     e1.volunteer = fb_id
                     e1.confirmed = 'y'
                     e1.save()
-                    e3 = event(name=e1.first_name, details=e1.details, address=e1.address, city=e1.city, postcode=e1.postcode, start=e1.start, end=e1.end, charity=e1.charity, image=e1.image, volunteer="",confirmed="n")
+                    e3 = event(name=e1.name, details=e1.details, address=e1.address, city=e1.city, postcode=e1.postcode, start=e1.start, end=e1.end, charity=e1.charity, image=e1.image, volunteer="",confirmed="n")
                     e3.save()
                     speech = "Yes! Great decision! You're in :)! Let me know if something changes and you suddenly can't make it, or feel free to keep asking for more details if you forget / want to know more."
                     contextOut = "locked_in"
