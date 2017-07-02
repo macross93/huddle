@@ -136,6 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
 ]
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
