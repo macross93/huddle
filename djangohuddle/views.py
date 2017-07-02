@@ -156,7 +156,7 @@ def makeWebhookResult(request):
     profile_pic = user_profile['profile_pic']
     locale = user_profile['locale']
     timezone = user_profile['timezone']
-    gender = user_profile['gender']
+#    gender = user_profile['gender']
 
 
     # Are they already confirmed on an event?
