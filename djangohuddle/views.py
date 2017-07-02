@@ -14,6 +14,7 @@ from django.core.exceptions import ValidationError
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from djangohuddle.forms import DocumentForm, EventForm
+from django.contrib.auth.decorators import login_required
 
 import json
 import urllib
@@ -31,12 +32,15 @@ def hello(request):
     hello = "Welcome to Huddle!"
     return render(request, 'hello.html', {'hello':hello})
 
+
 # A little homepage that gives a list of things to view, either events, users, charities, or charity contacts
+@login_required
 def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
 
 # when you've added an event
+@login_required
 def thanks(request):
     hello = "Thank you! Your event has been added to our system!"
     return render(request, 'home.html', {'home':hello})
@@ -65,6 +69,7 @@ def model_form_upload(request):
         'form': form
     })
 
+@login_required
 def event_form_upload(request):
     if request.method == 'POST':
         form = EventForm(request.POST, request.FILES)
@@ -77,28 +82,23 @@ def event_form_upload(request):
         'form': form
     })
 
-
-# Create the form class.
-# class eventForm(ModelForm):
-#     class Meta:
-#         model = event
-#         fields = ['name', 'details', 'address', 'city', 'postcode', 'start', 'end', 'duration', 'charity']
-#         form = eventForm()
-#         form.save()
-
 # The list of events from the database
+@login_required
 class eventList(ListView):
     model = event
 
 # The list of users from the database
+@login_required
 class userList(ListView):
     model = user
 
 # The list of charities from the database
+@login_required
 class charityList(ListView):
     model = charity
 
 # The list of charity contacts from the database
+@login_required
 class charitycontactList(ListView):
     model = charitycontact
 
