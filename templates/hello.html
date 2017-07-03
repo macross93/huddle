@@ -5,10 +5,20 @@
 {% block content %}
 
 
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
 
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
     <img src="https://huddlebot.co.uk/static/huddle_penguins.jpg" alt="Hi!" />
-    <p>{{ hello }}</p>
-    <a href="https://obscure-meadow-72899.herokuapp.com/login/">Login</a>
-    <a href="https://obscure-meadow-72899.herokuapp.com/signup/">Sign Up</a>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>{{ hello }}</h3>
+      <a href="https://obscure-meadow-72899.herokuapp.com/login/">Login</a>
+      <a href="https://obscure-meadow-72899.herokuapp.com/signup/">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}

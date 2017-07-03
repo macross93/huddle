@@ -4,7 +4,17 @@
 
 {% block content %}
 
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center">
     <img src="https://huddlebot.co.uk/static/huddle_penguins.jpg" alt="Hi!" />
-    <p>{{ home }}</p>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>{{ home }}</h3>  
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}
