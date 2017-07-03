@@ -17,16 +17,29 @@ body {font-family: "Lato", sans-serif}
 </head>
 
 <body>
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card-2">
+      <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="https://huddlebot.co.uk/home" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+      <a href="https://huddlebot.co.uk/add_event" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADD EVENT</a>
+      <a href="https://huddlebot.co.uk/charity" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CHARITIES</a>
+      <a href="https://huddlebot.co.uk/charitycontact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CHARITY CONTACTS</a>
+      <a href="https://huddlebot.co.uk/users" class="w3-bar-item w3-button w3-padding-large w3-hide-small">USERS</a>
+      <a href="https://huddlebot.co.uk/events" class="w3-bar-item w3-button w3-padding-large w3-hide-small">EVENTS</a>
+      <a href="https://huddlebot.co.uk/login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOG IN</a>
+      <a href="https://huddlebot.co.uk/logout" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOG OUT</a>
+
+
+
+
     <h1><a href="https://huddlebot.co.uk/home">Huddle</a></h1>
     {% block content %}{% endblock %}
 
     {% block footer %}
     <hr>
-    <a href="https://huddlebot.co.uk/events/">Events</a>
-    <a href="https://huddlebot.co.uk/charity/">Charities</a>
-    <a href="https://huddlebot.co.uk/charitycontact/">Charity Contacts</a>
-    <a href="https://huddlebot.co.uk/users/">Users</a>
-    <a href="https://huddlebot.co.uk/add_event/">Add Event</a>
+
 
     <p>Thanks for stopping by.</p>
     <a href="https://huddlebot.co.uk/login">Login</a>
