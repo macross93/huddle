@@ -4,9 +4,10 @@
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
+  <div class="w3-container w3-white w3-display-middle" style="white-space:nowrap;">
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
+      <h3> ADD EVENT </h3>
       <table> {{ form.as_table }} </table>
       <button type="submit">Upload</button>
     </form>
