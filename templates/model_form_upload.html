@@ -7,7 +7,9 @@
 
   <div class="w3-card-4 w3-white w3-display-middle w3-border" style="white-space:nowrap;">
     <form method="post" enctype="multipart/form-data">
-      <h3> ADD EVENT </h3>
+      <div class="w3-display-middle">
+        <h3> ADD EVENT </h3>
+      </div>
       {% csrf_token %}
       <table> {{ form.as_table }} </table>
       <button type="submit">Upload</button>
