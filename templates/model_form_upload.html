@@ -6,33 +6,23 @@
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-white w3-display-middle w3-row-padding" style="white-space:nowrap;margin:0 -16px 8px -16px">
     <form method="post" enctype="multipart/form-data">
-      <div class = "w3-table w3-striped">
-        {% load widget_tweaks %}
 
-        <h3> ADD EVENT </h3>
-
-        <table> {{ form.as_table }} </table>
-
-
-      </div>
-      <button type="submit">Upload</button>
-    </form>
-    <!-- <form class="w3-container" method="post" ectype="multipart/form-data"> -->
+    <form class="w3-container" method="post" ectype="multipart/form-data">
 
 
 
-      <!-- {% for field in form %}
+      {% for field in form %}
 
         <div class="w3-input">
           {% load widget_tweaks %}
 
             {{ field.errors }}
-            {{ field.label_tag }} {{ field.name }}
+            {{ field.label_tag }} {{ field|add_class:'w3-input' }}
         </div>
 
       {% endfor %}
 
-        <button type="submit">Upload</button> -->
+        <button type="submit">Upload</button>
 
         <!-- <input id="id_name" class="w3-input" type="text" name="Name">
         <label for="id_name">Name</label>
