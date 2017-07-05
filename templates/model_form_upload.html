@@ -15,6 +15,10 @@
     </form> -->
     <form class="w3-container" method="post" ectype="multipart/form-data">
 
+      {% for field in form %}
+
+        <class="w3-input">
+
       {{ form.as_p }}
 
         <!-- <input id="id_name" class="w3-input" type="text" name="Name">
