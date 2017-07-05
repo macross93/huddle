@@ -2,30 +2,29 @@
 
 {% block topsection %}
 
-
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-
 <!-- First Parallax Image with Logo Text -->
-    <div class="w3-content w3-container w3-padding-64" id="contact">
-      <h3 class="w3-center">ADD EVENT</h3>
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-white w3-display-middle w3-row-padding" style="white-space:nowrap;margin:0 -16px 8px -16px">
+    <form method="post" enctype="multipart/form-data">
+      <div class = "w3-table w3-striped">
 
-
-      <div class="w3-row w3-padding-32 w3-section">
-        <div class="w3-col m8 w3-panel">
-          <form method="post" enctype="multipart/form-data">
-            <div class = "w3-table w3-striped w3-responsive">
-              <h3> ADD EVENT </h3>
-              <table> {{ form.as_table }} </table>
-            </div>
-            <button type="submit">Upload</button>
-          </form>
-        </div>
+        <h3> ADD EVENT </h3>
+        <table> {{ form.as_table }} </table>
       </div>
-    </div>
+      <button type="submit">Upload</button>
+    </form>
+    <form class="w3-container">
 
+      <input class="w3-input" type="text">
+        <label>First Name</label>
+
+      <input class="w3-input" type="text">
+        <label>Last Name</label>
+
+    </form> 
   </div>
 </div>
+
 
 
 {% endblock %}
