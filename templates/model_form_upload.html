@@ -3,17 +3,24 @@
 {% block topsection %}
 
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-white w3-display-middle w3-row-padding" style="white-space:nowrap;margin:0 -16px 8px -16px">
-    <form method="post" enctype="multipart/form-data">
-      <div class = "w3-table w3-striped w3-responsive">
-        <h3> ADD EVENT </h3>
-        <table> {{ form.as_table }} </table>
-      </div>
-      <button type="submit">Upload</button>
-    </form>
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">WHERE I WORK</h3>
+  <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m8 w3-panel">
+      <form method="post" enctype="multipart/form-data">
+        <div class = "w3-table w3-striped w3-responsive">
+          <h3> ADD EVENT </h3>
+          <table> {{ form.as_table }} </table>
+        </div>
+        <button type="submit">Upload</button>
+      </form>
+    </div>
   </div>
 </div>
+
+
 
 
 {% endblock %}
