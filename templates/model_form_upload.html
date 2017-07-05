@@ -19,11 +19,13 @@
 
         <div class="w3-input">
             {{ field.errors }}
-            {{ field }}
-            {{ field.label_tag }} 
+            {{ field }} <br>
+            {{ field.label_tag }}
         </div>
 
       {% endfor %}
+
+        <button type="submit">Upload</button>
 
         <!-- <input id="id_name" class="w3-input" type="text" name="Name">
         <label for="id_name">Name</label>
