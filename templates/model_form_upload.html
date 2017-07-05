@@ -17,7 +17,10 @@
 
       {% for field in form %}
 
-        <class="w3-input">
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
 
       {% endfor %}
 
