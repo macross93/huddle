@@ -18,9 +18,10 @@
       {% for field in form %}
 
         <div class="w3-input">
+          {% load widget_tweaks %}
         <!-- <input class = "w3-input"> -->
             {{ field.errors }}
-            {{ field.label_tag }} {{ field }}
+            {{ field.label_tag }} {{ field.name|add_class: "w3-input" }}
         </div>
 
       {% endfor %}
