@@ -13,10 +13,10 @@
       </div>
       <button type="submit">Upload</button>
     </form> -->
-    <form class="w3-container">
+    <form class="w3-container" method="post" ectype="multipart/form-data">
 
-      <input class="w3-input" type="text">
-        <label>First Name</label>
+      <input class="w3-input">
+        {{ form.as_p }}
 
       <input class="w3-input" type="text">
         <label>Last Name</label>
