@@ -12,6 +12,8 @@
         <h3> ADD EVENT </h3>
 
         <table> {{ form.as_table }} </table>
+        {{ form.text|attr:"rows:20"|attr:"cols:20"|attr:"title:Hello, world!" }}
+
       </div>
       <button type="submit">Upload</button>
     </form>
