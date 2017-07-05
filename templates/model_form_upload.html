@@ -17,7 +17,8 @@
 
       {% for field in form %}
 
-        <div class="w3-input">
+        <div class="w3-container">
+        <input class = "w3-input">
             {{ field.errors }}
             {{ field.label_tag }} {{ field }}
         </div>
