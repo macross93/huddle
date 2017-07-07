@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'events',
     'widget_tweaks',
+    'bootstrap3',
 ]
 
 MIDDLEWARE_CLASSES = [
