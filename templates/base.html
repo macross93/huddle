@@ -55,17 +55,29 @@ body, html {
 </style>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="https://huddlebot.co.uk/home" class="w3-bar-item w3-button">HOME</a>
-    <a href="https://huddlebot.co.uk/add_event" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> ADD EVENT</a>
-    <a href="https://huddlebot.co.uk/login" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user-circle"></i> LOGIN</a>
-    <a href="https://huddlebot.co.uk/events" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-dashboard"></i> MY EVENTS</a>
-  </div>
+
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a href="https://huddlebot.co.uk/home" class="w3-bar-item w3-button">HOME</a> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://huddlebot.co.uk/add_event" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-calendar"></i> ADD EVENT</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://huddlebot.co.uk/login" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user-circle"></i> LOGIN</a>
+        </li>
+      </ul>
+      </form>
+    </div>
+  </nav>
+
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
