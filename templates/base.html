@@ -60,10 +60,14 @@ body, html {
 
 .navbar li { color: #000 }
 
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
 </style>
 <body>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar transparent navbar-static-top hr">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="https://huddlebot.co.uk">HUDDLE</a>
@@ -71,8 +75,9 @@ body, html {
       <ul class="nav navbar-nav">
         <li><a href="https://huddlebot.co.uk/add_event">ADD EVENT</a></li>
         <li><a href="https://huddlebot.co.uk/events">MY EVENTS</a></li>
-        <li><a href="https://huddlebot.co.uk/login">LOGIN</a></li>
-        <li><a href="https://huddlebot.co.uk/login">LOGOUT</a></li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://huddlebot.co.uk/login">LOGIN</a></li>
+          <li><a href="https://huddlebot.co.uk/login">LOGOUT</a></li>
       </ul>
     </div>
   </nav>
