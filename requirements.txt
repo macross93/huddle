@@ -8,4 +8,4 @@ whitenoise==3.2
 schedule==0.4.2
 Pillow==4.1.1
 django-widget-tweaks==1.4.1
-django-bootstrap==8.2.3
+django-bootstrap3==8.2.3
