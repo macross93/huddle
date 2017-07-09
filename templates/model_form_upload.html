@@ -11,23 +11,20 @@
 
 </style>
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-white w3-display-topmiddle w3-half w3-row-padding" style="white-space:nowrap;margin:50px 0px 8px 0px">
+<div class="bgimg-1" id="home">
+  <div class="container">
     <form method="post" enctype="multipart/form-data">
 
     <form class="w3-container" method="post" ectype="multipart/form-data">
 
       <h3>ADD EVENT</h3>
 
-      {{ form.start }}
-
       {% for field in form %}
 
-        <div class="w3-input">
           {% load widget_tweaks %}
 
             {{ field.errors }}
-            {{ field.label_tag }} {{ field|add_class:'w3-input' }}
+            {{ field.label_tag }}
         </div>
 
       {% endfor %}
