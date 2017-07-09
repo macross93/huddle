@@ -12,22 +12,26 @@
 </style>
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1" id="home">
-  <div class="container">
+  <div class="container" >
     <form method="post" enctype="multipart/form-data">
 
     <form class="w3-container" method="post" ectype="multipart/form-data">
 
       <h3>ADD EVENT</h3>
 
-      {% for field in form %}
+      <tr> {{ form.as_table }} </tr>
+        <!-- {{ form.start }}
 
-          {% load widget_tweaks %}
+        {% for field in form %}
 
-            {{ field.errors }}
-            {{ field.label_tag }}
-        </div>
+          <div class="w3-input">
+            {% load widget_tweaks %}
 
-      {% endfor %}
+              {{ field.errors }}
+              {{ field.label_tag }} {{ field|add_class:'w3-input' }}
+          </div>
+
+        {% endfor %} -->
 
         <button type="submit">Upload</button>
 
