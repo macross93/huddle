@@ -22,47 +22,47 @@
           {% load widget_tweaks %}
           {% for field in form %}
           <div class="form-wrapper center">
-            <p> {{ field.name }} </p>
+            <p> {{ form.name }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.details }} </p>
+            <p> {{ form.details }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.address }} </p>
+            <p> {{ field.address }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.city }} </p>
+            <p> {{ field.city }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.postcode }} </p>
+            <p> {{ field.postcode }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.start }} </p>
+            <p> {{ field.start }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.end }} </p>
+            <p> {{ field.end }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.charity }} </p>
+            <p> {{ field.charity }} </p>
           </div>
 
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field.image }} </p>
+            <p> {{ field.image }} </p>
           </div>
 
           {% endfor %}
