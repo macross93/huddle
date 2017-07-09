@@ -82,8 +82,21 @@ body, html {
 
 .get-in-touch .container {
   margin:auto;
-  position: relative;
-  top: 50%;
+}
+
+@media screen and (min-width:768px){
+    .navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        display: block;
+        width: 160px;
+        text-align: center;
+        background-color: #eee;
+    }
+    .navbar>.container .navbar-brand-centered,
+    .navbar>.container-fluid .navbar-brand-centered {
+        margin-left: -80px;
+    }
 }
 
 </style>
@@ -92,11 +105,36 @@ body, html {
 <body>
 
 <div class="jumbotron bgimg-1">
-    <nav class="navbar transparent navbar-static-top hr">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="https://huddlebot.co.uk">HUDDLE</a>
-        </div>
+  <!-- <nav class="navbar transparent navbar-static-top hr">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://huddlebot.co.uk">HUDDLE</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="https://huddlebot.co.uk/add_event">ADD EVENT</a></li>
+        <li><a href="https://huddlebot.co.uk/events">MY EVENTS</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://huddlebot.co.uk/login">LOGIN</a></li>
+        <li><a href="https://huddlebot.co.uk/login">LOGOUT</a></li>
+      </ul>
+    </div>
+  </nav> -->
+  <nav class="navbar navbar-default transparent" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand navbar-brand-centered">Huddle</div>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="navbar-brand-centered">
         <ul class="nav navbar-nav">
           <li><a href="https://huddlebot.co.uk/add_event">ADD EVENT</a></li>
           <li><a href="https://huddlebot.co.uk/events">MY EVENTS</a></li>
@@ -105,7 +143,8 @@ body, html {
           <li><a href="https://huddlebot.co.uk/login">LOGIN</a></li>
           <li><a href="https://huddlebot.co.uk/login">LOGOUT</a></li>
         </ul>
-      </div>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
     </nav>
 
 
