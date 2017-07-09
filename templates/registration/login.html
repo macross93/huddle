@@ -2,20 +2,18 @@
 
 {% block title %}Login{% endblock %}
 
-<style>
-
-.bgimg-1 {
-    background-image: url("https://huddlebot.co.uk/static/huddle_penguins.jpg");
-    min-height: 900px;
-}
-
-</style>
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+
+<div class="add-event bgimg-1" id="home">
+  <div class="card">
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>  
+
 {% endblock %}
