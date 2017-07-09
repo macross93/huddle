@@ -20,14 +20,37 @@
         <h3>ADD EVENT</h3>
 
           {% for field in form %}
-
           {% load widget_tweaks %}
+
+          {% if start %}
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <!-- {{ field.label_tag }} -->
+            <p> {{ field.label_tag }} {{ field }} </p>
+          </div>
+
+          {% elif end %}
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <!-- {{ field.label_tag }} -->
+            <p> {{ field.label_tag }} {{ field }} </p>
+          </div>
+
+          {% elif charity %}
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <!-- {{ field.label_tag }} -->
+            <p> {{ field.label_tag }} {{ field }} </p>
+          </div>
+
+          {% else %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <!-- {{ field.label_tag }} -->
             <p> {{ field }} </p>
           </div>
 
+          {% endif %}
           {% endfor %}
 
           <!-- {{ form.start }}
