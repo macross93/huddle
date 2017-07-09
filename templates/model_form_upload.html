@@ -22,7 +22,7 @@
           {% for field in form %}
           {% load widget_tweaks %}
 
-          <!-- {% if name == 'start' %}
+          {% if name == start %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
@@ -32,9 +32,9 @@
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
-          </div> -->
+          </div>
 
-          {% if id == id_charity %}
+          {% if name == charity %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
