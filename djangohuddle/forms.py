@@ -16,7 +16,7 @@ class EventForm(forms.ModelForm):
         end = forms.DateTimeField(widget=DateTimeWidget(usel10n=True, bootstrap_version=3))
         start = forms.DateTimeField(widget=DateTimeWidget(usel10n=True, bootstrap_version=3))
 
-        widgets = {
-            'end': DateTimeWidget(attrs = {'id':'id_dateTimeField'}, bootstrap_version=3, usel10n=True),
-            'start': DateTimeWidget(attrs = {'id':'id_dateTimeField'}, bootstrap_version=3, usel10n=True),
-        }
+        # widgets = {
+        #     'end': DateTimeWidget(attrs = {'id':'id_dateTimeField'}, bootstrap_version=3, usel10n=True),
+        #     'start': DateTimeWidget(attrs = {'id':'id_dateTimeField'}, bootstrap_version=3, usel10n=True),
+        # }
