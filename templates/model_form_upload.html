@@ -20,7 +20,7 @@
         <h3>ADD EVENT</h3>
 
           {% load widget_tweaks %}
-
+          {% for field in form %}
           <div class="form-wrapper center">
             <p> {{ field.name }} </p>
           </div>
@@ -65,6 +65,7 @@
             <p> {{ field.label_tag }} {{ field.image }} </p>
           </div>
 
+          {% endfor %}
           <!-- {{ form.start }}
 
           {% for field in form %}
