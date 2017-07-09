@@ -22,19 +22,19 @@
           {% for field in form %}
           {% load widget_tweaks %}
 
-          {% if field == start %}
+          {% if name == 'start' %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
           </div>
 
-          {% elif field == end %}
+          {% elif name == end %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
           </div>
 
-          {% elif field == charity %}
+          {% elif id == id_charity %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
