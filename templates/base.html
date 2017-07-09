@@ -450,12 +450,16 @@ body {
 
 </footer>
 
-<script>
-$('.openline').typewrite({
-   'delay': 100, //time in ms between each letter
-   'extra_char': '', //"cursor" character to append after each display
-   'trim': true, // Trim the string to type (Default: false, does not trim)
-   'callback': null // if exists, called after all effects have finished
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="./scripts/typewrite.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.openline').typewrite({
+        'callback': function(){
+            $('.openline').css('background-color','red');
+        },
+        'delay': 100
+    });
 });
 </script>
 
