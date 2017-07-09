@@ -56,7 +56,7 @@ body, html {
   background-color: transparent;
   background: transparent;
   border-color: transparent;
-  margin-bottom: -50px
+  margin-bottom: 0px
 }
 
 .navbar li { color: #FFFFFF }
@@ -70,23 +70,26 @@ body, html {
 }
 
 </style>
+
+
 <body>
 
-  <nav class="navbar transparent navbar-static-top hr">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="https://huddlebot.co.uk">HUDDLE</a>
+<div class="jumbotron">
+    <nav class="navbar transparent navbar-static-top hr">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://huddlebot.co.uk">HUDDLE</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="https://huddlebot.co.uk/add_event">ADD EVENT</a></li>
+          <li><a href="https://huddlebot.co.uk/events">MY EVENTS</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://huddlebot.co.uk/login">LOGIN</a></li>
+          <li><a href="https://huddlebot.co.uk/login">LOGOUT</a></li>
+        </ul>
       </div>
-      <ul class="nav navbar-nav">
-        <li><a href="https://huddlebot.co.uk/add_event">ADD EVENT</a></li>
-        <li><a href="https://huddlebot.co.uk/events">MY EVENTS</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://huddlebot.co.uk/login">LOGIN</a></li>
-        <li><a href="https://huddlebot.co.uk/login">LOGOUT</a></li>
-      </ul>
-    </div>
-  </nav>
+    </nav>
 
 
 {% block topsection %}{% endblock %}
