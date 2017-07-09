@@ -22,9 +22,11 @@
           {% for field in form %}
 
           {% load widget_tweaks %}
-          {{ field.errors }}
-          {{ field.label_tag }}
-          <p> {{ field|add_value: label_tag }} </p>
+          <div class="form-wrapper">
+            {{ field.errors }}
+            {{ field.label_tag }}
+            <p> {{ field }} </p>
+          </div>
 
           {% endfor %}
 
