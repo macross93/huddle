@@ -21,6 +21,6 @@ class EventForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'placeholder': 'Address'}),
             'city': forms.TextInput(attrs={'placeholder': 'City'}),
             'postcode': forms.TextInput(attrs={'placeholder': 'Postcode'}),
-            # 'start': forms.TextInput(attrs={'placeholder': 'Start Time & Date'}),
-            # 'end': forms.TextInput(attrs={'placeholder': 'End Time & Date'}),
+            'charity': forms.TextInput(attrs={'placeholder': 'Charity'}),
+            'image': forms.TextInput(attrs={'placeholder': 'Image'}),
         }
