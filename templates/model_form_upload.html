@@ -22,18 +22,51 @@
           {% for field in form %}
           {% load widget_tweaks %}
 
-          {% if charity %}
           <div class="form-wrapper center">
             {{ field.errors }}
-            <p> {{ field.label_tag }} {{ field }} </p>
+            <p> {{ field.label_tag }} {{ field.name }} </p>
           </div>
 
-          {% else %}
           <div class="form-wrapper center">
             {{ field.errors }}
-            <!-- {{ field.label_tag }} -->
-            <p> {{ field }} </p>
+            <p> {{ field.label_tag }} {{ field.details }} </p>
           </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.address }} </p>
+          </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.city }} </p>
+          </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.postcode }} </p>
+          </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.start }} </p>
+          </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.end }} </p>
+          </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.charity }} </p>
+          </div>
+
+          <div class="form-wrapper center">
+            {{ field.errors }}
+            <p> {{ field.label_tag }} {{ field.image }} </p>
+          </div>
+
 
           {% endif %}
           {% endfor %}
