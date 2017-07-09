@@ -76,6 +76,9 @@ body {
   padding-bottom: 0px;
 }
 
+.openline {
+  font-size: 30pt;
+}
 
 .message-us {
   position: absolute;
@@ -499,7 +502,7 @@ body {
 $(document).ready(function() {
     $('.openline').typewrite({
         'callback': function(){
-            $('.openline').css('background-color','red');
+            $('.openline').css('border-color','white');
         },
         'delay': 100
     });
