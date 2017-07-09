@@ -19,17 +19,15 @@
 
         <h3>ADD EVENT</h3>
 
-        <table align="center">
           {% for field in form %}
 
           {% load widget_tweaks %}
           {{ field.errors }}
           {{ field.label_tag }}
-          <tr> {{ field }} </tr>
+          <p> {{ field }} </p>
 
           {% endfor %}
 
-         </table>
           <!-- {{ form.start }}
 
           {% for field in form %}
