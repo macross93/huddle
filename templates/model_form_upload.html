@@ -24,7 +24,7 @@
           {% load widget_tweaks %}
           {{ field.errors }}
           {{ field.label_tag }}
-          <p> {{ field }} </p>
+          <p> {{ field|add_value: label_tag }} </p>
 
           {% endfor %}
 
