@@ -1,5 +1,5 @@
 from django import forms
-from datetimewidget.widgets import DateTimeWidget
+from datetimewidget.widgets import DateTimeWidget, DateWidget, TimeWidget
 from events.models import event, user, Document
 
 

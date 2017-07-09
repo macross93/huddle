@@ -80,7 +80,7 @@ def event_form_upload(request):
     else:
         form = EventForm()
     return render(request, 'model_form_upload.html', {
-        'form': form
+        'form': form,'bootstrap':3
     })
 
 # The list of events from the database
