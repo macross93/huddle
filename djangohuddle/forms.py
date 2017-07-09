@@ -21,6 +21,6 @@ class EventForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'placeholder': 'Address'}),
             'city': forms.TextInput(attrs={'placeholder': 'City'}),
             'postcode': forms.TextInput(attrs={'placeholder': 'Postcode'}),
-            'charity': forms.TextInput(attrs={'placeholder': 'Charity'}),
-            'image': forms.TextInput(attrs={'placeholder': 'Image'}),
+            'charity': forms.Select(attrs={'placeholder': 'Charity'}),
+            'image': forms.FileInput(attrs={'placeholder': 'Image'}),
         }
