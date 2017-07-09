@@ -13,58 +13,60 @@
 <!-- First Parallax Image with Logo Text -->
 <div class="add-event bgimg-1" id="home">
   <div class="container">
-    <form method="post" enctype="multipart/form-data">
+    <div class="col-md-2"
+      <form method="post" enctype="multipart/form-data">
 
-    <form class="w3-container" method="post" ectype="multipart/form-data">
+      <form class="w3-container" method="post" ectype="multipart/form-data">
 
-      <h3>ADD EVENT</h3>
+        <h3>ADD EVENT</h3>
 
-      <table align="center"> {{ form.as_table }} </table>
-        <!-- {{ form.start }}
+        <table align="center"> {{ form.as_table }} </table>
+          <!-- {{ form.start }}
 
-        {% for field in form %}
+          {% for field in form %}
 
-          <div class="w3-input">
-            {% load widget_tweaks %}
+            <div class="w3-input">
+              {% load widget_tweaks %}
 
-              {{ field.errors }}
-              {{ field.label_tag }} {{ field|add_class:'w3-input' }}
-          </div>
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field|add_class:'w3-input' }}
+            </div>
 
-        {% endfor %} -->
+          {% endfor %} -->
 
-        <button type="submit">Upload</button>
+          <button type="submit">Upload</button>
 
-        <!-- <input id="id_name" class="w3-input" type="text" name="Name">
-        <label for="id_name">Name</label>
+          <!-- <input id="id_name" class="w3-input" type="text" name="Name">
+          <label for="id_name">Name</label>
 
-        <input id="id_details" class="w3-input" type="text" name="Details">
-        <label for="id_details">Details</label>
+          <input id="id_details" class="w3-input" type="text" name="Details">
+          <label for="id_details">Details</label>
 
-        <input id="id_address" class="w3-input" type="text" name="Address">
-        <label for="id_address">Address</label>
+          <input id="id_address" class="w3-input" type="text" name="Address">
+          <label for="id_address">Address</label>
 
-        <input id="id_city" class="w3-input" type="text" name="City">
-        <label for="id_city">City</label>
+          <input id="id_city" class="w3-input" type="text" name="City">
+          <label for="id_city">City</label>
 
-        <input id="id_postcode" class="w3-input" type="text" name="Postcode">
-        <label for="id_postcode">Postcode</label>
+          <input id="id_postcode" class="w3-input" type="text" name="Postcode">
+          <label for="id_postcode">Postcode</label>
 
-        <input id="id_start" class="w3-input" type="text" name="Start">
-        <label for="id_start">Start Time and Date</label>
+          <input id="id_start" class="w3-input" type="text" name="Start">
+          <label for="id_start">Start Time and Date</label>
 
-        <input id="id_end" class="w3-input" type="text" name="End">
-        <label for="id_end">End Time and Date</label>
+          <input id="id_end" class="w3-input" type="text" name="End">
+          <label for="id_end">End Time and Date</label>
 
-        <input id="id_charity" class="w3-input" type="text" name="Charity">
-        <label for="id_charity">Charity</label>
+          <input id="id_charity" class="w3-input" type="text" name="Charity">
+          <label for="id_charity">Charity</label>
 
-        <input id="id_image" class="w3-input" type="image" name="Image">
-        <label for="id_image">Image</label>
+          <input id="id_image" class="w3-input" type="image" name="Image">
+          <label for="id_image">Image</label>
 
-        <button type="submit">Upload</button> -->
+          <button type="submit">Upload</button> -->
 
-    </form>
+      </form>
+    </div>
   </div>
 </div>
 
