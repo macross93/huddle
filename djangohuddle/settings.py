@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'events',
     'widget_tweaks',
     'bootstrap3',
+    'datetimewidget',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,6 +56,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'djangohuddle.urls'
