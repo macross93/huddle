@@ -14,8 +14,8 @@ class EventForm(forms.ModelForm):
         fields = ('name', 'details', 'address', 'city', 'postcode', 'start', 'end', 'charity', 'image')
 
         widgets = {
-            'end': DateTimeWidget(attrs = {'id':'id_dateTimeField'}, bootstrap_version=3, usel10n=True),
-            'start': DateTimeWidget(attrs = {'id':'id_dateTimeField2'}, bootstrap_version=3, usel10n=True),
+            'end': DateTimeWidget(attrs = {'id':'id_dateTimeField', 'placeholder': 'End Time and Date'}, bootstrap_version=3, usel10n=True),
+            'start': DateTimeWidget(attrs = {'id':'id_dateTimeField2','placeholder': 'Start Time and Date'}, bootstrap_version=3, usel10n=True),
             'name': forms.TextInput(attrs={'placeholder': 'Event Name'}),
             'details': forms.Textarea(attrs={'placeholder': 'Tell us about your event'}),
             'address': forms.TextInput(attrs={'placeholder': 'Address'}),
