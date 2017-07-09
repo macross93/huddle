@@ -6,7 +6,7 @@
 
 .bgimg-1 {
     background-image: url("https://huddlebot.co.uk/static/huddle_penguins.jpg");
-    min-height: 1000px;
+    min-height: 900px;
 }
 
 </style>
@@ -22,25 +22,25 @@
           {% for field in form %}
           {% load widget_tweaks %}
 
-          <!-- {% if field is start %}
+          {% if field == start %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
           </div>
 
-          {% elif field is end %}
+          {% elif field == end %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
           </div>
 
-          {% elif field is charity %}
+          {% elif field == charity %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <p> {{ field.label_tag }} {{ field }} </p>
-          </div> -->
+          </div>
 
-          <!-- {% else %} -->
+          {% else %}
           <div class="form-wrapper center">
             {{ field.errors }}
             <!-- {{ field.label_tag }} -->
