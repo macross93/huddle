@@ -35,7 +35,6 @@ def hello(request):
 
 
 # A little homepage that gives a list of things to view, either events, users, charities, or charity contacts
-@login_required(login_url='/login/')
 def home(request):
     hello = "Welcome to Huddle!"
     return render(request, 'home.html', {'home':hello})
