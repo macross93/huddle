@@ -273,7 +273,7 @@ def makeWebhookResult(request):
                 s4 = "I\'m so much more popular than I used to be! Hi again " + first_name + ", how can I help? Maybe you have a time slot you\'re able to volunteer?"
                 s5 = "Hi there " + first_name + " :) I'd love to help you find another volunteering opportunity, when are you available??"
                 s6 = "Hey again you :) do you have some availablity for volunteering?"
-                s7 = "Hey " + first name + ", What\'s up? When can you volunteer?"
+                s7 = "Hey " + first_name + ", What\'s up? When can you volunteer?"
                 s8 = "Hi friend :) Can you volunteer sometime soon? Let me know when! <(\")"
                 s9 = "One of my favourites, " + first_name + "! (Don't tell the others I said that - am I allowed favourites? I don't even know...) Anyway, when can you volunteer? 😌"
                 s10 = "Look who it is! Hi " + first_name + " 😌 When can you volunteer?"
