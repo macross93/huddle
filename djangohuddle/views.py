@@ -269,7 +269,7 @@ def makeWebhookResult(request):
             else:
                 s1 = "Welcome back " + first_name + "! When can you volunteer?"
                 s2 = first_name + "! Hey! Tell me a day that works when you can volunteer, we\'d love to see you making even more of a difference!"
-                s3 = "Well look who\'s back again," + first_name ", what a privilege. Is there a good time/date for you to volunteer?"
+                s3 = "Well look who\'s back again," + first_name + ", what a privilege. Is there a good time/date for you to volunteer?"
                 s4 = "I\'m so much more popular than I used to be! Hi again " + first_name + ", how can I help? Maybe you have a time slot you\'re able to volunteer?"
                 s5 = ":) Hey again you, do you have some availablity for volunteering?"
 
