@@ -267,13 +267,18 @@ def makeWebhookResult(request):
 
             # If they are, let's welcome them warmly and ask them when they can volunteer
             else:
-                s1 = "Welcome back " + first_name + "! When can you volunteer?"
-                s2 = first_name + "! Hey! Tell me a day that works when you can volunteer, we\'d love to see you making even more of a difference!"
-                s3 = "Well look who\'s back again," + first_name + ", what a privilege. Is there a good time/date for you to volunteer?"
+                s1 = "Welcome back " + first_name + "! When can you volunteer? <(\")"
+                s2 = first_name + "! Hey! Let me know a day that works when you can volunteer, I\'d love to help you out :)"
+                s3 = first_name + ", what a privilege :) Is there a good time/date for you to volunteer? <(\")"
                 s4 = "I\'m so much more popular than I used to be! Hi again " + first_name + ", how can I help? Maybe you have a time slot you\'re able to volunteer?"
-                s5 = ":) Hey again you, do you have some availablity for volunteering?"
+                s5 = "Hi there " + first_name + " :) I'd love to help you find another volunteering opportunity, when are you available??"
+                s6 = "Hey again you :) do you have some availablity for volunteering?"
+                s7 = "Hey " + first name + ", What\'s up? When can you volunteer?"
+                s8 = "Hi friend :) Can you volunteer sometime soon? Let me know when! <(\")"
+                s9 = "One of my favourites, " + first_name + "! (Don't tell the others I said that - am I allowed favourites? I don't even know...) Anyway, when can you volunteer? 😌"
+                s10 = "Look who it is! Hi " + first_name + " 😌 When can you volunteer?"
 
-                speech = random.choice([s1, s2, s3, s4, s5])
+                speech = random.choice([s1, s2, s3, s4, s5, s6, s7, s8, s9, s10])
                 contextOut = "volunteer_timedate"
 
         # Checks for the 'volunteer.assign' action - which will come with four parameters, the date, time, location and duration
