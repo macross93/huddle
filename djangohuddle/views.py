@@ -24,6 +24,7 @@ import os
 import ast
 import schedule
 import time
+import random
 
 
 FB_PAGE_ACCESS_TOKEN = "EAAElJTd6foABAPkRNGlNHy6mxt277aJN8Yy4scRl4ViKYetPmlyZCPdbD3ZCcPt0uoANv61pZCeDDbdp20X7ukn8jZA6tX655ZBUAHDuMEg6luyGpXU3VcFaxK5ZC3DDCjhRptTZCDIIlqtW9ZBUE5WMPdPZBmvwirZCsPR1vvWoQgZAQZDZD"
@@ -266,7 +267,13 @@ def makeWebhookResult(request):
 
             # If they are, let's welcome them warmly and ask them when they can volunteer
             else:
-                speech = "Welcome back " + first_name + "! When can you volunteer?"
+                s1 = "Welcome back " + first_name + "! When can you volunteer?"
+                s2 = first_name + "! Hey! Tell me a day that works when you can volunteer, we'd love to see you making even more of a difference!"
+                s3 = "Well look who's back again," + first_name ", what a privilege. Is there a good time/date for you to volunteer?"
+                s4 = "I'm so much more popular than I used to be! Hi again " + first_name + ", how can I help? Maybe you have a time slot you're able to volunteer?"
+                s5 = ":) Hey again you, do you have some availablity for volunteering?"
+
+                speech = random.choice([s1, s2, s3, s4, s5])
                 contextOut = "volunteer_timedate"
 
         # Checks for the 'volunteer.assign' action - which will come with four parameters, the date, time, location and duration
