@@ -31,13 +31,13 @@ FB_PAGE_ACCESS_TOKEN = "EAAElJTd6foABAPkRNGlNHy6mxt277aJN8Yy4scRl4ViKYetPmlyZCPd
 
 # A little welcome page that calls an html file as a placeholder
 def hello(request):
-    hello = "Welcome to Huddle!"
+    hello = "Hi there, when are you available to volunteer?"
     return render(request, 'home.html', {'home':hello})
 
 
 # A little homepage that gives a list of things to view, either events, users, charities, or charity contacts
 def home(request):
-    hello = "Welcome to Huddle!"
+    hello = "Hi there, when are you available to volunteer?"
     return render(request, 'home.html', {'home':hello})
 
 # when you've added an event
