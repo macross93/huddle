@@ -171,9 +171,7 @@ def makeWebhookResult(request):
         if request.get("result").get("action") == "event_cancel":
 
             e1 = event.objects.filter(volunteer=fb_id,confirmed="y")[0]
-            e1.confirmed = 'n'
-            e1.volunteer = ''
-            e1.save()
+            e1.delete()
             speech = "Not a problem :) Thanks for letting me know! I've taken you off the event"
             contextOut = ""
 
