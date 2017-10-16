@@ -548,7 +548,7 @@ def makeWebhookResult(request):
 
 
 
-        # Have they asked for the date of the event?
+        # Have they asked for the date of the event? Hello
         if request.get("result").get("action") == "details_date":
             try:
                 context = result.get("contexts")[0]
